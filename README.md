@@ -5,7 +5,7 @@
 <h1 align="center">ferion</h1>
 
 <p align="center">
-  A personal portfolio for people who refuse to specialize, built as a fully static React site with zero backend.
+  Most portfolios are just a list of skills and a contact form. This one actually tells a story.
 </p>
 
 <p align="center">
