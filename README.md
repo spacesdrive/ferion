@@ -35,14 +35,13 @@ Built on React 19, Vite 8, and Tailwind CSS 4. Fast, clean, and easy to keep bui
 
 ## Features
 
-- **Dark / Light mode** — a glitch-effect transition that feels satisfying every time you toggle it
-- **Glassmorphic navigation** — fixed header with a smooth animated pill highlight that follows your scroll position
-- **Animated Domains grid** — seven interest areas, each revealed with staggered IntersectionObserver animations
-- **Responsive typography** — fluid font sizes using `vmin`/`vw` units; looks great from a phone to a 4K display
-- **About section** — personal biography with a live ChatGPT interface mockup embedded inline
-- **Noise overlay** — subtle fractal SVG texture that adds depth without distraction
-- **Mobile menu** — hamburger overlay navigation for small screens
-- **Zero external dependencies for UI** — no heavy component libraries; just React, Tailwind, and lucide-react icons
+- **Dark / Light mode** — persisted across reloads via `localStorage`
+- **Minimal, card-based design** — built on [shadcn](https://ui.shadcn.com/) primitives (`Button`, `Card`, `Sheet`)
+- **Fixed macOS-style dock** — the seven domains live in a magnifying dock pinned to the bottom of the screen; clicking one opens its link
+- **Scroll-spy navigation** — active nav link tracks the section currently in view
+- **About section** — personal biography with a ChatGPT interface mockup embedded inline
+- **Mobile menu** — slide-in sheet navigation for small screens
+- **Feature-based folder structure** — components, hooks, and data are split by responsibility for easy maintenance
 
 ---
 
@@ -111,15 +110,17 @@ npm run lint      # Run ESLint checks
 
 ### Customising Your Content
 
-All the content you'll want to change lives in one file: [src/App.jsx](src/App.jsx).
+Content is split by responsibility instead of living in one giant file.
 
 | What to change | Where to find it |
 |---|---|
-| Social links (Reddit, LinkedIn, HN) | `socialLinks` array at the top of `App.jsx` |
-| Domains / interest areas | `domainsData` array at the top of `App.jsx` |
-| About me text | `AboutSection` component |
-| Accent color (`#FF0055`) | `--accent` CSS variable in the `<style>` block |
-| Fonts | `@import` URL in the `<style>` block |
+| Social links (Reddit, LinkedIn, HN) | `src/data/socialLinks.js` |
+| Domains / interest areas | `src/data/domains.js` |
+| About me text | `src/components/sections/About.jsx` |
+| Hero copy | `src/components/sections/Hero.jsx` |
+| Nav items | `navItems` in `src/components/layout/Header.jsx` |
+| Accent color (`#FF0055`) | `--primary` CSS variable in `src/index.css` |
+| Fonts | `@import "@fontsource-variable/geist"` in `src/index.css` |
 | Site title | `<title>` in `index.html` |
 
 ### Deployment
@@ -136,16 +137,24 @@ The `dist/` folder produced by `npm run build` is a fully static site. Deploy it
 
 ```
 ferion/
-├── public/
-│   ├── favicon.png
-│   └── logo.svg
+├── favicon.png
 ├── src/
-│   ├── App.jsx        # All sections and components
-│   ├── main.jsx       # React root entry
-│   └── index.css      # Tailwind CSS imports
+│   ├── components/
+│   │   ├── ui/          # shadcn primitives (button, card, sheet)
+│   │   ├── forgeui/      # vendor components adapted from the ForgeUI registry
+│   │   ├── dock/         # MacOSDock — the magnifying domain dock
+│   │   ├── layout/       # Header, ThemeToggle, SocialLinks, DomainsDock
+│   │   └── sections/     # Hero, About
+│   ├── data/             # socialLinks.js, domains.js
+│   ├── hooks/            # useTheme, useAccent, useActiveSection, useIntersectionReveal
+│   ├── lib/              # utils.js (cn helper)
+│   ├── App.jsx           # composition root
+│   ├── main.jsx          # React root entry
+│   └── index.css         # Tailwind + theme tokens
 ├── index.html
+├── jsconfig.json         # "@/*" path alias
+├── components.json       # shadcn config (incl. the @forgeui registry)
 ├── vite.config.js
-├── tailwind.config.js
 ├── postcss.config.cjs
 └── package.json
 ```
@@ -159,8 +168,12 @@ ferion/
 | [React](https://react.dev) | 19 | UI library |
 | [Vite](https://vitejs.dev) | 8 | Build tool + dev server |
 | [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
-| [lucide-react](https://lucide.dev) | 1.7 | Icon set |
-| [Outfit + Caveat](https://fonts.google.com) | — | Typography (Google Fonts) |
+| [shadcn](https://ui.shadcn.com) | — | UI primitives (button, card, sheet) |
+| [ForgeUI](https://forgeui.in) | — | Source for the hero's WebGL background, text effects, nav, and the About connect card |
+| [motion](https://motion.dev) | 12 | Animation library used by the ForgeUI components |
+| [react-icons](https://react-icons.github.io/react-icons) | 5 | Icons used by ForgeUI components |
+| [lucide-react](https://lucide.dev) | 1.20 | Icon set |
+| [Geist](https://vercel.com/font) | — | Typography (via `@fontsource-variable/geist`) |
 
 ---
 
