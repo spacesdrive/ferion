@@ -1,0 +1,51 @@
+export const domains = [
+  {
+    num: '01',
+    title: 'Technology',
+    cursive: 'Stack',
+    tagline: 'Code, systems, and the tools that build tomorrow.',
+    link: '#',
+  },
+  {
+    num: '02',
+    title: 'Gaming',
+    cursive: 'World',
+    tagline: 'Strategy, lore, and worlds I never want to leave.',
+    link: '#',
+  },
+  {
+    num: '03',
+    title: 'Language & Culture',
+    cursive: 'Roots',
+    tagline: 'Words, idioms, and the stories behind them.',
+    link: '#',
+  },
+  {
+    num: '04',
+    title: 'Psychology',
+    cursive: 'Mind',
+    tagline: 'Why people do what they do.',
+    link: '#',
+  },
+  {
+    num: '05',
+    title: 'Content Creation',
+    cursive: 'Flow',
+    tagline: 'Writing, editing, and shipping ideas publicly.',
+    link: '#',
+  },
+  {
+    num: '06',
+    title: 'Sports',
+    cursive: 'Active',
+    tagline: 'Competition, movement, and the numbers behind both.',
+    link: '#',
+  },
+  {
+    num: '07',
+    title: 'Entertainment',
+    cursive: 'Vibes',
+    tagline: 'Movies, music, and everything in between.',
+    link: '#',
+  },
+];
