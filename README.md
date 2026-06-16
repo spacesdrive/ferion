@@ -1,227 +1,242 @@
 <p align="center">
-  <img src="ferion/favicon.png" alt="FERION" width="260" />
+  <img src="ferion/favicon.png" alt="ferion logo" width="160" />
 </p>
 
-<h1 align="center">FERION</h1>
+<h1 align="center">ferion</h1>
 
 <p align="center">
-  Most portfolios are just a list of skills and a contact form. This one actually tells a story.
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white" alt="React 19" />
-  <img src="https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite 8" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" />
-  <img src="https://img.shields.io/badge/license-MIT-FF0055?style=flat-square" alt="License MIT" />
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square" alt="PRs Welcome" />
+  A personal portfolio for people who refuse to specialize, built as a fully static React site with zero backend.
 </p>
 
 <p align="center">
-  <a href="#features">Features</a> ·
-  <a href="#quick-start">Quick Start</a> ·
-  <a href="#why-ferion">Why ferion?</a> ·
-  <a href="#getting-started">Getting Started</a> ·
+  <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white" alt="React 19" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite 8" /></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-ff0055?style=flat-square" alt="License MIT" /></a>
+  <a href="https://github.com/spacesdrive/ferion/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square" alt="PRs Welcome" /></a>
+</p>
+
+<p align="center">
+  <a href="#overview">Overview</a> &middot;
+  <a href="#features">Features</a> &middot;
+  <a href="#architecture">Architecture</a> &middot;
+  <a href="#getting-started">Getting Started</a> &middot;
+  <a href="#customization">Customization</a> &middot;
   <a href="#contributing">Contributing</a>
 </p>
 
 ---
 
-## What is ferion?
+## Overview
 
-I got tired of the standard "here are my projects, here are my skills, here is my LinkedIn" format. Because that's not who I am. I'm not one thing. Never have been. Technology, gaming, psychology, content creation, sports, language, culture, entertainment I live in all of it. Picking one felt like lying. So I built **ferion**. A portfolio that actually reflects how my brain works. Every domain I operate in gets its own large type statement. With personality. Not bullet points. It's not a project showcase. It's a living document of someone who refused to specialize. 
-Built on React 19, Vite 8, and Tailwind CSS 4. Fast, clean, and easy to keep building on. Because a portfolio for a polymath should never really be finished.
+Most portfolio templates assume you do one thing. A developer template. A designer template. A photographer template. ferion was built for the opposite case: someone whose interests genuinely span technology, gaming, psychology, content creation, sports, language, and entertainment, and who got tired of pretending that fits in one bullet list.
 
----
+There is no backend, no API, and no database here. ferion is a single-page React application that compiles to static HTML, CSS, and JavaScript. It runs entirely in the browser, persists exactly one piece of state (your light or dark theme preference, in `localStorage`), and can be hosted anywhere that serves static files.
+
+> "Everyone around me had a plan. I couldn't do it. Not because I was lazy. The opposite, actually. I wanted to do everything."
+> from the About section of the live site
+
+If that resonates, this project is a reasonable starting point for your own version of it.
 
 ## Features
 
-- **Dark / Light mode** — persisted across reloads via `localStorage`
-- **Minimal, card-based design** — built on [shadcn](https://ui.shadcn.com/) primitives (`Button`, `Card`, `Sheet`)
-- **Fixed macOS-style dock** — the seven domains live in a magnifying dock pinned to the bottom of the screen; clicking one opens its link
-- **Scroll-spy navigation** — active nav link tracks the section currently in view
-- **About section** — personal biography with a ChatGPT interface mockup embedded inline
-- **Mobile menu** — slide-in sheet navigation for small screens
-- **Feature-based folder structure** — components, hooks, and data are split by responsibility for easy maintenance
+| Feature | Description |
+|---|---|
+| Dark and light mode | Theme preference toggles instantly and persists across reloads via `localStorage`. |
+| Magnifying domain dock | A macOS-style dock, fixed to the bottom of the viewport, with cosine-based icon magnification on hover and click-through to each domain's link. |
+| Hover-reactive hero headline | A canvas-based sparkle and beam effect wraps a key word in the headline on hover, with no third-party particle library required. |
+| Scroll-spy navigation | The active nav tab tracks whichever section is currently in view as you scroll. |
+| Animated connect card | An About-section profile card that expands on hover to reveal social links with a layout transition. |
+| Responsive by default | Mobile gets a slide-in sheet menu, a touch-safe dock with `env(safe-area-inset-bottom)` padding, and fluid type scales down to 320px wide screens. |
+| Feature-based structure | Components, hooks, and data are organized by responsibility, not by component library, so the codebase stays easy to navigate as it grows. |
 
----
+## Architecture
 
-## Quick Start
+ferion has no runtime backend. "Architecture" here means the build pipeline that turns source files into a static bundle, and the component tree that bundle renders in the browser.
 
-```bash
-# Clone the repo
-git clone https://github.com/your-username/ferion.git
-cd ferion
+```mermaid
+flowchart TD
+    subgraph build["Build time"]
+        A["Source files<br/>JSX + Tailwind v4"] --> B["Vite 8<br/>dev server / Rollup bundler"]
+        B --> C["PostCSS<br/>@tailwindcss/postcss"]
+        C --> D["dist/<br/>static HTML, CSS, JS"]
+    end
 
-# Install dependencies
-npm install
+    D -->|served by| E["Static host or CDN<br/>Vercel, Netlify, GitHub Pages"]
+    E -->|loaded by| F["index.html"]
 
-# Start the dev server
-npm run dev
+    subgraph runtime["Runtime, in the browser"]
+        F --> G["main.jsx<br/>React 19 root"]
+        G --> H["App.jsx<br/>composition root"]
+        H --> I["Header"]
+        H --> J["Hero"]
+        H --> K["About"]
+        H --> L["DomainsDock"]
+    end
+
+    subgraph data["Data and hooks, no API"]
+        M["data/domains.js"]
+        N["data/socialLinks.js"]
+        O["hooks/useTheme"]
+        P["hooks/useActiveSection"]
+        Q["hooks/useIntersectionReveal"]
+    end
+
+    M --> L
+    N --> I
+    N --> K
+    O --> I
+    P --> I
+    Q --> K
 ```
 
-Open [http://localhost:5173](http://localhost:5173) and you're live.
+A more detailed, color-coded version of this diagram, including the full component subtree and the third-party UI sources each piece came from, lives at [`docs/architecture.html`](docs/architecture.html). Open it directly in a browser; it is a self-contained file with no build step required.
 
----
+## Tech Stack
 
-## Why ferion?
-
-Most portfolio templates are built for one type of person. A developer. A few side projects. A skills section. A contact form.
-
-**ferion is built for everyone else.**
-
----
-
-The people who are hard to put in a box. Who have too many interests to list. Who want their portfolio to show *how they think* before it shows what tools they know.
-
-The layout is bold. The typography hits. The writing is actually honest.
-
-> *"Everyone around me had a plan. I couldn't do it. Not because I was lazy. The opposite, actually. I wanted to do everything."*
-> — Ujjwal Kumar Rai
-
-If you read that and felt something, ferion was probably built for you too.
-
-Not a template for a job title. A starting point for people who never wanted just one.
-
----
+| Tool | Role |
+|---|---|
+| [React 19](https://react.dev) | UI library |
+| [Vite 8](https://vitejs.dev) | Dev server and production bundler |
+| [Tailwind CSS v4](https://tailwindcss.com) | Utility-first styling, configured via CSS rather than a JS config file |
+| [shadcn](https://ui.shadcn.com) | Source for the Button, Card, and Sheet primitives |
+| [ForgeUI](https://forgeui.in) | Source for the nav tabs, hero text shimmer, and About connect card, vendored and adapted |
+| [21st.dev community](https://21st.dev/community/components/dhmnpunit/mac-os-dock/default) | Source pattern for the magnifying macOS-style dock |
+| [Aceternity UI](https://ui.aceternity.com) | Source pattern for the hero's hover Cover effect |
+| [motion](https://motion.dev) | Animation library powering the dock, cover effect, and nav transitions |
+| [lucide-react](https://lucide.dev) | Icon set used throughout the UI |
+| [react-icons](https://react-icons.github.io/react-icons) | Icons used by the vendored ForgeUI components |
+| [Geist](https://vercel.com/font) | Variable typeface, loaded via `@fontsource-variable/geist` |
 
 ## Getting Started
 
 ### Prerequisites
 
-- **Node.js** 18 or later
-- **npm** 9 or later (or pnpm / yarn)
+- Node.js 18 or later
+- npm 9 or later, or pnpm or yarn
 
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/ferion.git
-cd ferion
+git clone https://github.com/spacesdrive/ferion.git
+cd ferion/ferion
 npm install
 ```
 
 ### Development
 
 ```bash
-npm run dev       # Start dev server with HMR at localhost:5173
-npm run build     # Production build → dist/
-npm run preview   # Preview the production build locally
-npm run lint      # Run ESLint checks
+npm run dev       # start the dev server with HMR at localhost:5173
+npm run build     # production build, output to dist/
+npm run preview   # preview the production build locally
+npm run lint      # run ESLint checks
 ```
 
-### Customising Your Content
-
-Content is split by responsibility instead of living in one giant file.
-
-| What to change | Where to find it |
-|---|---|
-| Social links (Reddit, LinkedIn, HN) | `src/data/socialLinks.js` |
-| Domains / interest areas | `src/data/domains.js` |
-| About me text | `src/components/sections/About.jsx` |
-| Hero copy | `src/components/sections/Hero.jsx` |
-| Nav items | `navItems` in `src/components/layout/Header.jsx` |
-| Accent color (`#FF0055`) | `--primary` CSS variable in `src/index.css` |
-| Fonts | `@import "@fontsource-variable/geist"` in `src/index.css` |
-| Site title | `<title>` in `index.html` |
-
-### Deployment
-
-The `dist/` folder produced by `npm run build` is a fully static site. Deploy it anywhere:
-
-- **Vercel** — drop the repo in, it auto-detects Vite
-- **Netlify** — build command: `npm run build`, publish dir: `dist`
-- **GitHub Pages** — use the `vite-plugin-gh-pages` package or a GitHub Actions workflow
-
----
+Open [http://localhost:5173](http://localhost:5173) once the dev server is running.
 
 ## Project Structure
 
 ```
 ferion/
-├── favicon.png
-├── src/
-│   ├── components/
-│   │   ├── ui/          # shadcn primitives (button, card, sheet)
-│   │   ├── forgeui/      # vendor components adapted from the ForgeUI registry
-│   │   ├── dock/         # MacOSDock — the magnifying domain dock
-│   │   ├── layout/       # Header, ThemeToggle, SocialLinks, DomainsDock
-│   │   └── sections/     # Hero, About
-│   ├── data/             # socialLinks.js, domains.js
-│   ├── hooks/            # useTheme, useAccent, useActiveSection, useIntersectionReveal
-│   ├── lib/              # utils.js (cn helper)
-│   ├── App.jsx           # composition root
-│   ├── main.jsx          # React root entry
-│   └── index.css         # Tailwind + theme tokens
-├── index.html
-├── jsconfig.json         # "@/*" path alias
-├── components.json       # shadcn config (incl. the @forgeui registry)
-├── vite.config.js
-├── postcss.config.cjs
-└── package.json
+├── docs/
+│   └── architecture.html      # detailed architecture diagram, open in any browser
+├── ferion/                    # the actual application
+│   ├── favicon.png
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── ui/            # shadcn primitives: button, card, sheet, sparkles
+│   │   │   ├── forgeui/       # vendored ForgeUI: text-shimmer, social-card, animated-tabs
+│   │   │   ├── dock/          # MacOSDock, the magnifying domain dock
+│   │   │   ├── cover/         # Cover, the hero's hover sparkle effect
+│   │   │   ├── layout/        # Header, ThemeToggle, SocialLinks, DomainsDock
+│   │   │   └── sections/      # Hero, About
+│   │   ├── data/               # domains.js, socialLinks.js
+│   │   ├── hooks/               # useTheme, useActiveSection, useIntersectionReveal
+│   │   ├── lib/                  # utils.js, the cn() class merge helper
+│   │   ├── App.jsx                # composition root
+│   │   ├── main.jsx                # React root entry
+│   │   └── index.css                # Tailwind import and theme tokens
+│   ├── index.html
+│   ├── jsconfig.json           # "@/*" path alias
+│   ├── components.json         # shadcn config, including the ForgeUI registry
+│   ├── vite.config.js
+│   ├── postcss.config.cjs
+│   └── package.json
+└── README.md
 ```
 
----
+## Customization
 
-## Tech Stack
+Everything you would want to change to make this your own lives in one of a few predictable places.
 
-| Tool | Version | Role |
-|---|---|---|
-| [React](https://react.dev) | 19 | UI library |
-| [Vite](https://vitejs.dev) | 8 | Build tool + dev server |
-| [Tailwind CSS](https://tailwindcss.com) | 4 | Utility-first styling |
-| [shadcn](https://ui.shadcn.com) | — | UI primitives (button, card, sheet) |
-| [ForgeUI](https://forgeui.in) | — | Source for the hero's WebGL background, text effects, nav, and the About connect card |
-| [motion](https://motion.dev) | 12 | Animation library used by the ForgeUI components |
-| [react-icons](https://react-icons.github.io/react-icons) | 5 | Icons used by ForgeUI components |
-| [lucide-react](https://lucide.dev) | 1.20 | Icon set |
-| [Geist](https://vercel.com/font) | — | Typography (via `@fontsource-variable/geist`) |
+| What to change | Where to find it |
+|---|---|
+| Social links (Reddit, LinkedIn, Hacker News) | `ferion/src/data/socialLinks.js` |
+| Domains shown in the dock | `ferion/src/data/domains.js` |
+| About me text | `ferion/src/components/sections/About.jsx` |
+| Hero copy | `ferion/src/components/sections/Hero.jsx` |
+| Nav items | `navItems` in `ferion/src/components/layout/Header.jsx` |
+| Accent color, default `#ff0055` | `--primary` in `ferion/src/index.css` |
+| Fonts | `@import "@fontsource-variable/geist"` in `ferion/src/index.css` |
+| Site title and favicon | `<title>` and the icon link in `ferion/index.html` |
 
----
+Each domain entry in `domains.js` accepts a `link` field. Leave it as `#` to show "Coming soon" in the dock's click handler, or set it to a real URL to make that icon open in a new tab.
+
+## Deployment
+
+The `dist/` folder produced by `npm run build` is a complete static site with no server-side requirements. Deploy it anywhere that serves static files.
+
+- **Vercel**: import the repo, set the root directory to `ferion`, and it auto-detects Vite.
+- **Netlify**: base directory `ferion`, build command `npm run build`, publish directory `dist`.
+- **GitHub Pages**: build locally or in a workflow, then publish the `ferion/dist` directory to the `gh-pages` branch.
+
+## Credits
+
+Several UI pieces were adapted from open-source component registries rather than written from scratch, and they are credited here and in code comments at the top of each file:
+
+- [shadcn](https://ui.shadcn.com) for the Button, Card, and Sheet primitives.
+- [ForgeUI](https://forgeui.in) for the animated nav tabs, hero text shimmer, and About connect card.
+- [21st.dev](https://21st.dev/community/components/dhmnpunit/mac-os-dock/default), specifically the macOS Dock component by dhmnpunit, as the basis for the domain dock.
+- [Aceternity UI](https://ui.aceternity.com) for the Cover hover effect pattern used in the hero headline.
+
+Every adapted component was converted from TypeScript to JavaScript, stripped of framework-specific code that does not apply to a Vite app, and in some cases rewritten to avoid pulling in a heavy dependency for a small visual effect. See the comment block at the top of each file under `src/components/forgeui`, `src/components/dock`, and `src/components/cover` for the specifics.
 
 ## Contributing
 
-Contributions are welcome whether you're fixing a bug, improving accessibility, or adding a feature that makes sense for a portfolio like this.
+Contributions are welcome, whether that means fixing a bug, improving accessibility, or adding a feature that makes sense for a portfolio like this.
 
 ```bash
-# Fork and clone
-git clone https://github.com/your-username/ferion.git
-cd ferion
-
-# Create a feature branch
+git clone https://github.com/spacesdrive/ferion.git
+cd ferion/ferion
 git checkout -b feat/your-feature-name
 
-# Make your changes, then stage specific files
-git add src/App.jsx
-
-# Commit with a clear message
+# make your changes, then stage and commit them
+git add .
 git commit -m "feat: add scroll progress indicator"
 
-# Push and open a PR
 git push origin feat/your-feature-name
 ```
 
-**Before submitting:**
-- Run `npm run lint` and fix any warnings
-- Test in both light and dark mode
-- Test on mobile (use browser DevTools responsive mode)
-- Keep PRs focused — one change per PR
+Then open a pull request against `main`.
 
----
+Before submitting:
+
+- Run `npm run lint` and resolve any warnings.
+- Test in both light and dark mode.
+- Test on a mobile viewport, the dock and nav both have mobile-specific behavior.
+- Keep pull requests focused on one change at a time.
 
 ## Code of Conduct
 
-This project follows the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) Code of Conduct. Be respectful, constructive, and kind.
-
----
-
-## Support
-
-- **Bug reports / feature requests** — [open a GitHub Issue](https://github.com/your-username/ferion/issues)
-- **Connect with the author** — [LinkedIn](https://www.linkedin.com/in/u-k-r/) · [Reddit](https://www.reddit.com/user/mrujjwalkr/) · [Hacker News](https://news.ycombinator.com/user?id=valzor)
-
----
+This project follows the [Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). Be respectful, be constructive, and assume good faith.
 
 ## License
 
-MIT © [Ujjwal Kumar Rai](https://www.linkedin.com/in/u-k-r/)
+Released under the [MIT License](LICENSE).
 
-See [MIT LICENSE](LICENSE) for details.
+Copyright (c) 2026 Ujjwal Kumar Rai.
+
+## Contact
+
+- Bug reports and feature requests: [open a GitHub issue](https://github.com/spacesdrive/ferion/issues).
+- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/), [Reddit](https://www.reddit.com/user/mrujjwalkr/), or [Hacker News](https://news.ycombinator.com/user?id=valzor).
