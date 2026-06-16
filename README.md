@@ -82,12 +82,12 @@ flowchart TD
         Q["hooks/useIntersectionReveal"]
     end
 
-    M --> L
-    N --> I
-    N --> K
-    O --> I
-    P --> I
-    Q --> K
+    L --> M
+    I --> N
+    K --> N
+    I --> O
+    I --> P
+    K --> Q
 ```
 
 A more detailed, color-coded version of this diagram, including the full component subtree and the third-party UI sources each piece came from, lives at [`docs/architecture.html`](docs/architecture.html). Open it directly in a browser; it is a self-contained file with no build step required.
