@@ -90,8 +90,6 @@ flowchart TD
     K --> Q
 ```
 
-A more detailed, color-coded version of this diagram, including the full component subtree and the third-party UI sources each piece came from, lives at [`docs/architecture.html`](docs/architecture.html). Open it directly in a browser; it is a self-contained file with no build step required.
-
 ## Tech Stack
 
 | Tool | Role |
@@ -138,8 +136,6 @@ Open [http://localhost:5173](http://localhost:5173) once the dev server is runni
 
 ```
 ferion/
-├── docs/
-│   └── architecture.html      # detailed architecture diagram, open in any browser
 ├── ferion/                    # the actual application
 │   ├── favicon.png
 │   ├── src/
