@@ -222,8 +222,7 @@ export function MacOSDock({ apps, onAppClick, openApps = [], className = '' }) {
               ref={(el) => {
                 iconRefs.current[index] = el;
               }}
-              className="absolute flex cursor-pointer flex-col items-center justify-end"
-              title={app.name}
+              className="absolute flex cursor-pointer flex-col items-center justify-end group/icon"
               onClick={() => handleAppClick(app.id, index)}
               style={{
                 left: `${position - scaledSize / 2}px`,
@@ -234,6 +233,51 @@ export function MacOSDock({ apps, onAppClick, openApps = [], className = '' }) {
                 zIndex: Math.round(scale * 10),
               }}
             >
+              {/* Tooltip */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: `${scaledSize + 10}px`,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  pointerEvents: 'none',
+                  whiteSpace: 'nowrap',
+                  zIndex: 999,
+                }}
+                className="opacity-0 group-hover/icon:opacity-100 transition-opacity duration-150"
+              >
+                <div
+                  style={{
+                    background: 'rgba(30, 30, 30, 0.85)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    borderRadius: '6px',
+                    padding: '3px 10px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    color: 'rgba(255,255,255,0.92)',
+                    letterSpacing: '0.01em',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.35)',
+                  }}
+                >
+                  {app.name}
+                </div>
+                {/* Arrow */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: 0,
+                    height: 0,
+                    borderLeft: '5px solid transparent',
+                    borderRight: '5px solid transparent',
+                    borderTop: '5px solid rgba(30,30,30,0.85)',
+                  }}
+                />
+              </div>
+
               {typeof app.icon === 'string' ? (
                 <img
                   src={app.icon}

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+
+.font-typewriter { font-family: 'Courier Prime', monospace; }
+.font-stamp { font-family: 'Special Elite', cursive; }
 
 @custom-variant dark (&:is(.dark *));
 

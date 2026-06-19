@@ -21,6 +21,7 @@
   "menuColor": "default",
   "menuAccent": "subtle",
   "registries": {
-    "@forgeui": "https://forgeui.in/r/{name}.json"
+    "@forgeui": "https://forgeui.in/r/{name}.json",
+    "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json"
   }
 }
