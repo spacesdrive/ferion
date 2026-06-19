@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="ferion/favicon.png" alt="ferion logo" width="160" />
+  <img src="favicon.png" alt="ferion logo" width="160" />
 </p>
 
 <h1 align="center">ferion</h1>

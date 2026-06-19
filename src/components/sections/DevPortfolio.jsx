@@ -59,7 +59,7 @@ const PROJECTS = [
         title: 'Ferion',
         location: 'Most portfolios are just a list of skills and a contact form. This one actually tells a story. ',
         url: 'https://github.com/spacesdrive/ferion',
-        logo: 'https://raw.githubusercontent.com/spacesdrive/ferion/main/ferion/favicon.png',
+        logo: 'https://raw.githubusercontent.com/spacesdrive/ferion/main/favicon.png',
       },
       {
         title: 'Aevrin',
