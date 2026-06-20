@@ -1,19 +1,7 @@
-import { Sparkles } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import SocialCard from '@/components/forgeui/social-card';
-import { socialLinks } from '@/data/socialLinks';
+import { SocialIcons } from '@/components/ui/social-icons';
 import { useIntersectionReveal } from '@/hooks/useIntersectionReveal';
 import { cn } from '@/lib/utils';
-
-const socialButtons = socialLinks.map((social) => ({
-  label: social.name,
-  link: social.url,
-  icon: (
-    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d={social.path} />
-    </svg>
-  ),
-}));
 
 export function About() {
   const { ref, isVisible } = useIntersectionReveal(0.15);
@@ -32,14 +20,18 @@ export function About() {
             Ujjwal Kumar Rai
           </h2>
 
-          <SocialCard
-            image="https://avatars.githubusercontent.com/u/244390193?v=4"
-            icon={<Sparkles className="size-4" />}
-            title="Connect"
-            name="Ujjwal Kumar Rai"
-            pitch="Building, breaking, and learning across way too many domains. If any of this resonates, let's talk."
-            buttons={socialButtons}
-          />
+          <div className="mt-2 flex flex-col gap-5">
+            <img
+              src="https://avatars.githubusercontent.com/u/244390193?v=4"
+              alt="Ujjwal Kumar Rai"
+              className="size-20 rounded-full object-cover ring-2 ring-border"
+            />
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              Building, breaking, and learning across way too many domains.
+              If any of this resonates, let's talk.
+            </p>
+            <SocialIcons />
+          </div>
         </div>
 
         <div
