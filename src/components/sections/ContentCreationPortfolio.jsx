@@ -63,6 +63,14 @@ const VIDEOS = [
     platform: 'Davinci Resolve',
     downloadUrl: 'https://ferion.gumroad.com/l/phdihm',
   },
+  {
+    title: 'Marvel Spiderman',
+    duration: '00:15',
+    tag: 'Flow',
+    url: 'https://res.cloudinary.com/di7nn8znb/video/upload/v1781959789/output_q5e56o.mp4',
+    platform: 'Davinci Resolve',
+    downloadUrl: 'https://ferion.gumroad.com/l/tzlfz',
+  },
 ];
 
 // ─── UI ATOMS ────────────────────────────────────────────────────────────────

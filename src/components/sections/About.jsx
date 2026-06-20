@@ -26,7 +26,7 @@ export function About() {
               alt="Ujjwal Kumar Rai"
               className="size-20 rounded-full object-cover ring-2 ring-border"
             />
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               Building, breaking, and learning across way too many domains.
               If any of this resonates, let's talk.
             </p>
