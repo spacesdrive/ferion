@@ -141,7 +141,7 @@ const AWARDS = [
     image: 'https://media.licdn.com/dms/image/v2/D4D22AQGgpfQCZyPgaQ/feedshare-shrink_800/B4DZ5QxFp0KEAg-/0/1779471506350?e=1783555200&v=beta&t=sfQDcWBt3_zRjj_54qRuPZkGiC-byW1Z7isp1ygBaF8', // replace with '/awards/award1.png' or a URL
   },
   {
-    name: 'Startup Fund Hackathon Aegis AI - Secured Third Place',
+    name: 'Campus Fund Hackathon Aegis AI - Secured Third Place',
     description: 'Built the MVP of Aegis AI, helping businesses secure AI chatbots through automated testing for jailbreaks, prompt injections, data leaks, policy violations, and harmful outputs.',
     year: '2025',
     image: 'https://media.licdn.com/dms/image/v2/D4D22AQHsDRmoHKD5_g/feedshare-image-high-res/B4DZ3kf1dpKAAU-/0/1777655050294?e=1783555200&v=beta&t=iPNOhUuBQu5jtvKdFNQo9yFPrGo80qMCxi79iypAmZY', // replace with '/awards/award1.png' or a URL
