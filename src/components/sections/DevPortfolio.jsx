@@ -121,7 +121,7 @@ const STARTUPS = [
     logo: 'https://aevrin.net/apple-touch-icon.png',
     link: 'https://aevrin.net/',
     stats: [
-      { value: '5+', label: 'Attack Vectors', sub: 'Tested per audit' },
+      { value: '50+', label: 'Attack Vectors', sub: 'Tested per audit' },
       { value: '100%', label: 'Private', sub: 'No data leaves client systems' },
     ],
   },
@@ -173,7 +173,7 @@ function HistoryTab() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-3xl font-semibold tracking-tight">Experience</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Experience</h2>
         <a
           href={CV_URL}
           target="_blank"
@@ -210,7 +210,7 @@ function HistoryTab() {
 function ProjectsTab() {
   return (
     <div className="flex flex-col gap-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Projects</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Projects</h2>
       <div className="flex flex-col gap-12">
         {PROJECTS.map((cat) => (
           <div key={cat.category}>
@@ -244,7 +244,7 @@ function ContactTab() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h2 className="text-3xl font-semibold tracking-tight mb-2">Get in Touch</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2">Get in Touch</h2>
         <p className="text-muted-foreground">Connect, collaborate, and stay in the loop.</p>
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -276,7 +276,7 @@ function StartupsTab() {
     <div className="flex flex-col gap-8">
       <div className="text-center">
         <p className="text-sm font-medium text-muted-foreground mb-3">Startups & Clients I've Worked With</p>
-        <h2 className="text-3xl font-semibold tracking-tight">Real results, real impact</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Real results, real impact</h2>
       </div>
       <div className="flex flex-col gap-12 mt-4">
         {STARTUPS.map((s, i) => (
@@ -319,7 +319,7 @@ function StartupsTab() {
 function AchievementsTab() {
   return (
     <div className="flex flex-col gap-8">
-      <h2 className="text-3xl font-semibold tracking-tight">Awards</h2>
+      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Awards</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr className="h-12 border-b text-left text-sm text-foreground/80">
@@ -331,20 +331,20 @@ function AchievementsTab() {
         <tbody>
           {AWARDS.map((award, i) => (
             <tr key={i} className="border-b text-left text-sm text-foreground/40 align-middle">
-              <td className="py-4 pr-4">
-                <div className="flex items-center gap-4">
+              <td className="py-4 pr-4 min-w-0">
+                <div className="flex items-center gap-3">
                   {award.image ? (
                     <ImageZoom className="shrink-0">
                       <img
                         src={award.image}
                         alt={award.name}
-                        className="h-14 w-20 rounded-md object-cover cursor-zoom-in"
+                        className="h-10 w-14 sm:h-14 sm:w-20 rounded-md object-cover cursor-zoom-in"
                       />
                     </ImageZoom>
                   ) : (
-                    <div className="h-14 w-20 rounded-md bg-muted shrink-0" />
+                    <div className="h-10 w-14 sm:h-14 sm:w-20 rounded-md bg-muted shrink-0" />
                   )}
-                  <span className="text-base font-light tracking-tight text-foreground lg:text-lg">
+                  <span className="text-xs sm:text-sm font-light tracking-tight text-foreground min-w-0">
                     {award.name}
                   </span>
                 </div>
@@ -364,7 +364,7 @@ function BlogTab() {
     <div className="flex flex-col gap-8">
       <div className="text-center">
         <Badge variant="secondary" className="mb-4">Writing</Badge>
-        <h2 className="text-3xl font-semibold tracking-tight mb-2">Blog</h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-2">Blog</h2>
         <p className="text-muted-foreground text-sm max-w-md mx-auto">
           Thoughts on dev, design, and building things on the internet.
         </p>
@@ -423,7 +423,7 @@ export function DevPortfolio({ isOpen, onClose }) {
             style={{ maxHeight: '90vh', display: 'flex', flexDirection: 'column' }}
           >
             {/* header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-border shrink-0">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-border shrink-0">
               <div>
                 <p className="text-xs text-muted-foreground uppercase tracking-widest font-medium mb-0.5">
                   Developer · Technology Stack
@@ -441,32 +441,34 @@ export function DevPortfolio({ isOpen, onClose }) {
             {/* tabs */}
             <div className="flex-1 overflow-y-auto">
               <Tabs defaultValue="history" className="w-full">
-                <div className="px-6 pt-4 border-b border-border">
-                  <TabsList className="h-auto gap-1 bg-transparent p-0 mb-0">
-                    {[
-                      ['history', 'History'],
-                      ['projects', 'Projects'],
-                      ['contact', 'Contact'],
-                      ['startups', 'Startups'],
-                      ['blog', 'Blog'],
-                      ['achievements', 'Achievements'],
-                    ].map(([value, label]) => (
-                      <TabsTrigger
-                        key={value}
-                        value={value}
-                        className={cn(
-                          'rounded-none border-b-2 border-transparent px-4 py-2.5 text-xs font-semibold uppercase tracking-widest',
-                          'data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground',
-                          'text-muted-foreground hover:text-foreground transition-colors'
-                        )}
-                      >
-                        {label}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
+                <div className="border-b border-border overflow-x-auto">
+                  <div className="px-4 sm:px-6 pt-4">
+                    <TabsList className="h-auto gap-0.5 sm:gap-1 bg-transparent p-0 mb-0 flex-nowrap">
+                      {[
+                        ['history', 'History'],
+                        ['projects', 'Projects'],
+                        ['contact', 'Contact'],
+                        ['startups', 'Startups'],
+                        ['blog', 'Blog'],
+                        ['achievements', 'Awards'],
+                      ].map(([value, label]) => (
+                        <TabsTrigger
+                          key={value}
+                          value={value}
+                          className={cn(
+                            'rounded-none border-b-2 border-transparent px-2.5 sm:px-4 py-2.5 text-xs font-semibold uppercase tracking-widest whitespace-nowrap',
+                            'data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground',
+                            'text-muted-foreground hover:text-foreground transition-colors'
+                          )}
+                        >
+                          {label}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+                  </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <TabsContent value="history" className="mt-0"><HistoryTab /></TabsContent>
                   <TabsContent value="projects" className="mt-0"><ProjectsTab /></TabsContent>
                   <TabsContent value="contact" className="mt-0"><ContactTab /></TabsContent>

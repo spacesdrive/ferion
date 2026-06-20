@@ -89,7 +89,7 @@ function FolderTab({ title, active, onClick }) {
     <button
       onClick={onClick}
       className={cn(
-        'px-5 py-2.5 rounded-t-xl font-typewriter font-bold text-xs tracking-tight border-t-2 border-x-2 border-[#bfaea3] relative -mb-[2px] z-10 transition-all whitespace-nowrap',
+        'px-3 sm:px-5 py-2.5 rounded-t-xl font-typewriter font-bold text-xs tracking-tight border-t-2 border-x-2 border-[#bfaea3] relative -mb-[2px] z-10 transition-all whitespace-nowrap',
         active
           ? 'bg-[#f3f0eb] text-stone-900 shadow-[0_-5px_10px_rgba(0,0,0,0.05)]'
           : 'bg-[#d8d0c5] text-stone-600 hover:bg-[#e6dfd4] mt-2'
@@ -292,7 +292,7 @@ export function ContentCreationPortfolio({ isOpen, onClose }) {
               />
 
               {/* header */}
-              <div className="relative z-10 px-6 pt-6 pb-0 border-b-2 border-[#bfaea3] shrink-0">
+              <div className="relative z-10 px-4 sm:px-6 pt-4 sm:pt-6 pb-0 border-b-2 border-[#bfaea3] shrink-0">
                 <div className="flex items-start justify-between mb-5">
                   <div>
                     <p className="font-typewriter text-[10px] tracking-[0.25em] uppercase text-stone-400">
@@ -321,14 +321,14 @@ export function ContentCreationPortfolio({ isOpen, onClose }) {
               </div>
 
               {/* tab content */}
-              <div className="relative z-10 overflow-y-auto flex-1 p-6 border-t-2 border-[#bfaea3]" style={{ background: '#f3f0eb' }}>
+              <div className="relative z-10 overflow-y-auto flex-1 p-4 sm:p-6 border-t-2 border-[#bfaea3]" style={{ background: '#f3f0eb' }}>
                 <div style={{ display: activeTab === 'operations' ? 'block' : 'none' }}><OperationsTab /></div>
                 <div style={{ display: activeTab === 'accounts' ? 'block' : 'none' }}><AccountsTab /></div>
                 <div style={{ display: activeTab === 'videos' ? 'block' : 'none' }}><VideosTab onVideoClick={openVideo} /></div>
               </div>
 
               {/* footer stamp */}
-              <div className="relative z-10 shrink-0 px-6 py-3 border-t border-[#d1c7bd] flex items-center justify-between">
+              <div className="relative z-10 shrink-0 px-4 sm:px-6 py-3 border-t border-[#d1c7bd] flex items-center justify-between">
                 <span className="font-typewriter text-[10px] text-stone-400 uppercase tracking-widest">
                   ferion // content division
                 </span>
