@@ -121,6 +121,56 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ─── Theme Toggle Circular ───────────────────────────────────── */
+:root {
+  --transition-speed: 0.5s;
+  --x: 50%;
+  --y: 50%;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+[data-theme-transition="to-dark"]::view-transition-old(root) {
+  z-index: 0;
+}
+
+[data-theme-transition="to-dark"]::view-transition-new(root) {
+  z-index: 1;
+  animation: circle var(--transition-speed) ease-in-out both;
+}
+
+[data-theme-transition="to-light"]::view-transition-old(root) {
+  z-index: 1;
+  animation: circle-reverse var(--transition-speed) ease-in-out both;
+}
+
+[data-theme-transition="to-light"]::view-transition-new(root) {
+  z-index: 0;
+}
+
+@keyframes circle {
+  from { clip-path: circle(0% at var(--x) var(--y)); }
+  to   { clip-path: circle(150% at var(--x) var(--y)); }
+}
+
+@keyframes circle-reverse {
+  from { clip-path: circle(150% at var(--x) var(--y)); }
+  to   { clip-path: circle(0% at var(--x) var(--y)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -129,6 +179,6 @@
     @apply bg-background text-foreground overflow-x-hidden;
     }
   html {
-    @apply font-sans overflow-x-hidden;
+    @apply font-sans overflow-x-hidden bg-background;
     }
 }
