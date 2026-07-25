@@ -9,10 +9,16 @@
 - [] Write API Documentation for 'https://github.com/spacesdrive/quizfizz'
 - [] Write a Linkedn post about 'https://shadyshard.spacesdrive.cc/'
 - [] Complete HTTP Protcol Revision
+- [] Plan out a impossible project
+- [] Discuss about SIH (Smart India Hackathon) and it's process
 
 ### Completed Task
 - Built 'https://ilovejava.spacesdrive.cc/' using Typescript with the help of Claude Code. 
 - Completetd my Internship work
 - Added a Claude Code cloud schedule that runs at 6am IST that writes PR(add 5 Tools Daily) for this website - 'https://shadyshard.spacesdrive.cc/'
-- Learned today I used 34 Million tokens of Claude Code in last 5 months, need to increase my usage via automation.
-- Edited a Davinci Resolve Video for my new channel named 'Waveizer'. Learned about 'time stretcher' and 'optical flow' nodes. Built a plugin to speed up the process.
+- Learned today I used **34 Million tokens** of Claude Code in last 5 months, need to increase my usage via automation.
+- Edited a Davinci Resolve Video for my new channel named 'Waveizer'. Learned about **time stretcher** and **optical flow** nodes. Built a plugin to speed up the process.
+- Completed **10 Anime Episodes**
+- Reached **Legendary III** in Division Rivals in Fifa Mobile
+- Won **Arms Race** in CS Go at **3rd Place**
+- Revised Constuctors in Java
