@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { SocialIcons } from '@/components/ui/social-icons';
+import { profile } from '@/data/profile';
 import { useIntersectionReveal } from '@/hooks/useIntersectionReveal';
 import { cn } from '@/lib/utils';
 
@@ -15,20 +16,19 @@ export function About() {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           )}
         >
-          <span className="mb-3 block text-sm font-medium text-primary">About me,</span>
+          <span className="mb-3 block text-sm font-medium text-primary">About me</span>
           <h2 className="mb-8 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            Ujjwal Kumar Rai
+            {profile.name}
           </h2>
 
           <div className="mt-2 flex flex-col gap-5">
             <img
-              src="https://avatars.githubusercontent.com/u/244390193?v=4"
-              alt="Ujjwal Kumar Rai"
+              src={profile.avatar}
+              alt={profile.name}
               className="size-20 rounded-full object-cover ring-2 ring-border"
             />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Building, breaking, and learning across way too many domains.
-              If any of this resonates, let's talk.
+              {profile.tagline} If any of this resonates, let's talk.
             </p>
             <SocialIcons />
           </div>

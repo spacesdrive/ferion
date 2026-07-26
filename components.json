@@ -22,6 +22,8 @@
   "menuAccent": "subtle",
   "registries": {
     "@forgeui": "https://forgeui.in/r/{name}.json",
-    "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json"
+    "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json",
+    "@spectrumui": "https://ui.spectrumhq.in/r/{name}.json",
+    "@soundcn": "https://soundcn.xyz/r/{name}.json"
   }
 }

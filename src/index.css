@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
-
-.font-typewriter { font-family: 'Courier Prime', monospace; }
-.font-stamp { font-family: 'Special Elite', cursive; }
 
 @custom-variant dark (&:is(.dark *));
 
@@ -167,6 +163,21 @@
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation: none !important;
+  }
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Footer wave (adapted from spectrumui animated-wave-footer) ─────────── */
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-wave {
+  animation: wave 18s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-wave {
+    animation: none;
   }
 }
 /* ─────────────────────────────────────────────────────────────────────────── */
