@@ -37,6 +37,13 @@ export const projects = [
     logo: 'https://aevrin.net/apple-touch-icon.png',
   },
   {
+    category: 'Web Tools',
+    title: 'ShadyShard',
+    description: 'A platform for 500+ fast, free, browser-based tools. No uploads, no accounts, no tracking.',
+    url: 'https://github.com/spacesdrive/shadyshard',
+    logo: 'https://raw.githubusercontent.com/spacesdrive/shadyshard/main/public/apple-touch-icon.png',
+  },
+  {
     category: 'Desktop Tools',
     title: 'KineTube',
     description: 'A privacy-first desktop downloader for YouTube and Instagram.',
