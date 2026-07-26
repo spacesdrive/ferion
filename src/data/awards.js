@@ -1,6 +1,6 @@
-import monadBlitzImage from './images/Monad Blitz Bangalore building AgentShield - Special Mention.jpg';
-import launchPadImage from './images/LaunchPad Bangalore Aegis AI - Secured Second Place.jpg';
-import campusFundImage from './images/Campus Fund Hackathon Aegis AI - Secured Third Place.jpg';
+import monadBlitzImage from '../assets/awards/Monad Blitz Bangalore building AgentShield - Special Mention.jpg';
+import launchPadImage from '../assets/awards/LaunchPad Bangalore Aegis AI - Secured Second Place.jpg';
+import campusFundImage from '../assets/awards/Campus Fund Hackathon Aegis AI - Secured Third Place.jpg';
 
 export const awards = [
   {
