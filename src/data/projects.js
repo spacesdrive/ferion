@@ -26,7 +26,7 @@ export const projects = [
     title: 'Ferion',
     description: 'Most portfolios are just a list of skills and a contact form. This one actually tells a story.',
     url: 'https://github.com/spacesdrive/ferion',
-    logo: 'https://raw.githubusercontent.com/spacesdrive/ferion/main/favicon.png',
+    logo: 'https://raw.githubusercontent.com/spacesdrive/ferion/main/public/favicon.png',
   },
   {
     category: 'Web Apps',

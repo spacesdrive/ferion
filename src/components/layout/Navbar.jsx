@@ -8,7 +8,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet';
-import { ThemeToggleCircular } from '@/components/animations/transitions/theme-toggle-circular';
 import { navItems } from '@/data/nav';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useClickSound } from '@/hooks/useClickSound';
@@ -78,12 +77,18 @@ export function Navbar({ onOpenPalette }) {
             <Command className="h-4 w-4" />
           </Button>
 
-          <ThemeToggleCircular onToggle={toggleTheme} speed={0.5}>
-            <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={playClick}>
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-            </Button>
-          </ThemeToggleCircular>
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label="Toggle theme"
+            onClick={() => {
+              playClick();
+              toggleTheme();
+            }}
+          >
+            <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          </Button>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <Button
