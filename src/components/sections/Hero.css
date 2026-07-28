@@ -1,0 +1,95 @@
+/* Ported from the Home/home.css reference panel: a rounded, full-bleed
+   black card with giant "bord" display type and dotted "nanu" pill CTAs. */
+
+.hero-panel {
+  font-family: 'bord', serif;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  background: oklch(0.08 0 0);
+  color: oklch(0.98 0 0);
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-heading {
+  position: relative;
+  z-index: 1;
+  max-width: 20ch;
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  margin: 0;
+  text-shadow: 0 2px 24px oklch(0 0 0 / 60%);
+}
+
+.hero-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2.25rem;
+}
+
+.hero-pill {
+  font-family: 'nanu', sans-serif;
+  border: 2px dotted oklch(0.98 0 0 / 80%);
+  border-radius: 28px;
+  padding: 0.75rem 1.5rem;
+  color: oklch(0.98 0 0);
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.25s ease, color 0.25s ease, border-style 0.25s ease;
+}
+.hero-pill:hover {
+  background-color: oklch(0.98 0 0);
+  color: oklch(0.08 0 0);
+  border-style: solid;
+}
+.hero-pill--solid {
+  background-color: oklch(0.98 0 0);
+  color: oklch(0.08 0 0);
+  border-style: solid;
+}
+.hero-pill--solid:hover {
+  background-color: transparent;
+  color: oklch(0.98 0 0);
+  border-style: dotted;
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 1.5rem;
+  z-index: 1;
+  font-family: 'nanu', sans-serif;
+  font-size: 0.7rem;
+  color: oklch(0.98 0 0 / 50%);
+}
+.hero-meta--date {
+  left: 5%;
+}
+.hero-meta--name {
+  right: 5%;
+}
+
+@media (max-width: 640px) {
+  .hero-meta {
+    display: none;
+  }
+}

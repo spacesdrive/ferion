@@ -1,142 +1,50 @@
-import { Card } from '@/components/ui/card';
-import { SocialIcons } from '@/components/ui/social-icons';
-import { profile } from '@/data/profile';
-import { useIntersectionReveal } from '@/hooks/useIntersectionReveal';
-import { cn } from '@/lib/utils';
+import './About.css';
 
 export function About() {
-  const { ref, isVisible } = useIntersectionReveal(0.15);
-
   return (
-    <section id="about" ref={ref} className="w-full border-t border-border bg-muted/30 py-24">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
-        <div
-          className={cn(
-            'lg:col-span-5 transition-all duration-700',
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          )}
-        >
-          <span className="mb-3 block text-sm font-medium text-primary">About me</span>
-          <h2 className="mb-8 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            {profile.name}
-          </h2>
+    <section id="about" className="about-panel w-full border-t border-border bg-muted/30">
+      <span className="ghost-word" aria-hidden>
+        About
+      </span>
+      <div className="ghost-ring" aria-hidden />
 
-          <div className="mt-2 flex flex-col gap-5">
-            <img
-              src={profile.avatar}
-              alt={profile.name}
-              className="size-20 rounded-full object-cover ring-2 ring-border"
-            />
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {profile.tagline} If any of this resonates, let's talk.
-            </p>
-            <SocialIcons />
-          </div>
-        </div>
-
-        <div
-          className={cn(
-            'lg:col-span-7 transition-all delay-150 duration-700',
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          )}
-        >
-          <p className="mb-8 border-b border-border pb-8 text-lg leading-relaxed text-muted-foreground">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <div className="about-copy">
+          <p className="mb-6 text-lg leading-relaxed font-medium text-foreground">
             I'm going to be honest with you. I used to think something was wrong with
             me. Everyone around me had a plan. Doctor. Engineer. Pilot. Pick a lane,
             stay in it, master it, retire. I couldn't do it. Not because I was lazy.
-            The opposite, actually.{' '}
-            <strong className="font-medium text-foreground">
-              I wanted to do everything.
-            </strong>{' '}
-            Build things. Break things. Learn things nobody taught me. Solve problems
-            that hadn't been named yet. Help people in ways that didn't fit a job
-            title.
+            The opposite, actually. I wanted to do everything. Build things. Break
+            things. Learn things nobody taught me. Solve problems that hadn't been
+            named yet. Help people in ways that didn't fit a job title. Every time I
+            got good at something, I wanted to learn the next thing. People called it
+            a lack of focus. I called it being alive. School didn't help. The whole
+            system was basically a memory competition. Memorise this. Reproduce it.
+            Get graded. Repeat.
           </p>
 
-          <div className="mb-8 grid gap-6 text-base leading-relaxed text-muted-foreground sm:grid-cols-2">
-            <p>
-              Every time I got good at something, I wanted to learn the next thing.
-              People called it a lack of focus. I called it{' '}
-              <strong className="font-medium text-foreground">being alive.</strong>{' '}
-              School didn't help. The whole system was basically a memory
-              competition. Memorise this. Reproduce it. Get graded. Repeat.
-            </p>
-            <p>
-              I had one rule:{' '}
-              <strong className="font-medium text-foreground">
-                don't memorise what you can look up.
-              </strong>{' '}
-              Which made me a terrible student and a decent thinker.
-            </p>
-          </div>
+          <p className="mb-6 text-base leading-relaxed text-muted-foreground">
+            I had one rule: don't memorise what you can look up. Which made me a
+            terrible student and a decent thinker.
+            <br />
+            I asked ChatGPT once, "What do you call someone obsessed with learning
+            everything and can't stick to one field?"
+            <br />
+            It said polymath. Turns out there's an actual word for it. And it's not a
+            mental illness.
+          </p>
 
-          <div className="mb-8">
-            <p className="mb-4 text-lg leading-relaxed text-muted-foreground">
-              I asked ChatGPT once,
-            </p>
-
-            <Card className="gap-0 overflow-hidden py-0">
-              <div className="flex items-center justify-between border-b border-border px-4 py-3">
-                <div className="flex gap-2">
-                  <div className="h-3 w-3 rounded-full bg-red-400" />
-                  <div className="h-3 w-3 rounded-full bg-yellow-400" />
-                  <div className="h-3 w-3 rounded-full bg-green-400" />
-                </div>
-                <span className="text-xs font-medium text-muted-foreground">
-                  ChatGPT 4o
-                </span>
-                <span />
-              </div>
-
-              <div className="flex flex-col gap-6 p-6">
-                <div className="flex justify-end">
-                  <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-muted px-4 py-3 text-sm text-foreground">
-                    What do you call someone obsessed with learning everything and
-                    can't stick to one field?
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#10a37f]">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
-                      alt="ChatGPT"
-                      className="h-[18px] w-[18px] object-contain"
-                      style={{ filter: 'brightness(0) invert(1)' }}
-                    />
-                  </div>
-                  <p className="mt-1 max-w-[85%] text-sm leading-relaxed text-foreground">
-                    The word you are looking for is{' '}
-                    <strong className="font-semibold text-primary">Polymath</strong>.
-                    It describes an individual whose knowledge spans a substantial
-                    number of subjects, known to draw on complex bodies of knowledge
-                    to solve specific problems.
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          <div className="grid gap-6 text-base leading-relaxed text-muted-foreground sm:grid-cols-2">
-            <p>
-              <strong className="font-medium text-foreground">
-                Polymath. Polyhistor.
-              </strong>{' '}
-              Sounds fancy. Sounds like someone who has it figured out. In reality, it
-              just means I was the kid in class wondering why we had to pick one thing
-              when the world clearly needed people who understood many things. I
-              still don't have one answer when people ask what I do. I build things.
-              I break things. I write. I learn. I create.
-            </p>
-            <p>
-              Some call it impressive. Some call it scattered. I've stopped trying to
-              decide which one is right. All I know is{' '}
-              <strong className="font-medium text-foreground">
-                I've never been bored.
-              </strong>{' '}
-              And I think that counts for something.
-            </p>
-          </div>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Polymath. Polyhistor. Sounds fancy. Sounds like someone who has it figured
+            out. In reality, it just means I was the kid in class wondering why we had
+            to pick one thing when the world clearly needed people who understood
+            many things. I still don't have one answer when people ask what I do. I
+            build things. I break things. I write. I learn. I create.
+            <br />
+            Some call it impressive. Some call it scattered. I've stopped trying to
+            decide which one is right. All I know is I've never been bored. And I
+            think that counts for something.
+          </p>
         </div>
       </div>
     </section>
