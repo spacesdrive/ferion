@@ -1,0 +1,15 @@
+# Ferion — Ujjwal Kumar Rai
+
+> Personal portfolio for Ujjwal Kumar Rai: AI security work, full-stack projects, career experience, and writing.
+
+## Sections
+
+- [About](/#about): Background and how I think about building things.
+- [Experience](/#experience): Career history, including Runable and Aevrin (Aegis AI).
+- [Work](/#work): Selected projects — Luxe, ShadyShard, KineTube, Twiligent.
+- [Awards](/#awards): Hackathon and competition recognitions.
+- [Writing](/#writing): Articles on development, security, and AI tooling.
+
+## Notes
+
+This site is a single-page portfolio. All sections above live on the same page at different anchors.
