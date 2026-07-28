@@ -1,0 +1,25 @@
+/* Ported from Four/four.css: the dashed panel treatment applied to the real
+   experience timeline; the giant word + ring is the shared .ghost-word/
+   .ghost-ring pattern from index.css, used identically across every section. */
+
+.experience-panel {
+  position: relative;
+  font-family: 'bord', serif;
+  overflow: hidden;
+  padding: 6rem 1.5rem;
+}
+
+.experience-list {
+  position: relative;
+  z-index: 1;
+  border: 1px dashed var(--border);
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+}
+
+.experience-list > li:first-child {
+  padding-top: 1.5rem;
+}
+.experience-list > li:last-child {
+  padding-bottom: 1.5rem;
+}
