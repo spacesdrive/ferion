@@ -1,50 +1,83 @@
 import { ArrowUpRight } from 'lucide-react';
-import { BentoGrid } from '@/components/spectrumui/bento-grid';
-import { BentoCard } from '@/components/spectrumui/bento-card';
+import { FaGithub } from 'react-icons/fa6';
+import { RevealText } from '@/components/motion/RevealText';
 import { projects } from '@/data/projects';
 import { useClickSound } from '@/hooks/useClickSound';
+import './Work.css';
 
 export function Work() {
   const playClick = useClickSound();
 
   return (
-    <section id="work" className="w-full border-t border-border py-24">
-      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
-        <div className="mb-12">
-          <span className="mb-3 block text-sm font-medium text-primary">Selected work</span>
-          <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Projects</h2>
+    <section id="work" className="work-panel w-full border-t border-border">
+      <span className="ghost-word" aria-hidden>
+        Cases
+      </span>
+      <div className="ghost-ring" aria-hidden />
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <div className="relative mb-12">
+          <RevealText
+            as="h2"
+            text="Recent Project"
+            className="text-4xl font-normal tracking-tight text-foreground uppercase sm:text-5xl"
+          />
         </div>
 
-        <BentoGrid>
+        <div className="work-grid">
           {projects.map((project) => (
-            <a
-              key={project.title}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={playClick}
-              className="contents"
-            >
-              <BentoCard tilt colSpan={2}>
-                <div className="flex items-start justify-between">
+            <div key={project.title} className="work-case">
+              <div className="flex items-start justify-between">
+                <div className="work-case-thumb flex size-14 items-center justify-center bg-muted">
                   <img
                     src={project.logo}
                     alt={project.title}
-                    className="size-11 rounded-lg object-contain"
+                    className="size-10 object-contain grayscale transition-[filter] duration-500 ease-out hover:grayscale-0"
                   />
-                  <ArrowUpRight className="size-4 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 </div>
-                <div className="mt-6">
-                  <span className="mb-1.5 block text-[11px] font-semibold tracking-widest text-primary uppercase">
-                    {project.category}
-                  </span>
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground">{project.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={playClick}
+                    aria-label={`${project.title} source code`}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <FaGithub className="size-5" />
+                  </a>
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={playClick}
+                    aria-label={`${project.title} live demo`}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <ArrowUpRight className="size-5" />
+                  </a>
                 </div>
-              </BentoCard>
-            </a>
+              </div>
+
+              <div className="mt-8">
+                <span className="mb-2 block text-[11px] tracking-widest text-primary uppercase">
+                  {project.category}
+                </span>
+                <h3 className="work-case-title text-2xl font-normal tracking-tight text-foreground">
+                  {project.title}
+                </h3>
+                <p className="mt-1 font-sans text-sm font-medium text-muted-foreground">
+                  {project.tagline}
+                </p>
+                <ul className="work-case-desc mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground">
+                  {project.description.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           ))}
-        </BentoGrid>
+        </div>
       </div>
     </section>
   );
