@@ -1,6 +1,7 @@
-import monadBlitzImage from '../assets/awards/Monad Blitz Bangalore building AgentShield - Special Mention.jpg';
-import launchPadImage from '../assets/awards/LaunchPad Bangalore Aegis AI - Secured Second Place.jpg';
-import campusFundImage from '../assets/awards/Campus Fund Hackathon Aegis AI - Secured Third Place.jpg';
+import monadBlitzImage from '../assets/awards/Monad Blitz Bangalore building AgentShield - Special Mention.webp';
+import launchPadImage from '../assets/awards/LaunchPad Bangalore Aegis AI - Secured Second Place.webp';
+import campusFundImage from '../assets/awards/Campus Fund Hackathon Aegis AI - Secured Third Place.webp';
+import auraverseImage from '../assets/awards/Auraverse 2.0 Bangalore Deepfake Detection System - Secured Second Place.webp';
 
 export const awards = [
   {
@@ -28,6 +29,6 @@ export const awards = [
     description:
       'Built a Deepfake detection pipeline that allows you to train your own model and run inference on images (and extend to videos).',
     year: '2025',
-    image: 'https://res.cloudinary.com/di7nn8znb/image/upload/v1781882094/images_rcrie1.jpg',
+    image: auraverseImage,
   },
 ];
