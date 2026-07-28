@@ -1,13 +1,23 @@
 @import "tailwindcss";
+@plugin "flyonui";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
-@custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: "bord";
+  src: url("./assets/fonts/ITCGaramondLightCondensed.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nanu";
+  src: url("./assets/fonts/NiveauGroteskLight-Italic.woff2") format("woff2");
+  font-display: swap;
+}
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-heading: var(--font-display);
+    --font-display: 'bord', serif;
+    --font-sans: 'nanu', sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,86 +58,113 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ─── True monochrome palette, light only (matches the copy folder's default
+   white page; individual panels like Hero/Blog hardcode black instead) ──── */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: #ff0055;
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
-}
+    --background: oklch(0.99 0 0);
+    --foreground: oklch(0.12 0 0);
+    --card: oklch(0.99 0 0);
+    --card-foreground: oklch(0.12 0 0);
+    --popover: oklch(0.99 0 0);
+    --popover-foreground: oklch(0.12 0 0);
+    --primary: oklch(0.12 0 0);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.94 0 0);
+    --secondary-foreground: oklch(0.12 0 0);
+    --muted: oklch(0.94 0 0);
+    --muted-foreground: oklch(0.45 0 0);
+    --accent: oklch(0.94 0 0);
+    --accent-foreground: oklch(0.12 0 0);
+    --destructive: oklch(0.55 0.19 25);
+    --border: oklch(0.2 0 0);
+    --input: oklch(0.2 0 0);
+    --ring: oklch(0.12 0 0);
+    --chart-1: oklch(0.85 0 0);
+    --chart-2: oklch(0.65 0 0);
+    --chart-3: oklch(0.5 0 0);
+    --chart-4: oklch(0.35 0 0);
+    --chart-5: oklch(0.2 0 0);
+    --radius: 0.25rem;
+    --sidebar: oklch(0.99 0 0);
+    --sidebar-foreground: oklch(0.12 0 0);
+    --sidebar-primary: oklch(0.12 0 0);
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    --sidebar-accent: oklch(0.94 0 0);
+    --sidebar-accent-foreground: oklch(0.12 0 0);
+    --sidebar-border: oklch(0.2 0 0);
+    --sidebar-ring: oklch(0.12 0 0);
 
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: #ff0055;
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    /* FlyonUI component tokens (btn/badge/card/drawer), mapped to the palette above */
+    --color-base-100: oklch(0.99 0 0);
+    --color-base-200: oklch(0.94 0 0);
+    --color-base-300: oklch(0.2 0 0);
+    --color-base-content: oklch(0.12 0 0);
+    --color-primary: oklch(0.12 0 0);
+    --color-primary-content: oklch(0.99 0 0);
+    --color-secondary: oklch(0.94 0 0);
+    --color-secondary-content: oklch(0.12 0 0);
+    --color-accent: oklch(0.12 0 0);
+    --color-accent-content: oklch(0.99 0 0);
+    --color-neutral: oklch(0.12 0 0);
+    --color-neutral-content: oklch(0.99 0 0);
+    --color-info: oklch(0.7 0.15 220);
+    --color-info-content: oklch(0.985 0 0);
+    --color-success: oklch(0.72 0.17 145);
+    --color-success-content: oklch(0.985 0 0);
+    --color-warning: oklch(0.8 0.16 85);
+    --color-warning-content: oklch(0.145 0 0);
+    --color-error: oklch(0.55 0.19 25);
+    --color-error-content: oklch(0.98 0.012 85);
 }
+/* ─────────────────────────────────────────────────────────────────────────── */
 
-/* ─── Footer wave (adapted from spectrumui animated-wave-footer) ─────────── */
-@keyframes wave {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* ─── Fixed film-grain overlay, sits above all page content ──────────────── */
+.noise::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.1;
+  z-index: 1000;
+  pointer-events: none;
+  background: url("./assets/noise.gif");
 }
-.animate-wave {
-  animation: wave 18s linear infinite;
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Shared section header treatment: giant ghost word + ring, used by every
+   section (About, Experience, Work, Awards, Blog) for a consistent look ──── */
+.ghost-word {
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  z-index: 0;
+  font-family: 'bord', serif;
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  line-height: 0.9;
+  color: currentColor;
+  pointer-events: none;
+  user-select: none;
 }
-@media (prefers-reduced-motion: reduce) {
-  .animate-wave {
-    animation: none;
+.ghost-ring {
+  position: absolute;
+  top: -6rem;
+  right: 4rem;
+  z-index: 0;
+  width: 34rem;
+  height: 34rem;
+  max-width: 70vw;
+  max-height: 70vw;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  opacity: 0.25;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .ghost-word,
+  .ghost-ring {
+    display: none;
   }
 }
 /* ─────────────────────────────────────────────────────────────────────────── */
@@ -137,9 +174,12 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground overflow-x-hidden font-light;
     }
   html {
     @apply font-sans overflow-x-hidden bg-background;
+    }
+  h1, h2 {
+    font-family: var(--font-display);
     }
 }
