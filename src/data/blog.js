@@ -1,3 +1,5 @@
+import mcpIsDeadImage from '../assets/mcp-is-dead.webp';
+
 export const blogPosts = [
   {
     id: 'post-1',
@@ -8,6 +10,6 @@ export const blogPosts = [
     author: 'Ujjwal Kumar Rai',
     published: 'Jun 2026',
     url: 'https://medium.com/@ujjwal_kumar_rai/mcp-is-dead-30e1045e5916',
-    image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*rgEJqXspkDO0fqt0Rnftwg.png',
+    image: mcpIsDeadImage,
   },
 ];

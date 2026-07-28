@@ -1,0 +1,27 @@
+/* Ported from Five/five.css blog-back panel: a dark rounded card holding
+   the writing list, with dashed-border post cards. The giant word + ring is
+   the shared .ghost-word/.ghost-ring pattern from index.css (it picks up
+   this panel's white `color` via currentColor), used identically across
+   every section. */
+
+.blog-panel {
+  position: relative;
+  font-family: 'bord', serif;
+  overflow: hidden;
+  border-radius: 30px;
+  background: oklch(0.08 0 0);
+  color: oklch(0.98 0 0);
+  padding: 6rem 1.5rem;
+  margin: 0 0.25rem;
+}
+
+.blog-card {
+  border: 1px dashed oklch(0.98 0 0 / 35%);
+  border-radius: 24px;
+  background: oklch(0.98 0 0 / 4%);
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+.blog-card:hover {
+  border-color: oklch(0.98 0 0 / 70%);
+  background: oklch(0.98 0 0 / 8%);
+}
