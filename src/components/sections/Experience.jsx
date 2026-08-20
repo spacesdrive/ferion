@@ -15,8 +15,10 @@ export function Experience() {
       </span>
       <div className="ghost-ring" aria-hidden />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
-        <h2 className="sr-only">Experience</h2>
-        <div className="relative mb-12">
+        <div className="relative mb-12 flex flex-wrap items-center justify-between gap-4">
+          <h2 className="text-4xl font-normal tracking-tight text-foreground uppercase sm:text-5xl">
+            Experience
+          </h2>
           <a
             href={profile.cvUrl}
             download="Ujjwal_Kumar_Rai_Resume.pdf"
@@ -41,7 +43,13 @@ export function Experience() {
                 </ul>
               </div>
               <div className="flex items-center gap-2 md:w-1/5 md:justify-end">
-                <img src={exp.logo} alt={exp.company} className="size-6 shrink-0 rounded object-contain" />
+                <img
+                  src={exp.logo}
+                  alt={exp.company}
+                  loading="lazy"
+                  decoding="async"
+                  className="size-6 shrink-0 rounded object-contain"
+                />
                 {exp.link && exp.link !== '#' ? (
                   <a
                     href={exp.link}
@@ -72,7 +80,13 @@ export function Experience() {
                 </ul>
               </div>
               <div className="flex items-center gap-2 md:w-1/5 md:justify-end">
-                <img src={s.logo} alt={s.name} className="size-6 shrink-0 rounded object-contain" />
+                <img
+                  src={s.logo}
+                  alt={s.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="size-6 shrink-0 rounded object-contain"
+                />
                 <a
                   href={s.link}
                   target="_blank"

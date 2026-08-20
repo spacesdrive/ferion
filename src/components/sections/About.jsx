@@ -9,6 +9,9 @@ export function About() {
       <div className="ghost-ring" aria-hidden />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <h2 className="mb-10 text-4xl font-normal tracking-tight text-foreground uppercase sm:text-5xl">
+          About
+        </h2>
         <div className="about-copy">
           <p className="mb-6 text-lg leading-relaxed font-medium text-foreground">
             I'm going to be honest with you. I used to think something was wrong with

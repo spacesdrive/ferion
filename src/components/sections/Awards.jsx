@@ -4,14 +4,16 @@ import './Awards.css';
 
 export function Awards() {
   return (
-    <section id="awards" className="awards-panel w-full border-t border-border pt-40 pb-24">
+    <section id="awards" className="awards-panel w-full border-t border-border py-24">
       <span className="ghost-word" aria-hidden>
         Awards
       </span>
       <div className="ghost-ring" aria-hidden />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
-        <h2 className="sr-only">Awards</h2>
+        <h2 className="mb-12 text-4xl font-normal tracking-tight text-foreground uppercase sm:text-5xl">
+          Awards
+        </h2>
 
         <div className="awards-grid">
           {awards.map((award) => (
@@ -28,6 +30,8 @@ export function Awards() {
                 <img
                   src={award.image}
                   alt={award.name}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 h-full w-full cursor-zoom-in object-cover"
                 />
               </ImageZoom>
