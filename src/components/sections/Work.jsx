@@ -32,6 +32,8 @@ export function Work() {
                   <img
                     src={project.logo}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="size-10 object-contain grayscale transition-[filter] duration-500 ease-out hover:grayscale-0"
                   />
                 </div>

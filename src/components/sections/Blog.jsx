@@ -35,7 +35,13 @@ export function Blog() {
                 className="blog-card grid grid-rows-[auto_1fr_auto] overflow-hidden"
               >
                 <div className="aspect-video w-full overflow-hidden">
-                  <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 p-5">
                   <span className="font-sans text-[11px] tracking-widest text-white/70 uppercase">

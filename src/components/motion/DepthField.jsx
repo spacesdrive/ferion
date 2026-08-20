@@ -13,10 +13,13 @@ export function DepthField() {
   const glowRef = useRef(null);
 
   useGSAP(() => {
+    // feTurbulence recompute is expensive (not GPU-accelerated) and this filter
+    // covers the full viewport, so the value is stepped rather than tweened
+    // continuously — same slow "living" drift at a fraction of the paint cost.
     gsap.to(turbulenceRef.current, {
       attr: { baseFrequency: '0.014 0.02' },
-      duration: 16,
-      ease: 'sine.inOut',
+      duration: 20,
+      ease: 'steps(5)',
       yoyo: true,
       repeat: -1,
     });
@@ -42,7 +45,7 @@ export function DepthField() {
             ref={turbulenceRef}
             type="fractalNoise"
             baseFrequency="0.008 0.012"
-            numOctaves="2"
+            numOctaves="1"
             seed="7"
             result="noise"
           />
