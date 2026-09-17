@@ -1,15 +1,17 @@
-# Ferion — Ujjwal Kumar Rai
+# Ujjwal Kumar Rai
 
-> Personal portfolio for Ujjwal Kumar Rai: AI security work, full-stack projects, career experience, and writing.
+> Personal portfolio of Ujjwal Kumar Rai, co-founder of Aevrin: projects, work experience, hackathon results, and writing.
 
 ## Sections
 
 - [About](/#about): Background and how I think about building things.
-- [Experience](/#experience): Career history, including Runable and Aevrin (Aegis AI).
-- [Work](/#work): Selected projects — Luxe, ShadyShard, KineTube, Twiligent.
-- [Awards](/#awards): Hackathon and competition recognitions.
-- [Writing](/#writing): Articles on development, security, and AI tooling.
+- [Stack](/#skills): Technologies used across my work and projects.
+- [Experience](/#experience): Aevrin (Aegis AI) and Runable.
+- [Projects](/#projects): Luxe, ShadyShard, KineTube, Twiligent.
+- [Hackathons](/#hackathons): Placements and mentions at Monad Blitz, LaunchPad, Campus Fund Hackathon, and Auraverse 2.0.
+- [Writing](/#blog): Articles published on Medium.
+- [Contact](/#contact): LinkedIn and resume.
 
 ## Notes
 
-This site is a single-page portfolio. All sections above live on the same page at different anchors.
+This is a single-page site. Every section above is an anchor on the same page.

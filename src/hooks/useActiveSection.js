@@ -1,23 +1,40 @@
 import { useEffect, useState } from 'react';
 
+// A section is active once its top crosses 40% of the viewport; the page bottom always activates the last one.
 export function useActiveSection(ids) {
   const [active, setActive] = useState(ids[0]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
+    let frame = 0;
 
-    const elements = ids.map((id) => document.getElementById(id)).filter(Boolean);
-    elements.forEach((el) => observer.observe(el));
+    const update = () => {
+      frame = 0;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActive(ids[ids.length - 1]);
+        return;
+      }
+      const threshold = window.innerHeight * 0.4;
+      let current = ids[0];
+      for (const id of ids) {
+        const element = document.getElementById(id);
+        if (element && element.getBoundingClientRect().top <= threshold) current = id;
+      }
+      setActive(current);
+    };
 
-    return () => observer.disconnect();
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [ids]);
 
   return active;

@@ -1,15 +1,20 @@
-import mcpIsDeadImage from '../assets/mcp-is-dead.webp';
+import mcpIsDeadCover from '../assets/blog-mcp-is-dead.webp';
 
-export const blogPosts = [
+export const blog = {
+  profileUrl: 'https://medium.com/@ujjwal_kumar_rai',
+  platform: 'Medium',
+};
+
+// readingTime is optional; leave it out unless it is known for the article.
+export const posts = [
   {
-    id: 'post-1',
+    slug: 'mcp-is-dead',
     title: 'MCP is Dead',
-    summary:
+    excerpt:
       'MCP was marketed as infrastructure. The "USB-C for AI." Something that would just exist in the background.',
-    label: 'Claude Code',
-    author: 'Ujjwal Kumar Rai',
     published: 'Jun 2026',
+    tags: ['Claude Code'],
     url: 'https://medium.com/@ujjwal_kumar_rai/mcp-is-dead-30e1045e5916',
-    image: mcpIsDeadImage,
+    cover: mcpIsDeadCover,
   },
 ];
