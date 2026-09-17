@@ -1,6 +1,5 @@
 import { ArrowUpRight, Download, Globe } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
-import { Badge } from '@/components/ui/Badge';
 
 const LINK_META = {
   source: { label: 'Source', Icon: FaGithub },
@@ -30,23 +29,6 @@ export function ProjectCard({ project }) {
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-lg leading-tight font-semibold tracking-tight">{project.title}</h3>
-        <p className="mt-1 text-sm text-muted-foreground">{project.tagline}</p>
-
-        <ul className="mt-3 space-y-2">
-          {project.highlights.map((point) => (
-            <li key={point} className="text-[13px] leading-relaxed text-pretty text-muted-foreground">
-              {point}
-            </li>
-          ))}
-        </ul>
-
-        <ul className="mt-4 flex flex-wrap gap-1" aria-label="Technologies">
-          {project.tech.map((tech) => (
-            <li key={tech}>
-              <Badge>{tech}</Badge>
-            </li>
-          ))}
-        </ul>
 
         <div className="mt-auto flex flex-wrap gap-2 pt-5">
           {project.links.map(({ type, href }) => {
