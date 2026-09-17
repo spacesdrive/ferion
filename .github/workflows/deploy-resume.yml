@@ -1,0 +1,25 @@
+name: Deploy resume-viewer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'resume-viewer/**'
+      - '.github/workflows/deploy-resume.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy resume-viewer --project-name=resume --branch=main
