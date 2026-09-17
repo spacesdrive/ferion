@@ -11,7 +11,6 @@ import { Blog } from '@/components/sections/Blog';
 export default function App() {
   return (
     <div className="min-h-screen">
-      <div className="noise" aria-hidden="true" />
       <DepthField />
       <Navbar />
 

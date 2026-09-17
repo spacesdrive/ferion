@@ -118,21 +118,6 @@
 }
 /* ─────────────────────────────────────────────────────────────────────────── */
 
-/* ─── Fixed film-grain overlay, sits above all page content ──────────────── */
-.noise::before {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  content: "";
-  opacity: 0.1;
-  z-index: 1000;
-  pointer-events: none;
-  background: url("./assets/noise.gif");
-}
-/* ─────────────────────────────────────────────────────────────────────────── */
-
 /* ─── Shared section header treatment: giant ghost word + ring, used by every
    section (About, Experience, Work, Awards, Blog) for a consistent look ──── */
 .ghost-word {
