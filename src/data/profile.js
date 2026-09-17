@@ -28,6 +28,4 @@ export const socials = [
   { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/u-k-r/' },
   { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/ujjwal.fyi' },
   { id: 'medium', label: 'Medium', href: 'https://medium.com/@ujjwal_kumar_rai' },
-  { id: 'reddit', label: 'Reddit', href: 'https://www.reddit.com/user/mrujjwalkr/' },
-  { id: 'hackernews', label: 'Hacker News', href: 'https://news.ycombinator.com/user?id=valzor' },
 ];

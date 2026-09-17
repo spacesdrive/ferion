@@ -133,4 +133,4 @@ Copyright (c) 2026 Ujjwal Kumar Rai.
 ## Contact
 
 - Bug reports and feature requests: [open a GitHub issue](https://github.com/spacesdrive/ferion/issues).
-- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/), [Reddit](https://www.reddit.com/user/mrujjwalkr/), or [Hacker News](https://news.ycombinator.com/user?id=valzor).
+- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/).
