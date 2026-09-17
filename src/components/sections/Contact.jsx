@@ -32,8 +32,9 @@ export function Contact() {
             Message on LinkedIn
           </a>
           <a
-            href={profile.resume.url}
-            download={profile.resume.fileName}
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex h-10 items-center gap-2 rounded-full border bg-card px-5 text-sm font-medium transition-colors hover:bg-muted"
           >
             <Download className="size-4" aria-hidden="true" />

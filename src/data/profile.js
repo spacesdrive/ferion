@@ -1,15 +1,12 @@
-import resumeUrl from '../assets/resume.pdf';
-
 export const profile = {
   name: 'Ujjwal Kumar Rai',
   shortName: 'Ujjwal',
   role: 'Co-founder, Aevrin',
   tagline: 'Building, breaking, and learning across way too many domains.',
   avatar: 'https://avatars.githubusercontent.com/u/244390193?v=4',
-  resume: {
-    url: resumeUrl,
-    fileName: 'Ujjwal_Kumar_Rai_Resume.pdf',
-  },
+  // Points at resume-viewer/ (deployed separately) rather than a bundled file,
+  // so the résumé opens in a PDF viewer with its own download button.
+  resumeUrl: 'https://resume.tech.ujjwal.fyi',
 };
 
 export const about = {
