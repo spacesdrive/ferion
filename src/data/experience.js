@@ -16,8 +16,8 @@ export const experience = [
   {
     company: 'Runable',
     role: 'Growth Intern',
-    start: '2025-10',
-    end: null,
+    start: '2025-09',
+    end: '2026-08',
     url: 'https://runable.com',
     logo: 'https://avatars.githubusercontent.com/u/203658765?s=280&v=4',
     highlights: [

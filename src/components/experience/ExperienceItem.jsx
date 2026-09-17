@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { formatMonth } from '@/lib/utils';
+import { formatDuration, formatMonth } from '@/lib/utils';
 
 export function ExperienceItem({ item }) {
   const isCurrent = item.end === null;
@@ -19,7 +19,7 @@ export function ExperienceItem({ item }) {
       </div>
 
       <div className="min-w-0">
-        <div className="flex flex-col gap-x-4 gap-y-1 sm:flex-row sm:items-baseline sm:justify-between">
+        <div className="flex flex-col gap-x-4 gap-y-1 sm:flex-row sm:items-start sm:justify-between">
           <h3 className="text-base leading-tight font-semibold">
             <a
               href={item.url}
@@ -34,17 +34,22 @@ export function ExperienceItem({ item }) {
               />
             </a>
           </h3>
-          <p className="flex shrink-0 items-center gap-2 font-mono text-xs text-muted-foreground tabular-nums">
-            {isCurrent && (
-              <span className="relative flex size-1.5" aria-hidden="true">
-                <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
-                <span className="relative size-1.5 rounded-full bg-accent" />
-              </span>
-            )}
-            <time dateTime={item.start}>{formatMonth(item.start)}</time>
-            <span aria-hidden="true">—</span>
-            {isCurrent ? 'Present' : <time dateTime={item.end}>{formatMonth(item.end)}</time>}
-          </p>
+          <div className="flex shrink-0 flex-col gap-0.5 sm:items-end">
+            <p className="flex items-center gap-2 font-mono text-xs text-muted-foreground tabular-nums">
+              {isCurrent && (
+                <span className="relative flex size-1.5" aria-hidden="true">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
+                  <span className="relative size-1.5 rounded-full bg-accent" />
+                </span>
+              )}
+              <time dateTime={item.start}>{formatMonth(item.start)}</time>
+              <span aria-hidden="true">—</span>
+              {isCurrent ? 'Present' : <time dateTime={item.end}>{formatMonth(item.end)}</time>}
+            </p>
+            <p className="font-mono text-[11px] text-muted-foreground/70">
+              {formatDuration(item.start, item.end)}
+            </p>
+          </div>
         </div>
         <p className="mt-1 text-sm text-muted-foreground">{item.role}</p>
       </div>
