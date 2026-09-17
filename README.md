@@ -33,7 +33,7 @@ ferion is a single-page React app that builds to static HTML, CSS, and JavaScrip
 |---|---|
 | macOS-style dock | Bottom navigation with spring-based magnification, tooltips on hover and keyboard focus, and an active-section indicator. Magnification only follows a mouse; touch devices get a compact dock sized for 320px screens that sits clear of the iOS home indicator. |
 | Light and dark themes | Follows the system preference until toggled, then persists in `localStorage`. An inline script in `index.html` applies the theme before first paint, so there is no flash. |
-| Sections | Hero, About, Stack, Experience, Projects, Hackathons, Writing, and Contact. |
+| Sections | Hero, About, Experience, Projects, Hackathons, Writing, and Contact. |
 | Hackathon photo viewer | Built on the native `<dialog>` element: focus moves into the viewer, Escape closes it, focus returns to the photo you opened, and the page stops scrolling underneath. |
 | Motion | Sections fade in as they scroll into view. `MotionConfig reducedMotion="user"` turns off movement for visitors who prefer reduced motion, and CSS smooth scrolling is limited to the same group. |
 | Accessibility | Semantic landmarks and headings, a skip link, visible focus rings, labelled icon links, and text contrast checked against WCAG AA. |
@@ -77,7 +77,7 @@ src/
 │   ├── projects/           # ProjectCard
 │   ├── sections/           # one component per page section
 │   └── ui/                 # Badge, Reveal, SocialIcon
-├── data/                   # all content: profile, skills, experience, projects, hackathons, blog
+├── data/                   # all content: profile, experience, projects, hackathons, blog
 ├── hooks/                  # useActiveSection, useClickSound, useMediaQuery, useTheme
 ├── lib/                    # cn() class helper, date formatting, click sound data
 ├── App.jsx                 # page composition
@@ -90,7 +90,6 @@ src/
 | What | Where |
 |---|---|
 | Name, role, tagline, avatar, resume, About text, social links | `src/data/profile.js` |
-| Stack groups | `src/data/skills.js` |
 | Work experience (use `end: null` for a current role) | `src/data/experience.js` |
 | Projects, tech tags, and links (`source`, `live`, `releases`) | `src/data/projects.js` |
 | Hackathon results and photos | `src/data/hackathons.js` |

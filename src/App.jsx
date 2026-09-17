@@ -10,9 +10,8 @@ import { Experience } from '@/components/sections/Experience';
 import { Hackathons } from '@/components/sections/Hackathons';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
-import { Skills } from '@/components/sections/Skills';
 
-const SECTIONS = [Hero, About, Skills, Experience, Projects, Hackathons, Blog, Contact];
+const SECTIONS = [Hero, About, Experience, Projects, Hackathons, Blog, Contact];
 
 export default function App() {
   return (
