@@ -117,31 +117,11 @@
       min-height: 0;
     }
 
-    object {
+    iframe {
       display: block;
       width: 100%;
       height: 100%;
       border: 0;
-    }
-
-    .fallback {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .fallback p {
-      max-width: 24rem;
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9375rem;
-      line-height: 1.5;
     }
   </style>
 </head>
@@ -159,17 +139,13 @@
   </header>
 
   <main>
-    <!-- The <object> fallback content only renders when the browser can't display
-           the PDF inline (e.g. some in-app browsers), so no feature-detection JS
-           is needed to cover that case. -->
-    <object data="./resume.pdf" type="application/pdf" aria-label="resume">
-      <div class="fallback">
-        <p>Your browser can't display the resume inline.</p>
-        <a class="btn primary" href="./resume.pdf" download="Resume.pdf">
-          Download the resume
-        </a>
-      </div>
-    </object>
+    <!-- <object type="application/pdf"> relies on a browser PDF "plugin" that most
+         mobile browsers don't implement, so it silently falls back on phones even
+         though the PDF is fine. An <iframe> triggers the browser's built-in PDF
+         viewer instead (the same one used for a direct link), which mobile Safari
+         and Chrome both support. The header's Download/Open raw buttons remain the
+         fallback for the rare browser that can't render it either way. -->
+    <iframe src="./resume.pdf" title="Ujjwal Kumar Rai's résumé"></iframe>
   </main>
 </body>
 
