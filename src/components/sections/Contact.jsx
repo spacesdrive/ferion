@@ -8,13 +8,14 @@ import { profile, socials } from '@/data/profile';
 
 const linkedin = socials.find((social) => social.id === 'linkedin');
 
-export function Contact() {
+// Contact follows Writing, which only renders when the blog has posts.
+export function Contact({ index = '06' }) {
   return (
     <Section id="contact">
       <Reveal className="inverse dot-paper relative overflow-hidden rounded-[24px] bg-background p-[clamp(1.75rem,5vw,4rem)] text-foreground">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
           <div className="flex flex-col gap-5">
-            <span className="label">06 / Contact</span>
+            <span className="label">{index} / Contact</span>
             <h2
               id="contact-heading"
               className="max-w-[14ch] text-[2.75rem] leading-[0.95] font-extrabold tracking-[-0.045em] text-balance sm:text-6xl lg:text-7xl"

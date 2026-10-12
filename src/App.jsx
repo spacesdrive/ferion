@@ -9,8 +9,11 @@ import { Experience } from '@/components/sections/Experience';
 import { Hackathons } from '@/components/sections/Hackathons';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
+import { useBlogPosts } from '@/hooks/useBlogPosts';
 
 export default function App() {
+  const posts = useBlogPosts();
+
   return (
     <MotionConfig reducedMotion="user">
       <a
@@ -27,12 +30,12 @@ export default function App() {
         <Experience />
         <Projects />
         <Hackathons />
-        <Blog />
-        <Contact />
+        <Blog posts={posts} />
+        <Contact index={posts.length > 0 ? '06' : '05'} />
       </main>
       <Footer />
 
-      <SiteDock />
+      <SiteDock showWriting={posts.length > 0} />
     </MotionConfig>
   );
 }

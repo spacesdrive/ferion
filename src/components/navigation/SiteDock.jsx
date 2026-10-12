@@ -23,8 +23,10 @@ const EXTERNAL = [
   { ...socials.find((social) => social.id === 'linkedin'), Icon: FaLinkedin },
 ];
 
-export function SiteDock() {
+// The Writing section only renders when the blog has posts, so its icon follows it.
+export function SiteDock({ showWriting }) {
   const active = useActiveSection(SECTION_IDS);
+  const sections = showWriting ? SECTIONS : SECTIONS.filter((section) => section.id !== 'blog');
   const { theme, toggleTheme } = useTheme();
   const playClick = useClickSound();
   const isDesktop = useMediaQuery('(min-width: 640px)');
@@ -33,7 +35,7 @@ export function SiteDock() {
     <div className="pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 flex justify-center px-3">
       <div className="pointer-events-auto rounded-full border-2 border-line bg-card p-1.5 shadow-[4px_4px_0_var(--line)] sm:p-2">
         <Dock label="Primary" baseSize={isDesktop ? 40 : 38} className="gap-1.5 sm:gap-2">
-          {SECTIONS.map(({ id, label, Icon, desktopOnly }) => (
+          {sections.map(({ id, label, Icon, desktopOnly }) => (
             <DockItem
               key={id}
               label={label}

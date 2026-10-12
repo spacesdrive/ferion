@@ -8,12 +8,13 @@
 - [Experience](/#experience): Aevrin (Aegis AI) and Runable.
 - [Projects](/#projects): modelWrecker, Luxe, KineTube, Twiligent.
 - [Hackathons](/#hackathons): Placements and mentions at Monad Blitz, LaunchPad, Campus Fund Hackathon and Auraverse 2.0.
-- [Writing](/#blog): Articles published on Medium.
+- [Writing](/#blog): The top four posts from https://blog.ujjwal.fyi, loaded live (shown once the blog has posts).
 - [Contact](/#contact): LinkedIn, résumé and every social profile.
 
 ## Elsewhere
 
 - Résumé: https://resume.tech.ujjwal.fyi
+- Blog: https://blog.ujjwal.fyi (RSS: https://blog.ujjwal.fyi/rss.xml)
 - Instagram: https://www.instagram.com/ujjwal.fyi
 - X: https://x.com/codewithujjwal
 - YouTube: https://www.youtube.com/@rec709.studio
