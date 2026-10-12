@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://tech.ujjwal.fyi/sitemap.xml
