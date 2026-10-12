@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found · Ujjwal Kumar Rai</title>
+    <!-- Cloudflare Pages serves this with a 404 status for any unknown path. -->
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#f5f4f0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon-dark.ico" sizes="any" media="(prefers-color-scheme: dark)" />
+    <style>
+      :root {
+        --background: #f5f4f0;
+        --foreground: #121212;
+        --card: #fffffc;
+        --muted: #5e5e5a;
+        --marker: #d9d8d3;
+        --line: #121212;
+        --dot: rgb(18 18 18 / 0.16);
+        color-scheme: light;
+      }
+      .dark {
+        --background: #121212;
+        --foreground: #f5f4f0;
+        --card: #1e1e1d;
+        --muted: #b5b4af;
+        --marker: #3a3a38;
+        --line: #f5f4f0;
+        --dot: rgb(245 244 240 / 0.1);
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      body {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 2rem 1rem;
+        background: var(--background) radial-gradient(var(--dot) 1.2px, transparent 1.3px) 0 0 / 28px 28px;
+        color: var(--foreground);
+        font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      main {
+        width: 100%;
+        max-width: 30rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        padding: clamp(1.75rem, 6vw, 2.75rem);
+        border: 2px solid var(--line);
+        border-radius: 24px;
+        background: var(--card);
+        box-shadow: 6px 6px 0 var(--line);
+        text-align: center;
+      }
+      img {
+        width: 7rem;
+        height: auto;
+        transform: rotate(-6deg);
+      }
+      .label {
+        font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      h1 {
+        font-size: clamp(2.25rem, 9vw, 3.25rem);
+        line-height: 0.95;
+        font-weight: 800;
+        letter-spacing: -0.045em;
+      }
+      .marker {
+        background: linear-gradient(transparent 58%, var(--marker) 58%, var(--marker) 92%, transparent 92%);
+      }
+      p {
+        max-width: 32ch;
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.65rem 1.4rem;
+        border: 2px solid var(--line);
+        border-radius: 999px;
+        background: var(--foreground);
+        color: var(--background);
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 3px 3px 0 var(--line);
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      a:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0 var(--line);
+      }
+      a:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--line);
+      }
+      a:focus-visible {
+        outline: 2px solid var(--foreground);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        a {
+          transition: none;
+        }
+      }
+    </style>
+    <script>
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.querySelector('meta[name="theme-color"]').content = '#121212';
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <main>
+      <img src="/icon-512.png" alt="" width="512" height="512" />
+      <span class="label">404 / Not found</span>
+      <h1>Nothing <span class="marker">here</span>.</h1>
+      <p>This page doesn't exist. Everything I've built is on the home page.</p>
+      <a href="/">Back to tech.ujjwal.fyi</a>
+    </main>
+  </body>
+</html>
