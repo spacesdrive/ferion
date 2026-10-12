@@ -1,0 +1,3 @@
+# Crawlers may fetch the page; its noindex meta tag keeps it out of search results.
+User-agent: *
+Allow: /

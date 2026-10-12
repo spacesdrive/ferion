@@ -8,7 +8,7 @@ There is no build step. `index.html`, `resume.pdf` and `assets/` (self-hosted br
 served as-is. Pushes to `main` that touch this folder redeploy automatically via
 `.github/workflows/deploy-resume.yml`.
 
-## Updating the résumé
+## Updating the resume
 
 Replace `resume.pdf` in this folder with the new file (keep the same filename) and redeploy.
 

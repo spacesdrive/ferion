@@ -42,7 +42,7 @@ export function Contact({ index = '06' }) {
                 className="ink-pill press px-5 py-2.5 text-[15px]"
               >
                 <FileText className="size-4" aria-hidden="true" />
-                Résumé
+                Resume
               </a>
             </div>
           </div>

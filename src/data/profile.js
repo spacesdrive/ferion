@@ -12,7 +12,7 @@ export const profile = {
   domain: 'tech.ujjwal.fyi',
   portrait,
   // Points at resume-viewer/ (deployed separately) rather than a bundled file,
-  // so the résumé opens in a PDF viewer with its own download button.
+  // so the resume opens in a PDF viewer with its own download button.
   resumeUrl: 'https://resume.tech.ujjwal.fyi',
 };
 
