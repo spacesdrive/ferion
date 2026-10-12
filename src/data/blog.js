@@ -1,7 +1,6 @@
 import mcpIsDeadCover from '../assets/blog-mcp-is-dead.webp';
 
 export const blog = {
-  profileUrl: 'https://medium.com/@ujjwal_kumar_rai',
   platform: 'Medium',
 };
 

@@ -3,22 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Ujjwal Kumar Rai</title>
+    <title>Ujjwal Kumar Rai · Building Innovative Solutions</title>
     <meta
       name="description"
-      content="Ujjwal Kumar Rai: co-founder of Aevrin. Projects, experience, hackathon results, and writing. Building, breaking, and learning across way too many domains."
+      content="Ujjwal Kumar Rai: backend developer, growth expert and market research analyst. Co-founder of Aevrin. Projects, experience, hackathon results and writing."
     />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfc" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#09090b" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f5f4f0" />
+    <link rel="canonical" href="https://tech.ujjwal.fyi/" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon-dark.ico" sizes="any" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tech.ujjwal.fyi/" />
+    <meta property="og:title" content="Ujjwal Kumar Rai · Building Innovative Solutions" />
+    <meta
+      property="og:description"
+      content="Backend developer, growth expert and market research analyst. Co-founder of Aevrin."
+    />
+    <meta property="og:image" content="https://tech.ujjwal.fyi/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@codewithujjwal" />
+
+    <!-- Paper is the brand's default ground, so dark mode only applies once chosen. -->
     <script>
       try {
-        const stored = localStorage.getItem('theme');
-        const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', dark);
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.querySelector('meta[name="theme-color"]').content = '#121212';
+        }
       } catch {}
     </script>
   </head>

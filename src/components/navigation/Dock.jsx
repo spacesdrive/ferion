@@ -90,17 +90,15 @@ export function DockItem({ label, href, onClick, active = false, className, chil
         onFocus={(event) => setLabelVisible(event.currentTarget.matches(':focus-visible'))}
         onBlur={() => setLabelVisible(false)}
         className={cn(
-          'relative grid shrink-0 place-items-center rounded-full border bg-background text-muted-foreground transition-colors hover:bg-muted hover:text-foreground',
-          active && 'text-foreground'
+          'relative grid shrink-0 place-items-center rounded-full border-2 transition-colors',
+          active
+            ? 'border-line bg-foreground text-background'
+            : 'border-transparent text-foreground hover:border-line hover:bg-background'
         )}
       >
         <motion.span style={{ width: iconSize, height: iconSize }} className="grid place-items-center [&>svg]:size-full">
           {children}
         </motion.span>
-
-        {active && (
-          <span aria-hidden="true" className="absolute -bottom-[7px] left-1/2 size-1 -translate-x-1/2 rounded-full bg-foreground" />
-        )}
 
         <AnimatePresence>
           {labelVisible && (
@@ -110,7 +108,7 @@ export function DockItem({ label, href, onClick, active = false, className, chil
               animate={{ opacity: 1, y: -6, x: '-50%' }}
               exit={{ opacity: 0, y: 2, x: '-50%' }}
               transition={{ duration: 0.15 }}
-              className="pointer-events-none absolute -top-8 left-1/2 rounded-md border bg-card px-2 py-0.5 text-xs whitespace-nowrap text-foreground shadow-sm"
+              className="pointer-events-none absolute -top-9 left-1/2 rounded-md bg-foreground px-2 py-1 font-mono text-[11px] tracking-[0.06em] whitespace-nowrap text-background uppercase"
             >
               {label}
             </motion.span>
@@ -124,7 +122,7 @@ export function DockItem({ label, href, onClick, active = false, className, chil
 export function DockSeparator({ className }) {
   return (
     <li aria-hidden="true" className={cn('flex self-stretch py-2', className)}>
-      <span className="w-px bg-border" />
+      <span className="w-0.5 rounded-full bg-rule" />
     </li>
   );
 }

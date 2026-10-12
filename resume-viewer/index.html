@@ -7,23 +7,40 @@
   <title>Ujjwal Kumar Rai</title>
   <meta name="description" content="resume of Ujjwal Kumar Rai, co-founder of Aevrin." />
   <meta name="robots" content="noindex" />
-  <link rel="icon" href="data:," />
+  <link rel="icon" href="./favicon.ico" sizes="any" />
+  <link rel="preload" href="./assets/bricolage.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    @font-face {
+      font-family: 'Bricolage Grotesque';
+      src: url('./assets/bricolage.woff2') format('woff2-variations');
+      font-weight: 200 800;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Geist Mono';
+      src: url('./assets/geist-mono.woff2') format('woff2-variations');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    /* Ujjwal brand kit v2.0: ink on warm paper, no hues. */
     :root {
       color-scheme: light dark;
-      --bg: #fcfcfc;
-      --fg: #18181b;
-      --muted: #6b7280;
-      --border: #e4e4e7;
-      --bar-h: 3.5rem;
+      --paper: #f5f4f0;
+      --ink: #121212;
+      --snow: #fffffc;
+      --label: #5e5e5a;
+      --dot: rgb(18 18 18 / 0.16);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0a0a0b;
-        --fg: #f4f4f5;
-        --muted: #a1a1aa;
-        --border: #27272a;
+        --paper: #121212;
+        --ink: #f5f4f0;
+        --snow: #1e1e1d;
+        --label: #b5b4af;
+        --dot: rgb(245 244 240 / 0.1);
       }
     }
 
@@ -40,10 +57,10 @@
     body {
       display: flex;
       flex-direction: column;
-      font-family:
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
     }
 
     header {
@@ -52,63 +69,115 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      height: var(--bar-h);
-      padding: 0 max(1rem, env(safe-area-inset-right)) 0 max(1rem, env(safe-area-inset-left));
-      border-bottom: 1px solid var(--border);
+      padding: 0.875rem max(1rem, env(safe-area-inset-right)) 0.875rem max(1rem, env(safe-area-inset-left));
+      border-bottom: 2px solid var(--ink);
+      background-image: radial-gradient(var(--dot) 1.3px, transparent 1.7px);
+      background-size: 20px 20px;
     }
 
-    .title {
-      margin: 0;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      line-height: 1.3;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
+      color: inherit;
+      text-decoration: none;
     }
 
-    .title small {
-      display: block;
+    .lockup img {
+      height: 2.25rem;
+      width: auto;
+    }
+
+    .mark-paper {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .mark-ink {
+        display: none;
+      }
+
+      .mark-paper {
+        display: block;
+      }
+    }
+
+    .wordmark {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .label {
+      font-family: 'Geist Mono', ui-monospace, monospace;
       font-size: 0.75rem;
-      font-weight: 400;
-      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--label);
     }
 
     .actions {
       display: flex;
       flex: none;
-      gap: 0.5rem;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    a.btn {
+    /* Ink pill: 2px border with a hard offset shadow. */
+    a.pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
       height: 2.25rem;
-      padding: 0 0.9rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--fg);
+      padding: 0 1rem;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--snow);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
       text-decoration: none;
       white-space: nowrap;
-      transition: background-color 0.15s ease;
+      transition: translate 150ms ease, box-shadow 150ms ease;
     }
 
-    a.btn:hover {
-      background: color-mix(in oklab, var(--fg) 8%, transparent);
+    a.pill:hover {
+      translate: -2px -2px;
+      box-shadow: 5px 5px 0 var(--ink);
     }
 
-    a.btn.primary {
-      background: var(--fg);
-      border-color: var(--fg);
-      color: var(--bg);
+    a.pill:active {
+      translate: 1px 1px;
+      box-shadow: 1px 1px 0 var(--ink);
     }
 
-    a.btn.primary:hover {
-      opacity: 0.85;
-      background: var(--fg);
+    a.pill.solid {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      a.pill {
+        transition: none;
+      }
+
+      a.pill:hover,
+      a.pill:active {
+        translate: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .header-label {
+        display: none;
+      }
     }
 
     main {
@@ -128,13 +197,15 @@
 
 <body>
   <header>
-    <p class="title">
-      Ujjwal Kumar Rai
-      <small>resume</small>
-    </p>
+    <a class="lockup" href="https://tech.ujjwal.fyi/" aria-label="Ujjwal Kumar Rai, portfolio">
+      <img class="mark-ink" src="./assets/mark-ink.webp" alt="" width="640" height="653" />
+      <img class="mark-paper" src="./assets/mark-paper.webp" alt="" width="640" height="653" />
+      <span class="wordmark">ujjwal</span>
+    </a>
     <div class="actions">
-      <a class="btn" href="./resume.pdf" target="_blank" rel="noopener">Open raw</a>
-      <a class="btn primary" href="./resume.pdf" download="Resume.pdf">Download</a>
+      <span class="label header-label">Résumé</span>
+      <a class="pill" href="./resume.pdf" target="_blank" rel="noopener">Open raw</a>
+      <a class="pill solid" href="./resume.pdf" download="Resume.pdf">Download</a>
     </div>
   </header>
 

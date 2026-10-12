@@ -31,7 +31,7 @@ export function SiteDock() {
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 flex justify-center px-3">
-      <div className="pointer-events-auto rounded-full border bg-card/80 p-1.5 shadow-lg shadow-foreground/5 backdrop-blur-xl sm:p-2">
+      <div className="pointer-events-auto rounded-full border-2 border-line bg-card p-1.5 shadow-[4px_4px_0_var(--line)] sm:p-2">
         <Dock label="Primary" baseSize={isDesktop ? 40 : 38} className="gap-1.5 sm:gap-2">
           {SECTIONS.map(({ id, label, Icon, desktopOnly }) => (
             <DockItem
@@ -42,7 +42,7 @@ export function SiteDock() {
               onClick={playClick}
               className={desktopOnly ? 'max-sm:hidden' : undefined}
             >
-              <Icon strokeWidth={1.75} aria-hidden="true" />
+              <Icon strokeWidth={2} aria-hidden="true" />
             </DockItem>
           ))}
 
@@ -63,11 +63,7 @@ export function SiteDock() {
               toggleTheme();
             }}
           >
-            {theme === 'dark' ? (
-              <Sun strokeWidth={1.75} aria-hidden="true" />
-            ) : (
-              <Moon strokeWidth={1.75} aria-hidden="true" />
-            )}
+            {theme === 'dark' ? <Sun strokeWidth={2} aria-hidden="true" /> : <Moon strokeWidth={2} aria-hidden="true" />}
           </DockItem>
         </Dock>
       </div>

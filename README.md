@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="public/favicon.png" alt="ferion logo" width="160" />
+  <img src="public/icon-512.png" alt="ujjwal mark" width="140" />
 </p>
 
 <h1 align="center">ferion</h1>
 
 <p align="center">
-  The personal portfolio of Ujjwal Kumar Rai: projects, experience, hackathon results, and writing.
+  The personal portfolio of Ujjwal Kumar Rai at <code>tech.ujjwal.fyi</code>: projects, experience, hackathon results and writing.
 </p>
 
 <p align="center">
@@ -31,8 +31,10 @@ ferion is a single-page React app that builds to static HTML, CSS, and JavaScrip
 
 | Feature | Details |
 |---|---|
-| macOS-style dock | Bottom navigation with spring-based magnification, tooltips on hover and keyboard focus, and an active-section indicator. Magnification only follows a mouse; touch devices get a compact dock sized for 320px screens that sits clear of the iOS home indicator. |
-| Light and dark themes | Follows the system preference until toggled, then persists in `localStorage`. An inline script in `index.html` applies the theme before first paint, so there is no flash. |
+| Brand system | Built on the Ujjwal brand kit v2.0: ink on warm paper with no hues, dot-paper ground, Snow cards with a 2px ink border and hard offset shadow, numbered mono section labels and one marker-highlighted word per headline. Type is Bricolage Grotesque, Gochi Hand for handwritten notes, and Geist Mono for labels and domains. |
+| Imagery | The hand-inked doodle mark leads; real photos (the portrait and hackathon shots) are always shown as taped, tilted polaroids. Every photo and logo renders in grayscale. |
+| macOS-style dock | Bottom navigation with spring-based magnification, tooltips on hover and keyboard focus, and the active section filled in ink. Magnification only follows a mouse; touch devices get a compact dock sized for 320px screens that sits clear of the iOS home indicator. |
+| Paper and ink themes | Paper is the default, as the brand specifies. The dock toggles to ink, and the choice persists in `localStorage`. An inline script in `index.html` applies it before first paint, so there is no flash. The Contact block is an `.inverse` surface that always takes the opposite theme. |
 | Sections | Hero, About, Experience, Projects, Hackathons, Writing, and Contact. |
 | Hackathon photo viewer | Built on the native `<dialog>` element: focus moves into the viewer, Escape closes it, focus returns to the photo you opened, and the page stops scrolling underneath. |
 | Motion | Sections fade in as they scroll into view. `MotionConfig reducedMotion="user"` turns off movement for visitors who prefer reduced motion, and CSS smooth scrolling is limited to the same group. |
@@ -46,7 +48,7 @@ ferion is a single-page React app that builds to static HTML, CSS, and JavaScrip
 | [Vite 8](https://vitejs.dev) | Dev server and bundler |
 | [Tailwind CSS v4](https://tailwindcss.com) | Styling, with design tokens defined in CSS (`src/index.css`) |
 | [Motion](https://motion.dev) | Dock physics, scroll reveals, lightbox transition |
-| [Geist and Geist Mono](https://vercel.com/font) | Self-hosted variable fonts via Fontsource |
+| [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque), [Gochi Hand](https://fonts.google.com/specimen/Gochi+Hand), [Geist Mono](https://vercel.com/font) | Brand fonts, self-hosted via Fontsource |
 | [lucide-react](https://lucide.dev) and [react-icons](https://react-icons.github.io/react-icons) | Interface icons and brand icons |
 
 ## Getting Started
@@ -67,31 +69,35 @@ npm run lint      # ESLint 10
 
 ```
 src/
-├── assets/                 # hackathon photos, blog cover, resume PDF
+├── assets/
+│   ├── brand/              # doodle mark (ink, paper, sticker) and portrait, from the brand kit
+│   └── hackathons/         # event photos
 ├── components/
 │   ├── achievements/       # HackathonItem, PhotoLightbox
 │   ├── blog/               # BlogCard
+│   ├── brand/              # Mark (theme-aware), Polaroid
 │   ├── experience/         # ExperienceItem
-│   ├── layout/             # Section primitives (Section, SectionLabel, FeatureHeading, HatchBand), Footer
+│   ├── layout/             # Container, Section, SectionHeading, Header, Footer
 │   ├── navigation/         # Dock primitives and SiteDock (the configured site dock)
 │   ├── projects/           # ProjectCard
 │   ├── sections/           # one component per page section
-│   └── ui/                 # Badge, Reveal, SocialIcon
+│   └── ui/                 # Reveal, SocialIcon
 ├── data/                   # all content: profile, experience, projects, hackathons, blog
 ├── hooks/                  # useActiveSection, useClickSound, useMediaQuery, useTheme
 ├── lib/                    # cn() class helper, date formatting, click sound data
 ├── App.jsx                 # page composition
 ├── main.jsx                # React entry, font imports
-└── index.css               # Tailwind import, theme tokens, base styles
+└── index.css               # brand tokens, paper and ink themes, ink-card, ink-pill, marker, note
+resume-viewer/              # standalone page deployed to resume.tech.ujjwal.fyi (see its README)
 ```
 
 ## Editing Content
 
 | What | Where |
 |---|---|
-| Name, role, tagline, avatar, resume, About text, social links | `src/data/profile.js` |
+| Name, tagline, roles, intro, portrait, resume link, About text, social links and handles | `src/data/profile.js` |
 | Work experience (use `end: null` for a current role) | `src/data/experience.js` |
-| Projects, tech tags, and links (`source`, `live`, `releases`) | `src/data/projects.js` |
+| Projects and links (`source`, `live`, `releases`) | `src/data/projects.js` |
 | Hackathon results and photos | `src/data/hackathons.js` |
 | Blog posts (`readingTime` is optional) | `src/data/blog.js` |
 | Dock items | `SECTIONS` in `src/components/navigation/SiteDock.jsx` |
@@ -133,4 +139,4 @@ Copyright (c) 2026 Ujjwal Kumar Rai.
 ## Contact
 
 - Bug reports and feature requests: [open a GitHub issue](https://github.com/spacesdrive/ferion/issues).
-- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/).
+- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/), [X](https://x.com/codewithujjwal), [Instagram](https://www.instagram.com/ujjwal.fyi) or [YouTube](https://www.youtube.com/@rec709.studio).

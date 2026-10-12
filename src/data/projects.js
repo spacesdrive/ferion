@@ -1,20 +1,20 @@
 export const projects = [
   {
+    title: 'modelWrecker',
+    category: 'AI Security',
+    logo: 'https://vyra.aevrin.ai/apple-touch-icon.png',
+    links: [
+      { type: 'source', href: 'https://github.com/Aevrin-ai/modelWrecker' },
+      { type: 'live', href: 'https://vyra.aevrin.ai/' },
+    ],
+  },
+  {
     title: 'Luxe',
     category: 'AI',
     logo: 'https://raw.githubusercontent.com/spacesdrive/luxe/main/frontend/public/favicon.jpg',
     links: [
       { type: 'source', href: 'https://github.com/spacesdrive/luxe' },
       { type: 'live', href: 'https://luxe.spacesdrive.cc' },
-    ],
-  },
-  {
-    title: 'ShadyShard',
-    category: 'Web Tools',
-    logo: 'https://raw.githubusercontent.com/spacesdrive/shadyshard/main/public/apple-touch-icon.png',
-    links: [
-      { type: 'source', href: 'https://github.com/spacesdrive/shadyshard' },
-      { type: 'live', href: 'https://shadyshard.spacesdrive.cc' },
     ],
   },
   {

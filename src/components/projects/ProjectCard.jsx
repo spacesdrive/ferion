@@ -1,4 +1,4 @@
-import { ArrowUpRight, Download, Globe } from 'lucide-react';
+import { Download, Globe } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 
 const LINK_META = {
@@ -9,28 +9,26 @@ const LINK_META = {
 
 export function ProjectCard({ project }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border bg-card transition-[border-color,box-shadow,translate] duration-300 hover:-translate-y-0.5 hover:border-foreground/20 hover:shadow-lg hover:shadow-foreground/5 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-      <div className="dot-grid relative flex h-28 items-center justify-center border-b bg-muted/40">
-        <span className="absolute top-3 left-3 rounded-md border bg-background/80 px-1.5 py-0.5 font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
-          {project.category}
-        </span>
-        <div className="grid size-14 place-items-center overflow-hidden rounded-2xl border bg-white p-2 shadow-sm transition-transform duration-300 group-hover:scale-105 motion-reduce:group-hover:scale-100">
+    <article className="ink-card group flex h-full flex-col overflow-hidden">
+      <div className="dot-paper relative flex h-40 items-center justify-center border-b-2 border-line bg-background">
+        <span className="label absolute top-3.5 left-4">{project.category}</span>
+        <div className="grid size-[4.5rem] -rotate-3 place-items-center overflow-hidden rounded-2xl border-2 border-line bg-[#fffffc] p-2.5 shadow-[3px_3px_0_var(--line)] transition-transform duration-300 group-hover:rotate-0 motion-reduce:transition-none">
           <img
             src={project.logo}
             alt=""
-            width="40"
-            height="40"
+            width="48"
+            height="48"
             loading="lazy"
             decoding="async"
-            className="size-full object-contain"
+            className="mono-img size-full object-contain"
           />
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-lg leading-tight font-semibold tracking-tight">{project.title}</h3>
+      <div className="flex flex-1 flex-col gap-5 p-5 lg:px-4">
+        <h3 className="text-2xl leading-tight font-extrabold tracking-[-0.03em]">{project.title}</h3>
 
-        <div className="mt-auto flex flex-wrap gap-2 pt-5">
+        <div className="mt-auto flex flex-wrap gap-2">
           {project.links.map(({ type, href }) => {
             const { label, Icon } = LINK_META[type];
             return (
@@ -40,11 +38,10 @@ export function ProjectCard({ project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.title} ${label.toLowerCase()}`}
-                className="inline-flex h-7 items-center gap-1.5 rounded-full border bg-background px-2.5 text-xs font-medium transition-colors hover:bg-foreground hover:text-background"
+                className="ink-pill press gap-1 px-2.5 py-1 text-[13px]"
               >
                 <Icon className="size-3.5" aria-hidden="true" />
                 {label}
-                <ArrowUpRight className="size-3 opacity-60" aria-hidden="true" />
               </a>
             );
           })}

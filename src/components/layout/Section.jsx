@@ -1,50 +1,32 @@
 import { Reveal } from '@/components/ui/Reveal';
 import { cn } from '@/lib/utils';
 
+export function Container({ className, children }) {
+  return <div className={cn('mx-auto w-full max-w-[1120px] px-5 sm:px-8 lg:px-10', className)}>{children}</div>;
+}
+
 export function Section({ id, className, children }) {
   return (
-    <section
-      id={id}
-      aria-labelledby={`${id}-heading`}
-      className={cn('scroll-mt-6 px-5 py-12 sm:px-8 sm:py-14', className)}
-    >
-      {children}
+    <section id={id} aria-labelledby={`${id}-heading`} className="scroll-mt-4 border-t-2 border-line">
+      <Container className={cn('py-[clamp(3.5rem,8vw,7rem)]', className)}>{children}</Container>
     </section>
   );
 }
 
-export function SectionLabel({ id, children }) {
+// Headlines carry exactly one marker word, passed in as children.
+export function SectionHeading({ id, index, label, intro, children }) {
   return (
-    <Reveal>
-      <h2
-        id={`${id}-heading`}
-        className="mb-6 font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase"
-      >
-        {children}
-      </h2>
-    </Reveal>
-  );
-}
-
-export function FeatureHeading({ id, eyebrow, title, children }) {
-  return (
-    <Reveal className="mb-10 flex flex-col items-center text-center">
-      <span className="rounded-full border bg-foreground px-3 py-1 font-mono text-[11px] tracking-widest text-background uppercase">
-        {eyebrow}
+    <Reveal className="mb-10 flex flex-col gap-4 sm:mb-14">
+      <span className="label">
+        {index} / {label}
       </span>
       <h2
         id={`${id}-heading`}
-        className="mt-4 text-3xl font-semibold tracking-tighter text-balance sm:text-4xl"
+        className="max-w-[20ch] text-[2.5rem] leading-[0.95] font-extrabold tracking-[-0.045em] text-balance sm:text-5xl lg:text-[4rem]"
       >
-        {title}
-      </h2>
-      <p className="mt-3 max-w-md text-[15px] leading-relaxed text-balance text-muted-foreground sm:text-base">
         {children}
-      </p>
+      </h2>
+      {intro && <p className="max-w-[60ch] text-lg leading-relaxed text-pretty text-body">{intro}</p>}
     </Reveal>
   );
-}
-
-export function HatchBand({ className }) {
-  return <div aria-hidden="true" className={cn('hatch h-8 border-y', className)} />;
 }

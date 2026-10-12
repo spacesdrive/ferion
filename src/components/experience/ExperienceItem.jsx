@@ -1,64 +1,68 @@
-import { ArrowUpRight } from 'lucide-react';
 import { formatDuration, formatMonth } from '@/lib/utils';
 
 export function ExperienceItem({ item }) {
   const isCurrent = item.end === null;
 
   return (
-    <article className="group grid grid-cols-[auto_1fr] gap-x-4">
-      <div className="grid size-11 place-items-center overflow-hidden rounded-xl border bg-white p-1.5 shadow-xs">
-        <img
-          src={item.logo}
-          alt=""
-          width="32"
-          height="32"
-          loading="lazy"
-          decoding="async"
-          className="size-full rounded-md object-contain"
-        />
-      </div>
+    <article className="ink-card grid gap-6 p-6 sm:p-8 lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-10">
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center justify-between gap-3">
+          <div className="grid size-14 place-items-center overflow-hidden rounded-2xl border-2 border-line bg-[#fffffc] p-2">
+            <img
+              src={item.logo}
+              alt=""
+              width="40"
+              height="40"
+              loading="lazy"
+              decoding="async"
+              className="mono-img size-full rounded-md object-contain"
+            />
+          </div>
+          {isCurrent && (
+            <span className="ink-pill px-2.5 py-1 font-mono text-[11px] font-medium tracking-[0.08em] uppercase">
+              <span className="relative flex size-1.5" aria-hidden="true">
+                <span className="absolute inset-0 animate-ping rounded-full bg-foreground opacity-50 motion-reduce:animate-none" />
+                <span className="relative size-1.5 rounded-full bg-foreground" />
+              </span>
+              Now
+            </span>
+          )}
+        </div>
 
-      <div className="min-w-0">
-        <div className="flex flex-col gap-x-4 gap-y-1 sm:flex-row sm:items-start sm:justify-between">
-          <h3 className="text-base leading-tight font-semibold">
+        <div>
+          <h3 className="text-2xl leading-tight font-extrabold tracking-[-0.03em]">
             <a
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 decoration-muted-foreground/40 underline-offset-4 hover:underline"
+              className="decoration-2 underline-offset-4 hover:underline"
             >
               {item.company}
-              <ArrowUpRight
-                className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                aria-hidden="true"
-              />
             </a>
           </h3>
-          <div className="flex shrink-0 flex-col gap-0.5 sm:items-end">
-            <p className="flex items-center gap-2 font-mono text-xs text-muted-foreground tabular-nums">
-              {isCurrent && (
-                <span className="relative flex size-1.5" aria-hidden="true">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
-                  <span className="relative size-1.5 rounded-full bg-accent" />
-                </span>
-              )}
-              <time dateTime={item.start}>{formatMonth(item.start)}</time>
-              <span aria-hidden="true">—</span>
-              {isCurrent ? 'Present' : <time dateTime={item.end}>{formatMonth(item.end)}</time>}
-            </p>
-            <p className="font-mono text-[11px] text-muted-foreground/70">
-              {formatDuration(item.start, item.end)}
-            </p>
-          </div>
+          <p className="mt-1 text-base text-body">{item.role}</p>
         </div>
-        <p className="mt-1 text-sm text-muted-foreground">{item.role}</p>
+
+        <dl className="flex flex-col gap-1 font-mono text-xs tracking-[0.06em] uppercase">
+          <div>
+            <dt className="sr-only">Period</dt>
+            <dd>
+              <time dateTime={item.start}>{formatMonth(item.start)}</time> to{' '}
+              {isCurrent ? 'Present' : <time dateTime={item.end}>{formatMonth(item.end)}</time>}
+            </dd>
+          </div>
+          <div>
+            <dt className="sr-only">Duration</dt>
+            <dd className="text-muted-foreground">{formatDuration(item.start, item.end)}</dd>
+          </div>
+        </dl>
       </div>
 
-      <ul className="col-span-2 mt-4 space-y-1.5 sm:col-span-1 sm:col-start-2 sm:mt-3">
+      <ul className="flex flex-col gap-3 border-t border-rule pt-6 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
         {item.highlights.map((point) => (
           <li
             key={point}
-            className="relative pl-4 text-sm leading-relaxed text-pretty text-muted-foreground before:absolute before:top-[0.6em] before:left-0 before:size-1 before:rounded-full before:bg-muted-foreground/50"
+            className="relative pl-5 text-[16px] leading-[1.65] text-pretty text-body before:absolute before:top-[0.62em] before:left-0 before:size-[7px] before:rounded-full before:bg-foreground"
           >
             {point}
           </li>

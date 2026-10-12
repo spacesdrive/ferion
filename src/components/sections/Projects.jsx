@@ -1,4 +1,4 @@
-import { FeatureHeading, Section } from '@/components/layout/Section';
+import { Section, SectionHeading } from '@/components/layout/Section';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { Reveal } from '@/components/ui/Reveal';
 import { projects } from '@/data/projects';
@@ -6,14 +6,18 @@ import { projects } from '@/data/projects';
 export function Projects() {
   return (
     <Section id="projects">
-      <FeatureHeading id="projects" eyebrow="Projects" title="Things I've built">
-        AI commerce, client side dev tools, an offline desktop downloader, and a self-hosted analytics
-        dashboard.
-      </FeatureHeading>
+      <SectionHeading
+        id="projects"
+        index="03"
+        label="Projects"
+        intro="AI red teaming, AI commerce, an offline desktop downloader and a self-hosted analytics dashboard."
+      >
+        Things I&apos;ve <span className="marker">built</span>.
+      </SectionHeading>
 
-      <div className="grid gap-3 sm:auto-rows-fr sm:grid-cols-2">
+      <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
         {projects.map((project, index) => (
-          <Reveal key={project.title} delay={0.05 * (index % 2)} className="h-full">
+          <Reveal key={project.title} delay={0.05 * (index % 4)} className="h-full">
             <ProjectCard project={project} />
           </Reveal>
         ))}

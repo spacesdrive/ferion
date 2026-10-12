@@ -4,8 +4,8 @@ export const experience = [
     role: 'Co-Founder',
     start: '2026-02',
     end: null,
-    url: 'https://aevrin.net/',
-    logo: 'https://aevrin.net/apple-touch-icon.png',
+    url: 'https://aevrin.ai/',
+    logo: 'https://aevrin.ai/apple-touch-icon.png',
     highlights: [
       'Co-built an AI security platform (product name: Aegis AI) that audits chatbots for prompt injection, jailbreaks, sensitive data leakage, policy failures, and harmful outputs',
       'Own backend infrastructure end to end: API design, database architecture, and production deployment',

@@ -1,15 +1,26 @@
 # Ujjwal Kumar Rai
 
-> Personal portfolio of Ujjwal Kumar Rai, co-founder of Aevrin: projects, work experience, hackathon results, and writing.
+> Personal portfolio of Ujjwal Kumar Rai (ujjwal): backend developer, growth expert and market research analyst. Co-founder of Aevrin. Building Innovative Solutions.
 
 ## Sections
 
 - [About](/#about): Background and how I think about building things.
 - [Experience](/#experience): Aevrin (Aegis AI) and Runable.
-- [Projects](/#projects): Luxe, ShadyShard, KineTube, Twiligent.
-- [Hackathons](/#hackathons): Placements and mentions at Monad Blitz, LaunchPad, Campus Fund Hackathon, and Auraverse 2.0.
+- [Projects](/#projects): modelWrecker, Luxe, KineTube, Twiligent.
+- [Hackathons](/#hackathons): Placements and mentions at Monad Blitz, LaunchPad, Campus Fund Hackathon and Auraverse 2.0.
 - [Writing](/#blog): Articles published on Medium.
-- [Contact](/#contact): LinkedIn and resume.
+- [Contact](/#contact): LinkedIn, résumé and every social profile.
+
+## Elsewhere
+
+- Résumé: https://resume.tech.ujjwal.fyi
+- Instagram: https://www.instagram.com/ujjwal.fyi
+- X: https://x.com/codewithujjwal
+- YouTube: https://www.youtube.com/@rec709.studio
+- GitHub: https://github.com/spacesdrive
+- LinkedIn: https://www.linkedin.com/in/u-k-r/
+- Reddit: https://www.reddit.com/user/codewithujjwal/
+- Medium: https://medium.com/@ujjwal_kumar_rai
 
 ## Notes
 

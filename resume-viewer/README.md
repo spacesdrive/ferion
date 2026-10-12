@@ -4,7 +4,9 @@ A minimal, dependency-free static page that displays `resume.pdf` inline with a 
 button. It is deployed separately from the main portfolio, at `resume.tech.ujjwal.fyi`, and
 is what the portfolio's "Download CV" / "Resume" buttons link to.
 
-There is no build step — `index.html` and `resume.pdf` are served as-is.
+There is no build step. `index.html`, `resume.pdf` and `assets/` (self-hosted brand fonts and mark) are
+served as-is. Pushes to `main` that touch this folder redeploy automatically via
+`.github/workflows/deploy-resume.yml`.
 
 ## Updating the résumé
 

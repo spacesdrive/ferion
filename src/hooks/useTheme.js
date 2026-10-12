@@ -16,6 +16,7 @@ export function useTheme() {
   const toggleTheme = useCallback(() => {
     const next = getSnapshot() === 'dark' ? 'light' : 'dark';
     document.documentElement.classList.toggle('dark', next === 'dark');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#121212' : '#f5f4f0');
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
