@@ -30,6 +30,37 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@codewithujjwal" />
 
+    <!-- One Person entity, shared by @id with blog.ujjwal.fyi, so search engines and AI tools
+         can tell this Ujjwal Kumar Rai apart from others with the same name. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://tech.ujjwal.fyi/",
+        "mainEntity": {
+          "@type": "Person",
+          "@id": "https://tech.ujjwal.fyi/#person",
+          "name": "Ujjwal Kumar Rai",
+          "url": "https://tech.ujjwal.fyi",
+          "image": "https://tech.ujjwal.fyi/icon-512.png",
+          "jobTitle": "Co-founder",
+          "description": "Backend developer, growth expert and market research analyst. Co-founder of Aevrin.",
+          "worksFor": { "@type": "Organization", "name": "Aevrin", "url": "https://aevrin.ai" },
+          "knowsAbout": ["Backend development", "AI security", "Claude Code", "Growth"],
+          "sameAs": [
+            "https://blog.ujjwal.fyi/",
+            "https://www.instagram.com/ujjwal.fyi",
+            "https://x.com/codewithujjwal",
+            "https://www.youtube.com/@rec709.studio",
+            "https://github.com/spacesdrive",
+            "https://www.linkedin.com/in/u-k-r/",
+            "https://www.reddit.com/user/codewithujjwal/",
+            "https://medium.com/@ujjwal_kumar_rai"
+          ]
+        }
+      }
+    </script>
+
     <!-- Paper is the brand's default ground, so dark mode only applies once chosen. -->
     <script>
       try {
