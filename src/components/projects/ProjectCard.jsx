@@ -1,10 +1,9 @@
-import { Download, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 
 const LINK_META = {
   source: { label: 'Source', Icon: FaGithub },
   live: { label: 'Live', Icon: Globe },
-  releases: { label: 'Releases', Icon: Download },
 };
 
 export function ProjectCard({ project }) {

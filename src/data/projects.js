@@ -23,7 +23,7 @@ export const projects = [
     logo: 'https://raw.githubusercontent.com/spacesdrive/kinetube/main/frontend/public/favicon.png',
     links: [
       { type: 'source', href: 'https://github.com/spacesdrive/kinetube' },
-      { type: 'releases', href: 'https://github.com/spacesdrive/kinetube/releases' },
+      { type: 'live', href: 'https://kinetube.ujjwal.fyi' },
     ],
   },
   {
