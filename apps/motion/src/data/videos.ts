@@ -1,37 +1,34 @@
 import type { Video } from '@/types/content';
 
-// placeholder clips rendered for this site; replace them with real edits in public/videos (see the README)
-const SAMPLE_DIR = '/videos/samples';
-
-function sample(
+// each file and its poster live in public/videos; the clips were re-encoded for the web from the originals
+function video(
   slug: string,
   title: string,
   aspect: Video['aspect'],
   software: Video['software'],
-  platform: string,
+  format: string,
 ): Video {
-  return {
-    slug,
-    title,
-    aspect,
-    software,
-    platform,
-    src: `${SAMPLE_DIR}/${slug}.mp4`,
-    poster: `${SAMPLE_DIR}/${slug}.webp`,
-    isSample: true,
-  };
+  return { slug, title, aspect, software, format, src: `/videos/${slug}.mp4`, poster: `/videos/${slug}.webp` };
 }
 
 // newest first: the home page shows the first four 9:16 and two 16:9 clips, the work page shows them all
 const videos: Video[] = [
-  sample('kinetic-type', 'Kinetic type', '9:16', ['after-effects', 'cavalry'], 'Reels'),
-  sample('logo-reveal', 'Logo reveal', '16:9', ['after-effects'], 'YouTube'),
-  sample('product-teaser', 'Product teaser', '9:16', ['cavalry'], 'TikTok'),
-  sample('reel-edit', 'Reel edit', '9:16', ['davinci-resolve', 'after-effects'], 'Reels'),
-  sample('youtube-edit', 'YouTube edit', '16:9', ['davinci-resolve'], 'YouTube'),
-  sample('color-pass', 'Color pass', '9:16', ['davinci-resolve'], 'Shorts'),
-  sample('storyboard-animatic', 'Storyboard animatic', '16:9', ['claude-design', 'after-effects'], 'Website'),
-  sample('explainer-loop', 'Explainer loop', '16:9', ['cavalry', 'claude-design'], 'Website'),
+  video('kalit-launch-film', 'Kalit launch film, rebuilt in code', '16:9', ['claude-design'], 'Rebuild'),
+  video('showreel-rebuild', 'Showreel, rebuilt in code', '16:9', ['claude-design'], 'Rebuild'),
+  video('mirofish-explainer', 'MiroFish explainer', '16:9', ['claude-design'], 'Explainer'),
+  video('find-skills', 'Find Skills', '9:16', ['claude-design'], 'Reel'),
+  video('linkedin-growth', 'LinkedIn growth on autopilot', '16:9', ['claude-design'], 'Promo'),
+  video('varq-launch-film', 'Varq launch film', '16:9', ['claude-design'], 'Launch film'),
+  video('aevrin-launch-film', 'Aevrin launch film', '16:9', ['claude-design'], 'Launch film'),
+  video('twiligent-launch', 'Twiligent launch', '16:9', ['claude-design'], 'Launch film'),
+  video('vyra-launch', 'Vyra launch', '16:9', ['claude-design'], 'Launch film'),
+  video('varq-launch', 'Varq launch', '16:9', ['claude-design'], 'Launch film'),
+  video('aevrin-launch-motion', 'Aevrin launch motion graphics', '16:9', ['davinci-resolve'], 'Launch film'),
+  video('aevrin-logo-shine', 'Aevrin logo shine', '9:16', [], 'Logo animation'),
+  video('meta-cognition-launch', 'Meta Cognition launch', '16:9', ['davinci-resolve'], 'Launch film'),
+  video('scroll-animation-reel', 'How to make a $5,000 scroll animation', '9:16', ['davinci-resolve'], 'Reel'),
+  video('desktop-cat-reel', 'A pixel cat on your desktop', '9:16', ['davinci-resolve'], 'Reel'),
+  video('aegis-ai-launch', 'Aegis AI launch', '16:9', ['davinci-resolve'], 'Launch film'),
 ];
 
 export default videos;

@@ -42,27 +42,33 @@ The site opens in light mode. The sun and moon button in the navbar switches the
 mode swaps the `paper`, `ink`, `muted`, `card` and `line` colors in `src/index.css`. Text on the bright accents and on
 video uses `night` and `snow`, which stay the same in both themes.
 
+## Adding videos
+
+1. Put the MP4 in `public/videos/` with a `.webp` poster of the same name next to it. Encode it as H.264 with AAC
+   audio and `-movflags +faststart`, so it starts playing before it finishes downloading. Keep each file under 25 MB,
+   because Cloudflare Pages won't serve anything bigger. A longer film can go on R2 or YouTube; `src` takes any https
+   URL.
+2. Add an entry at the top of `src/data/videos.ts` with its `aspect` (`'9:16'` or `'16:9'`), the `software` it was made
+   with and its `format` (Reel, Launch film, Explainer). Leave `software` empty if you don't know it yet; the video then
+   only shows under Everything.
+
+The current clips came from the Social Media library and the ai-resolve templates. The same film often sits in both
+places, so each one is listed once.
+
 ## Replacing the sample content
 
-Everything marked `isSample: true` shows a lime **Sample** badge on the page. Replace it like this:
+The plugins and case studies are still samples, marked `isSample: true` with a lime **Sample** badge.
 
-1. **Videos.** Put each file in `public/videos/` (MP4, H.264, `-movflags +faststart` so it starts playing before it
-   finishes downloading) with a poster image next to it. Add an entry to `src/data/videos.ts` with its `aspect`
-   (`'9:16'` or `'16:9'`), the `software` it was made with and `isSample: false`. Files bigger than about 25 MB should go
-   to R2 or YouTube instead of the repo; `src` can be any https URL.
-2. **Plugins.** Edit `src/data/plugins.ts`: title, description, host app, steps (each step's `toolCategory` picks its
+1. **Plugins.** Edit `src/data/plugins.ts`: title, description, host app, steps (each step's `toolCategory` picks its
    icon from `pluginCategories.ts`), real download count and `downloadUrl`. Without a `downloadUrl` the button reads
    Coming soon and can't be pressed.
    - For a file up to 25 MB, put it in `public/plugins/` (for example `public/plugins/auto-subtitles.zip`) and set
      `downloadUrl: '/plugins/auto-subtitles.zip'`. The button then saves the file straight away.
    - Cloudflare Pages won't serve a bigger file, so upload it to a GitHub release or R2 and use that https link. It
      opens in a new tab, since browsers only start a direct download for files on the same site.
-3. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche.
-4. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
-   `vite.config.ts` and the sample notes in the Work, Plugins and Case study intros.
-
-The sample clips in `public/videos/samples/` were rendered with ffmpeg for this site and can be deleted once real
-videos are in.
+2. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche.
+3. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
+   `vite.config.ts` and the sample notes in the Plugins and Case study intros.
 
 ## Credits
 

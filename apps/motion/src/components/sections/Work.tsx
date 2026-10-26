@@ -15,7 +15,7 @@ export default function Work() {
       <SectionHeader
         id="work"
         eyebrow="Recent work"
-        intro="My latest edits. Press a tool to see only what I made with it. These are sample clips until my real edits go up."
+        intro="My latest launch films, reels and explainers. Press a tool to see only what I made with it."
       >
         Videos, sorted by <Accent>the tool</Accent> that made them
       </SectionHeader>

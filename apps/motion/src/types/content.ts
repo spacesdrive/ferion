@@ -16,10 +16,10 @@ export interface Video {
   aspect: VideoAspect;
   src: string;
   poster: string;
+  // empty when the tool isn't known yet; the video then only shows under Everything
   software: SoftwareId[];
-  platform: string;
-  // marks placeholder entries so the page can label them
-  isSample: boolean;
+  // what kind of piece it is, shown as a badge on the card: Reel, Launch film, Explainer
+  format: string;
 }
 
 export interface Site {

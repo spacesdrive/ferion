@@ -1,6 +1,5 @@
 import cn from '@ferion/ui/lib/cn.ts';
 import { Play } from 'lucide-react';
-import SampleBadge from '@/components/layout/SampleBadge';
 import SoftwareTile from '@/components/software/SoftwareTile';
 import { findSoftware } from '@/data/software';
 import type { Video } from '@/types/content';
@@ -36,21 +35,22 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
           </span>
         </span>
         <span className="absolute top-3 left-3 rounded-full bg-night/70 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-snow uppercase">
-          {video.platform}
+          {video.format}
         </span>
-        {video.isSample && <SampleBadge className="absolute top-3 right-3" />}
       </button>
 
       <div className="flex items-start justify-between gap-3">
         <h4 className="font-semibold tracking-tight">{video.title}</h4>
-        <ul aria-label="Made with" className="flex shrink-0 -space-x-1.5">
-          {tools.map(tool => (
-            <li key={tool.id} title={tool.label}>
-              <SoftwareTile software={tool} className="size-6 ring-2 ring-paper" />
-              <span className="sr-only">{tool.label}</span>
-            </li>
-          ))}
-        </ul>
+        {tools.length > 0 && (
+          <ul aria-label="Made with" className="flex shrink-0 -space-x-1.5">
+            {tools.map(tool => (
+              <li key={tool.id} title={tool.label}>
+                <SoftwareTile software={tool} className="size-6 ring-2 ring-paper" />
+                <span className="sr-only">{tool.label}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </article>
   );

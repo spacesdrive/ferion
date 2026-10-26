@@ -11,6 +11,9 @@ export interface FilterChipsProps {
 
 const CHIP = 'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors';
 
+// a tool with nothing to show yet gets no chip; the folder still lists it
+const toolsInUse = software.filter(item => filterVideos(videos, item.id).length > 0);
+
 // the same choice as the folder, as plain buttons for keyboards and small screens
 export default function FilterChips({ filter, onChange }: FilterChipsProps) {
   return (
@@ -24,7 +27,7 @@ export default function FilterChips({ filter, onChange }: FilterChipsProps) {
         Everything
         <span className="font-mono text-xs opacity-70">{videos.length}</span>
       </button>
-      {software.map(item => (
+      {toolsInUse.map(item => (
         <button
           key={item.id}
           type="button"

@@ -12,7 +12,7 @@ export default function WorkPage() {
           id="work"
           level="h1"
           eyebrow="All work"
-          intro="Open the folder to see everything, or press a tool to see only what I made with it. These are sample clips until my real edits go up."
+          intro="Launch films, reels, explainers and a few rebuilds. Open the folder to see everything, or press a tool to see only what I made with it."
         >
           Every video, sorted by <Accent>the tool</Accent> that made it
         </SectionHeader>

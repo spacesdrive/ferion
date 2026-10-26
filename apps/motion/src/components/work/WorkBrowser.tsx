@@ -9,6 +9,12 @@ import VideoDialog from './VideoDialog';
 import VideoRow from './VideoRow';
 import { filterVideos, type WorkFilter } from './workFilter';
 
+function describeFilter(count: number, toolName: string | null): string {
+  if (!toolName) return `All ${count} pieces`;
+  if (count === 0) return `Nothing made with ${toolName} is up yet`;
+  return `${count} made with ${toolName}`;
+}
+
 export interface WorkBrowserProps {
   // how many of each ratio to show; leave it out to show every video
   limit?: Record<Video['aspect'], number>;
@@ -27,7 +33,7 @@ export default function WorkBrowser({ limit }: WorkBrowserProps) {
         <ToolkitFolder filter={filter} onChange={setFilter} />
         <div className="flex flex-col gap-5">
           <p aria-live="polite" className="text-2xl font-semibold tracking-tight">
-            {toolName ? `${shown.length} made with ${toolName}` : `All ${shown.length} pieces`}
+            {describeFilter(shown.length, toolName)}
           </p>
           <FilterChips filter={filter} onChange={setFilter} />
         </div>
