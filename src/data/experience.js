@@ -1,16 +1,16 @@
 export const experience = [
   {
     company: 'Aevrin',
-    role: 'Co-Founder',
+    role: 'Co-Founder, R&D and Head of Growth',
     start: '2026-02',
     end: null,
     url: 'https://aevrin.ai/',
     logo: 'https://aevrin.ai/apple-touch-icon.png',
     highlights: [
-      'Co-built an AI security platform (product name: Aegis AI) that audits chatbots for prompt injection, jailbreaks, sensitive data leakage, policy failures, and harmful outputs',
-      'Own backend infrastructure end to end: API design, database architecture, and production deployment',
-      'Built the core AI red-teaming pipeline, including model integration and automated adversarial test generation',
-      'Set up CI/CD and deployment automation for the platform',
+      'Co-founded Aevrin, the security layer for AI-native software, with two products in early access: Varq for how teams build with AI, and Vyra for the AI they ship',
+      'Vyra red-teams chatbots, LLM APIs, agents, RAG pipelines and MCP-connected tools on the modelWrecker engine, running on your own machine with your own model keys and mapping every replayable finding to the OWASP LLM Top 10, the OWASP MCP Top 10 and MITRE ATLAS',
+      'Varq checks AI coding agents like Claude Code, Codex and Cursor: what they can reach, the MCP servers and skills they use, and the code and pull requests they produce',
+      'Lead R&D across the backend, the AI red-teaming pipeline, and the CI/CD and deployment systems that ship both products',
     ],
   },
   {

@@ -4,8 +4,7 @@
 
 ## Sections
 
-- [About](/#about): Background and how I think about building things.
-- [Experience](/#experience): Aevrin (Aegis AI) and Runable.
+- [Experience](/#experience): Aevrin (Varq and Vyra) and Runable.
 - [Projects](/#projects): modelWrecker, Luxe, KineTube, Twiligent.
 - [Hackathons](/#hackathons): Placements and mentions at Monad Blitz, LaunchPad, Campus Fund Hackathon and Auraverse 2.0.
 - [Writing](/#blog): The top four posts from https://blog.ujjwal.fyi, loaded live (shown once the blog has posts).
