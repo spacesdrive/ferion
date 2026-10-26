@@ -12,7 +12,7 @@ export default function HeroHeadline() {
       <SplitCircle left="#8ee07a" right="#0a2bff" />
       <br className="hidden sm:block" /> <SplitCircle left="#ff5ec4" right="#ff5a1f" />{' '}
       <span className="serif-accent">a motion designer</span> <FlowerMark className="text-pop-lilac" />{' '}
-      <SplitCircle left="#bcd4ff" right="#e8ff6a" /> who argues with keyframes for a living.
+      <SplitCircle left="#bcd4ff" right="#e8ff6a" /> who works efficiently to meet deadlines.
     </h1>
   );
 }
