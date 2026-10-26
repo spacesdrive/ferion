@@ -2,7 +2,6 @@ import { MotionConfig } from 'motion/react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { SiteDock } from '@/components/navigation/SiteDock';
-import { About } from '@/components/sections/About';
 import { Blog } from '@/components/sections/Blog';
 import { Contact } from '@/components/sections/Contact';
 import { Experience } from '@/components/sections/Experience';
@@ -26,12 +25,11 @@ export default function App() {
       <Header />
       <main id="main">
         <Hero />
-        <About />
         <Experience />
         <Projects />
         <Hackathons />
         <Blog posts={posts} />
-        <Contact index={posts.length > 0 ? '06' : '05'} />
+        <Contact index={posts.length > 0 ? '05' : '04'} />
       </main>
       <Footer />
 

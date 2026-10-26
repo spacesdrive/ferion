@@ -8,7 +8,7 @@ export function Projects() {
     <Section id="projects">
       <SectionHeading
         id="projects"
-        index="03"
+        index="02"
         label="Projects"
         intro="AI red teaming, AI commerce, an offline desktop downloader and a self-hosted analytics dashboard."
       >

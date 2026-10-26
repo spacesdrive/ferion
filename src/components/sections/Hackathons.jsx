@@ -17,7 +17,7 @@ export function Hackathons() {
     <Section id="hackathons">
       <SectionHeading
         id="hackathons"
-        index="04"
+        index="03"
         label="Hackathons"
         intro="Placements and mentions from hackathons and pitch competitions across 2025 and 2026."
       >

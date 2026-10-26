@@ -9,7 +9,7 @@ import { profile, socials } from '@/data/profile';
 const linkedin = socials.find((social) => social.id === 'linkedin');
 
 // Contact follows Writing, which only renders when the blog has posts.
-export function Contact({ index = '06' }) {
+export function Contact({ index = '05' }) {
   return (
     <Section id="contact">
       <Reveal className="inverse dot-paper relative overflow-hidden rounded-[24px] bg-background p-[clamp(1.75rem,5vw,4rem)] text-foreground">

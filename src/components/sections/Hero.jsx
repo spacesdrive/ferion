@@ -1,4 +1,4 @@
-import { FileText } from 'lucide-react';
+import { FileText, Mail } from 'lucide-react';
 import markSticker from '@/assets/brand/mark-sticker.webp';
 import { Polaroid } from '@/components/brand/Polaroid';
 import { Container } from '@/components/layout/Section';
@@ -63,26 +63,31 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <ul aria-label="Roles" className="mt-7 flex flex-wrap gap-x-3 gap-y-3.5">
+            {/* Roles are labels, so they stay flat: no shadow, nothing that looks clickable. */}
+            <ul aria-label="Roles" className="mt-7 flex flex-wrap gap-2.5">
               {profile.roles.map((role) => (
                 <li key={role}>
-                  <span className="ink-pill px-4 py-2 text-[15px]">{role}</span>
+                  <span className="inline-flex h-8 items-center rounded-full border-2 border-line px-3.5 font-mono text-xs tracking-[0.06em] uppercase">
+                    {role}
+                  </span>
                 </li>
               ))}
             </ul>
           </Reveal>
 
-          <Reveal delay={0.2} className="mt-9 flex flex-wrap items-center gap-3.5">
+          {/* The two actions share one size so they read as a pair. */}
+          <Reveal delay={0.2} className="mt-9 grid max-w-sm grid-cols-2 gap-3.5">
             <a
               href={profile.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="ink-pill ink-pill-solid press px-5 py-2.5 text-[15px]"
+              className="ink-pill ink-pill-solid press h-12 justify-center px-5 text-[15px]"
             >
               <FileText className="size-4" aria-hidden="true" />
-              Download CV
+              View CV
             </a>
-            <a href="#contact" className="ink-pill press px-5 py-2.5 text-[15px]">
+            <a href="#contact" className="ink-pill press h-12 justify-center px-5 text-[15px]">
+              <Mail className="size-4" aria-hidden="true" />
               Get in touch
             </a>
           </Reveal>

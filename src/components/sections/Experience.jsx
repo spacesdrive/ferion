@@ -6,7 +6,7 @@ import { experience } from '@/data/experience';
 export function Experience() {
   return (
     <Section id="experience">
-      <SectionHeading id="experience" index="02" label="Experience">
+      <SectionHeading id="experience" index="01" label="Experience">
         Where I put in the <span className="marker">hours</span>.
       </SectionHeading>
 

@@ -1,4 +1,4 @@
-import { BriefcaseBusiness, FolderGit2, House, Mail, Moon, NotebookPen, Sun, Trophy, User } from 'lucide-react';
+import { BriefcaseBusiness, FolderGit2, House, Mail, Moon, NotebookPen, Sun, Trophy } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Dock, DockItem, DockSeparator } from '@/components/navigation/Dock';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -9,7 +9,6 @@ import { socials } from '@/data/profile';
 
 const SECTIONS = [
   { id: 'hero', label: 'Home', Icon: House },
-  { id: 'about', label: 'About', Icon: User, desktopOnly: true },
   { id: 'experience', label: 'Experience', Icon: BriefcaseBusiness },
   { id: 'projects', label: 'Projects', Icon: FolderGit2 },
   { id: 'hackathons', label: 'Hackathons', Icon: Trophy },

@@ -8,7 +8,7 @@ export function Blog({ posts }) {
 
   return (
     <Section id="blog">
-      <SectionHeading id="blog" index="05" label="Writing">
+      <SectionHeading id="blog" index="04" label="Writing">
         Long <span className="marker">reads</span>.
       </SectionHeading>
 
