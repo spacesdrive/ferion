@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+/* shared components live in packages/ui, so Tailwind has to scan them too */
+@source "../../../packages/ui/src";
+
+/* the site is light only; tying dark: to a class nobody sets keeps shared components light */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: #f5f3ee;
+  --color-ink: #121212;
+  --color-muted: #5e5e5a;
+  --color-card: #fffffc;
+  --color-line: rgb(18 18 18 / 0.1);
+
+  /* the playful accents from the reference templates */
+  --color-pop-blue: #0a2bff;
+  --color-pop-navy: #00377e;
+  --color-pop-pink: #ff5ec4;
+  --color-pop-orange: #ff5a1f;
+  --color-pop-lilac: #c7b8ff;
+  --color-pop-sky: #bcd4ff;
+  --color-pop-lime: #e8ff6a;
+  --color-pop-rose: #ffa6ef;
+  --color-pop-violet: #8b7cf6;
+  --color-pop-green: #8ee07a;
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    overflow-x: clip;
+  }
+
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-pop-lime);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+/* custom utilities, so they can be combined with and overridden by regular ones */
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 font-mono text-[11px] tracking-[0.12em] text-muted uppercase;
+}
+
+@utility serif-accent {
+  @apply font-serif font-normal italic;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition;
+}
+
+@utility btn-ink {
+  @apply btn bg-ink text-paper hover:opacity-90;
+}
+
+@utility btn-ghost {
+  @apply btn border border-line bg-card text-ink hover:border-ink;
+}
+
+/* fade both edges of a marquee so cards slide in and out instead of being cut */
+@utility edge-fade {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
