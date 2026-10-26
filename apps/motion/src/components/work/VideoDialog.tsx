@@ -46,7 +46,6 @@ export default function VideoDialog({ video, onClose }: VideoDialogProps) {
             autoPlay
             className="rounded-2xl"
           />
-          <p className="mt-3 text-center font-semibold text-snow">{video.title}</p>
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
