@@ -3,13 +3,14 @@ import portrait from '../assets/brand/portrait.webp';
 export const profile = {
   name: 'Ujjwal Kumar Rai',
   wordmark: 'ujjwal',
-  intro:
-    "I'm Ujjwal Kumar Rai, co-founder of Aevrin. Building, breaking, and learning across way too many domains.",
   // The brand tagline: the last word always carries the marker highlight.
   tagline: { lead: 'Building Innovative', highlight: 'Solutions' },
   // The brand lists roles in this order, as flat outline tags (not buttons).
   roles: ['Backend Developer', 'Growth Expert', 'Market Research Analyst'],
   domain: 'tech.ujjwal.fyi',
+  // Stuck around the name in the hero: two traits, then two handwritten notes.
+  stickers: ['builds things', 'breaks things'],
+  notes: { role: 'Co-founder, Aevrin', fact: '4x hackathon winner' },
   portrait,
   // Points at resume-viewer/ (deployed separately) rather than a bundled file,
   // so the resume opens in a PDF viewer with its own download button.
