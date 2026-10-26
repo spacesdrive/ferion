@@ -1,15 +1,16 @@
 <p align="center">
-  <img src="public/icon-512.png" alt="ujjwal mark" width="140" />
+  <img src="apps/tech/public/icon-512.png" alt="ujjwal mark" width="140" />
 </p>
 
 <h1 align="center">ferion</h1>
 
 <p align="center">
-  The personal portfolio of Ujjwal Kumar Rai at <code>tech.ujjwal.fyi</code>: projects, experience, hackathon results and writing.
+  The personal sites of Ujjwal Kumar Rai: the tech portfolio at <code>tech.ujjwal.fyi</code>, the motion and web design portfolio at <code>motion.ujjwal.fyi</code>, and the resume viewer.
 </p>
 
 <p align="center">
   <a href="https://react.dev"><img src="https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white" alt="React 19" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-6-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript 6" /></a>
   <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite&logoColor=white" alt="Vite 8" /></a>
   <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-ff0055?style=flat-square" alt="License MIT" /></a>
@@ -25,7 +26,15 @@
 
 ---
 
-ferion is a single-page React app that builds to static HTML, CSS, and JavaScript. There is no backend, API, database, or environment configuration. Every piece of content lives in plain data files under `src/data`.
+ferion is an npm workspaces monorepo of static React sites written in strict TypeScript. There is no backend, API, database, or environment configuration. Every piece of content lives in plain data files under each app's `src/data`, and the two React apps share components through `packages/`.
+
+| App | Domain | What it is |
+|---|---|---|
+| `apps/tech` | tech.ujjwal.fyi | Projects, experience, hackathon results and writing, in the ink-on-paper brand kit |
+| `apps/motion` | motion.ujjwal.fyi | Motion design, video edits, web design, a free plugin marketplace and a social case study (see [its README](apps/motion/README.md)) |
+| `apps/resume` | resume.tech.ujjwal.fyi | A plain HTML page that shows the resume PDF (see [its README](apps/resume/README.md)) |
+
+The feature list below describes `apps/tech`.
 
 ## Features
 
@@ -46,7 +55,8 @@ ferion is a single-page React app that builds to static HTML, CSS, and JavaScrip
 |---|---|
 | [React 19](https://react.dev) | UI |
 | [Vite 8](https://vitejs.dev) | Dev server and bundler |
-| [Tailwind CSS v4](https://tailwindcss.com) | Styling, with design tokens defined in CSS (`src/index.css`) |
+| [TypeScript 6](https://www.typescriptlang.org) | Strict mode, erasable syntax only, checked with `tsc --noEmit` |
+| [Tailwind CSS v4](https://tailwindcss.com) | Styling, with design tokens defined in each app's `src/index.css` |
 | [Motion](https://motion.dev) | Dock physics, scroll reveals, lightbox transition |
 | [Bricolage Grotesque](https://fonts.google.com/specimen/Bricolage+Grotesque), [Gochi Hand](https://fonts.google.com/specimen/Gochi+Hand), [Geist Mono](https://vercel.com/font) | Brand fonts, self-hosted via Fontsource |
 | [lucide-react](https://lucide.dev) and [react-icons](https://react-icons.github.io/react-icons) | Interface icons and brand icons |
@@ -59,59 +69,66 @@ Requires Node.js 20.19+ or 22.12+ (the minimum for Vite 8).
 git clone https://github.com/spacesdrive/ferion.git
 cd ferion
 npm install
-npm run dev       # dev server at http://localhost:5173
-npm run build     # production build in dist/
-npm run preview   # serve the production build locally
-npm run lint      # ESLint 10
+npm run dev:tech       # tech portfolio at http://localhost:5173
+npm run dev:motion     # motion portfolio at http://localhost:5174
+npm run build          # builds both into apps/tech/dist and apps/motion/dist
+npm run typecheck      # tsc --noEmit for every workspace and the config files
+npm run lint           # ESLint 10 with typescript-eslint
+npm run format         # Prettier
 ```
 
 ## Project Structure
 
 ```
-src/
-├── assets/
-│   ├── brand/              # doodle mark (ink, paper, sticker) and portrait, from the brand kit
-│   └── hackathons/         # event photos
-├── components/
-│   ├── achievements/       # HackathonItem, PhotoLightbox
-│   ├── blog/               # BlogCard
-│   ├── brand/              # Mark (theme-aware), Polaroid
-│   ├── experience/         # ExperienceItem
-│   ├── hero/               # RoleVenn, the four-circle roles diagram around the portrait
-│   ├── layout/             # Container, Section, SectionHeading, Header, Footer
-│   ├── navigation/         # Dock primitives and SiteDock (the configured site dock)
-│   ├── projects/           # ProjectCard
-│   ├── sections/           # one component per page section
-│   └── ui/                 # Reveal, SocialIcon
-├── data/                   # all content: profile, experience, projects, hackathons, blog
-├── hooks/                  # useActiveSection, useBlogPosts, useClickSound, useMediaQuery, useTheme
-├── lib/                    # cn() class helper, date formatting, click sound data
-├── App.jsx                 # page composition
-├── main.jsx                # React entry, font imports
-└── index.css               # brand tokens, paper and ink themes, ink-card, ink-pill, marker, note
-resume-viewer/              # standalone page deployed to resume.tech.ujjwal.fyi (see its README)
+apps/
+├── tech/                   # tech.ujjwal.fyi
+│   ├── public/             # favicons, og.png, robots.txt, sitemap.xml, llms.txt, 404.html
+│   └── src/
+│       ├── assets/         # brand mark, portrait, avatar, hackathon photos
+│       ├── components/     # achievements, blog, brand, experience, hero, layout, navigation, projects, sections, ui
+│       ├── data/           # profile, experience, projects, hackathons, blog feed URL
+│       ├── hooks/          # useActiveSection, useBlogPosts, useClickSound, useMediaQuery, useTheme
+│       ├── lib/            # blog feed client, date formatting, click sound
+│       ├── types/          # the blog feed's types
+│       ├── App.tsx, main.tsx, index.css
+├── motion/                 # motion.ujjwal.fyi (see apps/motion/README.md)
+│   ├── public/videos/      # video files and posters
+│   └── src/                # components by section, data, types
+└── resume/                 # resume.tech.ujjwal.fyi, plain HTML with no build step
+packages/
+├── ui/                     # @ferion/ui: cn, Reveal, IconFolder, VideoPlayer, WorkflowCard
+└── profile/                # @ferion/profile: name, links and social profiles shared by both apps
+eslint.config.ts, tsconfig.base.json, tsconfig.node.json, .prettierrc.json
 ```
 
 ## Editing Content
 
 | What | Where |
 |---|---|
-| Name, hero roles (top, left, right, bottom), portrait, resume link, social links and handles | `src/data/profile.js` |
-| Work experience (use `end: null` for a current role) | `src/data/experience.js` |
-| Projects and links (`source`, `live`) | `src/data/projects.js` |
-| Hackathon results and photos | `src/data/hackathons.js` |
-| Blog feed URL (posts themselves are published on blog.ujjwal.fyi) | `src/data/blog.js` |
-| Dock items | `SECTIONS` in `src/components/navigation/SiteDock.jsx` |
-| Colors and fonts | `:root`, `.dark`, and `@theme` in `src/index.css` |
-| Page title and meta description | `index.html` |
+| Name, resume link, site links, social links and handles (both apps) | `packages/profile/src/` |
+| Hero roles (top, left, right, bottom) and avatar | `apps/tech/src/data/profile.ts` |
+| Work experience (use `end: null` for a current role) | `apps/tech/src/data/experience.ts` |
+| Projects and links (`source`, `live`) | `apps/tech/src/data/projects.ts` |
+| Hackathon results and photos | `apps/tech/src/data/hackathons.ts` |
+| Blog feed URL (posts themselves are published on blog.ujjwal.fyi) | `apps/tech/src/data/blog.ts` |
+| Dock items | `SECTIONS` in `apps/tech/src/components/navigation/SiteDock.tsx` |
+| Colors and fonts | `:root`, `.dark`, and `@theme` in `apps/tech/src/index.css` |
+| Page title and meta description | `apps/tech/index.html` |
+| Everything on motion.ujjwal.fyi | `apps/motion/src/data/` (see [its README](apps/motion/README.md)) |
 
 ## Deployment
 
-`npm run build` writes a fully static site to `dist/`. It needs no server-side configuration and can be deployed to Vercel, Netlify, Cloudflare Pages, or GitHub Pages as a standard Vite project (build command `npm run build`, output directory `dist`).
+Every app is a static site on Cloudflare Pages, built from this repo on each push to `main`.
+
+| Pages project | Build command | Output directory | Rebuilds when these change |
+|---|---|---|---|
+| `ferion` (tech.ujjwal.fyi) | `npm run build:tech` | `apps/tech/dist` | `apps/tech/**`, `packages/**` |
+| `motion` (motion.ujjwal.fyi) | `npm run build:motion` | `apps/motion/dist` | `apps/motion/**`, `packages/**` |
+| `resume` (resume.tech.ujjwal.fyi) | none, deployed by `.github/workflows/deploy-resume.yml` | `apps/resume` | `apps/resume/**` |
 
 ## Credits
 
-The dock is adapted from a Motion-based macOS dock implementation, converted to JavaScript, and changed to use real links and buttons, keyboard-visible labels, and mouse-only magnification.
+The dock is adapted from a Motion-based macOS dock implementation and changed to use real links and buttons, keyboard-visible labels, and mouse-only magnification. Credits for the motion site's components are in [its README](apps/motion/README.md).
 
 ## Contributing
 
@@ -120,7 +137,7 @@ Contributions are welcome: bug fixes, accessibility improvements, or features th
 ```bash
 git checkout -b feat/your-feature-name
 # make your changes
-npm run lint && npm run build
+npm run typecheck && npm run lint && npm run build
 git commit -m "feat: describe your change"
 git push origin feat/your-feature-name
 ```

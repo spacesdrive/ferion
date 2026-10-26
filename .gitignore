@@ -26,3 +26,7 @@ dist-ssr
 .agents
 .vite
 .cloudflare-keys
+# local secrets
+.env
+.env.*
+!.env.example

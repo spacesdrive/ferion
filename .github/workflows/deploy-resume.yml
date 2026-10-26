@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'resume-viewer/**'
+      - 'apps/resume/**'
       - '.github/workflows/deploy-resume.yml'
   workflow_dispatch:
 
@@ -22,4 +22,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy resume-viewer --project-name=resume --branch=main
+          command: pages deploy apps/resume --project-name=resume --branch=main
