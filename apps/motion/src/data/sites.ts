@@ -9,7 +9,7 @@ import varqImage from '@/assets/sites/varq.webp';
 import vyraImage from '@/assets/sites/vyra.webp';
 import type { Site } from '@/types/content';
 
-// every site here is live; screenshots were taken from the real pages
+// live sites, newest first; the home page shows the first six
 const sites: Site[] = [
   {
     name: 'Aevrin',

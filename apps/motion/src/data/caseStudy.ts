@@ -8,6 +8,7 @@ export const caseStudyTotals: Stat[] = [
   { value: '4', label: 'Niches tested' },
 ];
 
+// newest first: the home page shows the first two, the case studies page shows them all
 export const nicheCases: NicheCase[] = [
   {
     niche: 'Editing tips',

@@ -8,7 +8,22 @@ npm run dev:motion     # from the repo root, at http://localhost:5174
 npm run build:motion   # writes apps/motion/dist
 ```
 
-## Sections
+## Pages
+
+Each page has its own HTML file, so it has its own title and URL. `vite.config.ts` lists them and adds the head tags
+they share (icons, the theme script, `noindex`).
+
+| URL | HTML | Component | Shows |
+|---|---|---|---|
+| `/` | `index.html` | `src/pages/HomePage.tsx` | the latest 4 vertical and 2 horizontal videos, 6 websites, 2 case studies |
+| `/work/` | `work/index.html` | `src/pages/WorkPage.tsx` | every video |
+| `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
+| `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study |
+
+Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
+the `HOME_LIMIT` constants in `src/components/sections/`.
+
+## Home page sections
 
 | Section | Built from | Data |
 |---|---|---|

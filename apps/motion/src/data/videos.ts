@@ -22,6 +22,7 @@ function sample(
   };
 }
 
+// newest first: the home page shows the first four 9:16 and two 16:9 clips, the work page shows them all
 const videos: Video[] = [
   sample('kinetic-type', 'Kinetic type', '9:16', ['after-effects', 'cavalry'], 'Reels'),
   sample('logo-reveal', 'Logo reveal', '16:9', ['after-effects'], 'YouTube'),

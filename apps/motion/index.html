@@ -8,35 +8,17 @@
       name="description"
       content="Motion design, video edits and websites by Ujjwal Kumar Rai, plus free plugins for editors. Made with After Effects, Cavalry, DaVinci Resolve and Claude Design."
     />
-    <!-- the plugin marketplace and case study still hold sample data; drop this once the real numbers are in -->
-    <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#f5f3ee" />
     <link rel="canonical" href="https://motion.ujjwal.fyi/" />
-
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon-dark.ico" sizes="any" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://motion.ujjwal.fyi/" />
     <meta property="og:title" content="Ujjwal Kumar Rai · Motion, Edits and Web Design" />
-    <meta property="og:description" content="Motion design, video edits and websites, plus free plugins for editors." />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@codewithujjwal" />
-
-    <!-- paper is the default, so dark mode only applies once chosen; set it before paint to avoid a flash -->
-    <script>
-      try {
-        if (localStorage.getItem('theme') === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.querySelector('meta[name="theme-color"]').content = '#111110';
-        }
-      } catch {}
-    </script>
+    <meta
+      property="og:description"
+      content="Motion design, video edits and websites by Ujjwal Kumar Rai, plus free plugins for editors. Made with After Effects, Cavalry, DaVinci Resolve and Claude Design."
+    />
+    <!-- icons, the theme script and the other shared tags are added by vite.config.ts -->
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/entries/home.tsx"></script>
   </body>
 </html>

@@ -41,7 +41,7 @@ export default function Footer() {
 
         <p
           aria-hidden="true"
-          className="mt-14 text-[clamp(5rem,24vw,22rem)] leading-[0.8] font-bold tracking-[-0.06em] select-none"
+          className="mt-14 pb-[0.22em] text-[clamp(5rem,24vw,22rem)] leading-[0.8] font-bold tracking-[-0.06em] select-none"
         >
           {person.wordmark}
         </p>
