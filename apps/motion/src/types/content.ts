@@ -20,6 +20,8 @@ export interface Video {
   software: SoftwareId[];
   // what kind of piece it is, shown as a badge on the card: Reel, Launch film, Explainer
   format: string;
+  // always shown in the home page's short list, ahead of newer videos
+  isPinned?: boolean;
 }
 
 export interface Site {

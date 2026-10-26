@@ -7,7 +7,7 @@ import FilterChips from './FilterChips';
 import ToolkitFolder from './ToolkitFolder';
 import VideoDialog from './VideoDialog';
 import VideoRow from './VideoRow';
-import { filterVideos, type WorkFilter } from './workFilter';
+import { filterVideos, pinnedFirst, type WorkFilter } from './workFilter';
 
 function describeFilter(count: number, toolName: string | null): string {
   if (!toolName) return `All ${count} pieces`;
@@ -24,7 +24,9 @@ export interface WorkBrowserProps {
 export default function WorkBrowser({ limit }: WorkBrowserProps) {
   const [filter, setFilter] = useState<WorkFilter>('all');
   const [openVideo, setOpenVideo] = useState<Video | null>(null);
-  const shown = filterVideos(videos, filter);
+  const matching = filterVideos(videos, filter);
+  // only the short home page list puts pinned videos first
+  const shown = limit ? pinnedFirst(matching) : matching;
   const toolName = filter === 'all' ? null : findSoftware(filter).label;
 
   return (

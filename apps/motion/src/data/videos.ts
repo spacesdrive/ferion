@@ -41,9 +41,15 @@ const videos: Video[] = [
   video('twiligent-launch', 'Twiligent launch', '16:9', ['after-effects', 'claude-design'], 'Launch film'),
   video('vyra-launch', 'Vyra launch', '16:9', ['davinci-resolve', 'claude-design'], 'Launch film'),
   video('varq-launch', 'Varq launch', '16:9', ['after-effects', 'davinci-resolve', 'claude-design'], 'Launch film'),
-  video('aevrin-launch-motion', 'Aevrin launch motion graphics', '16:9', ['davinci-resolve'], 'Launch film'),
+  {
+    ...video('aevrin-launch-motion', 'Aevrin launch motion graphics', '16:9', ['davinci-resolve'], 'Launch film'),
+    isPinned: true,
+  },
   video('aevrin-logo-shine', 'Aevrin logo shine', '9:16', [], 'Logo animation'),
-  video('meta-cognition-launch', 'Meta Cognition launch', '16:9', ['davinci-resolve'], 'Launch film'),
+  {
+    ...video('meta-cognition-launch', 'Meta Cognition launch', '16:9', ['davinci-resolve'], 'Launch film'),
+    isPinned: true,
+  },
   video('scroll-animation-reel', 'How to make a $5,000 scroll animation', '9:16', ['davinci-resolve'], 'Reel'),
   video('desktop-cat-reel', 'A pixel cat on your desktop', '9:16', ['davinci-resolve'], 'Reel'),
   video('aegis-ai-launch', 'Aegis AI launch', '16:9', ['davinci-resolve'], 'Launch film'),
