@@ -15,9 +15,10 @@ they share (icons, the theme script, `noindex`).
 
 | URL | HTML | Component | Shows |
 |---|---|---|---|
-| `/` | `index.html` | `src/pages/HomePage.tsx` | the latest 4 vertical and 2 horizontal videos, 6 websites, 2 case studies |
+| `/` | `index.html` | `src/pages/HomePage.tsx` | the latest 4 vertical and 2 horizontal videos, 6 websites, 3 plugins, 2 case studies |
 | `/work/` | `work/index.html` | `src/pages/WorkPage.tsx` | every video |
 | `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
+| `/plugins/` | `plugins/index.html` | `src/pages/PluginsPage.tsx` | every plugin, each with a Download button |
 | `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study |
 
 Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
@@ -50,11 +51,15 @@ Everything marked `isSample: true` shows a lime **Sample** badge on the page. Re
    (`'9:16'` or `'16:9'`), the `software` it was made with and `isSample: false`. Files bigger than about 25 MB should go
    to R2 or YouTube instead of the repo; `src` can be any https URL.
 2. **Plugins.** Edit `src/data/plugins.ts`: title, description, host app, steps (each step's `toolCategory` picks its
-   icon from `pluginCategories.ts`), real download count and `downloadUrl`. The Download button appears once a plugin
-   has a `downloadUrl`.
+   icon from `pluginCategories.ts`), real download count and `downloadUrl`. Without a `downloadUrl` the button reads
+   Coming soon and can't be pressed.
+   - For a file up to 25 MB, put it in `public/plugins/` (for example `public/plugins/auto-subtitles.zip`) and set
+     `downloadUrl: '/plugins/auto-subtitles.zip'`. The button then saves the file straight away.
+   - Cloudflare Pages won't serve a bigger file, so upload it to a GitHub release or R2 and use that https link. It
+     opens in a new tab, since browsers only start a direct download for files on the same site.
 3. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche.
-4. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` meta tag in `index.html` and the
-   sample notes in the Work, Plugins and Case study intros.
+4. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
+   `vite.config.ts` and the sample notes in the Work, Plugins and Case study intros.
 
 The sample clips in `public/videos/samples/` were rendered with ffmpeg for this site and can be deleted once real
 videos are in.

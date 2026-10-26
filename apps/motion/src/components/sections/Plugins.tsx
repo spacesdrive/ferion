@@ -1,11 +1,13 @@
-import Reveal from '@ferion/ui/motion/Reveal.tsx';
-import WorkflowCard from '@ferion/ui/workflow-card/WorkflowCard.tsx';
 import Accent from '@/components/layout/Accent';
-import SampleBadge from '@/components/layout/SampleBadge';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
-import pluginCategories from '@/data/pluginCategories';
+import SeeAllLink from '@/components/layout/SeeAllLink';
+import PluginGrid from '@/components/plugins/PluginGrid';
+import { pages } from '@/data/navigation';
 import plugins from '@/data/plugins';
+
+// one row of three; the rest live on the plugins page
+const HOME_LIMIT = 3;
 
 export default function Plugins() {
   return (
@@ -13,29 +15,12 @@ export default function Plugins() {
       <SectionHeader
         id="plugins"
         eyebrow="Plugin marketplace"
-        intro="Tools I built for my own edits, free to download. These listings are samples for now, the real plugins are on their way."
+        intro="My newest plugins, free to download. These listings are samples for now, the real plugins are on their way."
       >
         Free plugins for <Accent>editors</Accent>
       </SectionHeader>
-
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {plugins.map((plugin, index) => (
-          <Reveal key={plugin.title} delay={0.04 * (index % 3)} className="relative h-full">
-            <WorkflowCard
-              title={plugin.title}
-              description={plugin.description}
-              steps={plugin.steps}
-              categoryConfig={pluginCategories}
-              totalExecutions={plugin.downloadCount}
-              executionUnit="downloads"
-              triggerLabel={`For ${plugin.host}`}
-              actionLabel="Download"
-              actionHref={plugin.downloadUrl}
-            />
-            {plugin.isSample && <SampleBadge className="absolute top-4 right-4 z-[3]" />}
-          </Reveal>
-        ))}
-      </div>
+      <PluginGrid plugins={plugins.slice(0, HOME_LIMIT)} />
+      <SeeAllLink href={pages.plugins} label={`See all ${plugins.length} plugins`} />
     </Section>
   );
 }

@@ -1,6 +1,6 @@
 import type { Plugin } from '@/types/content';
 
-// sample listings until the real plugins are added; every real plugin is free, so the button only ever says Download
+// newest first; the home page shows the first three. A plugin with no downloadUrl shows a disabled Coming soon button
 const plugins: Plugin[] = [
   {
     title: 'Auto Subtitles',

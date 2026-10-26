@@ -1,9 +1,7 @@
-import { FlashIcon, PlayIcon } from '@hugeicons/core-free-icons';
-import { HugeiconsIcon } from '@hugeicons/react';
 import cn from '../lib/cn.ts';
-import formatRunCount from './formatRunCount.ts';
 import WorkflowActionButton from './WorkflowActionButton.tsx';
 import WorkflowCardIcons from './WorkflowCardIcons.tsx';
+import WorkflowCardMeta from './WorkflowCardMeta.tsx';
 import type { ToolCategoryConfig, WorkflowCardVariant, WorkflowStep } from './types.ts';
 
 export interface WorkflowCardProps {
@@ -18,6 +16,10 @@ export interface WorkflowCardProps {
   variant?: WorkflowCardVariant;
   actionLabel?: string;
   actionHref?: string;
+  // the action saves a file; a disabled action still shows, greyed out, so a missing file reads as coming soon
+  isActionDownload?: boolean;
+  isActionDisabled?: boolean;
+  actionAriaLabel?: string;
   isLoading?: boolean;
   onAction?: () => void;
   onClick?: () => void;
@@ -38,6 +40,9 @@ export default function WorkflowCard({
   variant = 'explore',
   actionLabel,
   actionHref,
+  isActionDownload = false,
+  isActionDisabled = false,
+  actionAriaLabel,
   isLoading = false,
   onAction,
   onClick,
@@ -47,7 +52,7 @@ export default function WorkflowCard({
 }: WorkflowCardProps) {
   const categories = [...new Set(steps.map(step => step.toolCategory))];
   const buttonLabel = actionLabel ?? (variant === 'user' ? 'Run' : 'Create');
-  const hasAction = Boolean(onAction || actionHref);
+  const hasAction = Boolean(onAction || actionHref || isActionDisabled);
 
   return (
     <article
@@ -91,26 +96,16 @@ export default function WorkflowCard({
       </div>
 
       <div className="mt-auto flex items-center justify-between gap-2 pt-1">
-        <div className="space-y-1">
-          {triggerLabel && (
-            <p className="flex items-center gap-1 text-xs text-zinc-500">
-              <HugeiconsIcon icon={FlashIcon} size={12} className="text-zinc-500" />
-              <span>{triggerLabel}</span>
-            </p>
-          )}
-          {totalExecutions > 0 && (
-            <p className="flex items-center gap-1 text-xs text-zinc-500">
-              <HugeiconsIcon icon={PlayIcon} size={12} className="text-zinc-500" />
-              <span className="text-nowrap">{formatRunCount(totalExecutions, executionUnit)}</span>
-            </p>
-          )}
-        </div>
+        <WorkflowCardMeta triggerLabel={triggerLabel} totalExecutions={totalExecutions} executionUnit={executionUnit} />
         {hasAction && (
           <WorkflowActionButton
             label={buttonLabel}
             isSolid={variant !== 'user'}
             isLoading={isLoading}
             href={actionHref}
+            isDownload={isActionDownload}
+            isDisabled={isActionDisabled}
+            ariaLabel={actionAriaLabel}
             onAction={onAction}
           />
         )}

@@ -47,6 +47,7 @@ export default defineConfig({
     home: fromRoot('./index.html'),
     work: fromRoot('./work/index.html'),
     websites: fromRoot('./websites/index.html'),
+    plugins: fromRoot('./plugins/index.html'),
     caseStudies: fromRoot('./case-studies/index.html'),
   },
   server: { port: 5174 },
