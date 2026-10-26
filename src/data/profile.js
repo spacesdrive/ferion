@@ -1,4 +1,5 @@
-import portrait from '../assets/brand/portrait.webp';
+// A square grayscale crop of brand/portrait.webp, centred on the face.
+import avatar from '../assets/brand/avatar.webp';
 
 export const profile = {
   name: 'Ujjwal Kumar Rai',
@@ -6,7 +7,7 @@ export const profile = {
   // The hero diagram's circles, in the order top, left, right, bottom.
   roles: ['Backend Developer', 'Growth Expert', 'Otaku', 'Polyhistor'],
   domain: 'tech.ujjwal.fyi',
-  portrait,
+  avatar,
   // Points at resume-viewer/ (deployed separately) rather than a bundled file,
   // so the resume opens in a PDF viewer with its own download button.
   resumeUrl: 'https://resume.tech.ujjwal.fyi',

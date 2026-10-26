@@ -42,17 +42,15 @@ export function RoleVenn() {
         ))}
       </ul>
 
-      <div className="absolute top-1/2 left-1/2 size-14 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-2 border-line bg-card shadow-[3px_3px_0_var(--line)] sm:size-16 md:size-20">
-        <img
-          src={profile.portrait}
-          alt={`Photo of ${profile.name}`}
-          width="900"
-          height="717"
-          fetchPriority="high"
-          // The portrait is a full-length shot, so zoom in on the face.
-          className="mono-img size-full origin-[47%_22%] scale-[2.2] object-cover"
-        />
-      </div>
+      {/* A ring in the page colour cuts the circle lines, so the photo sits in the diagram rather than on it. */}
+      <img
+        src={profile.avatar}
+        alt={`Photo of ${profile.name}`}
+        width="320"
+        height="320"
+        fetchPriority="high"
+        className="absolute top-1/2 left-1/2 size-14 -translate-1/2 rounded-full border-[3px] border-background object-cover ring-2 ring-rule sm:size-16 sm:border-4 md:size-20"
+      />
     </div>
   );
 }
