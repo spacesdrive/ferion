@@ -12,15 +12,19 @@ npm run build:motion   # writes apps/motion/dist
 
 | Section | Built from | Data |
 |---|---|---|
-| Hero | designer-pop headline, ugc-blaze card marquee | `src/components/hero/` |
-| Made with | ugc-blaze logo strip | `src/data/software.ts` |
-| About | ugc-blaze stat cards (counted from the data files) | `src/components/sections/About.tsx` |
+| Hero | designer-pop headline | `src/components/hero/` |
 | Work | Icon folder, filter chips, 9:16 and 16:9 rows, video player | `src/data/videos.ts` |
 | How I work | ugc-blaze process | `src/data/copy.ts` |
 | Web design | designer-pop project grid | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
 | Case study | ugc-limelight stats band and cards | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | ugc-limelight | `src/data/copy.ts` |
+
+## Light and dark
+
+The site opens in light mode. The sun and moon button in the navbar switches themes and remembers the choice. Dark
+mode swaps the `paper`, `ink`, `muted`, `card` and `line` colors in `src/index.css`. Text on the bright accents and on
+video uses `night` and `snow`, which stay the same in both themes.
 
 ## Replacing the sample content
 

@@ -24,6 +24,16 @@
     <meta property="og:description" content="Motion design, video edits and websites, plus free plugins for editors." />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@codewithujjwal" />
+
+    <!-- paper is the default, so dark mode only applies once chosen; set it before paint to avoid a flash -->
+    <script>
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.querySelector('meta[name="theme-color"]').content = '#111110';
+        }
+      } catch {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

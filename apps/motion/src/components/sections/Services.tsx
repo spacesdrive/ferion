@@ -18,12 +18,12 @@ export default function Services() {
             as="li"
             key={service.title}
             delay={0.05 * index}
-            className={cn('flex min-h-64 flex-col justify-between rounded-3xl p-7 text-ink', service.tone)}
+            className={cn('flex min-h-64 flex-col justify-between rounded-3xl p-7 text-night', service.tone)}
           >
             <span className="font-mono text-sm">{String(index + 1).padStart(2, '0')}</span>
             <div>
               <h3 className="text-2xl font-semibold tracking-tight">{service.title}</h3>
-              <p className="mt-2 leading-relaxed text-ink/75">{service.description}</p>
+              <p className="mt-2 leading-relaxed text-night/75">{service.description}</p>
             </div>
           </Reveal>
         ))}

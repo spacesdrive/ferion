@@ -13,16 +13,16 @@ const ELSEWHERE = [
 // the limelight footer: a pink band that ends in the name, set huge
 export default function Footer() {
   return (
-    <footer className="overflow-hidden bg-pop-rose text-ink">
+    <footer className="overflow-hidden bg-pop-rose text-night">
       <Container className="pt-14 pb-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div>
             <p className="flex items-center gap-2 text-2xl font-semibold tracking-tight">
-              <FlowerMark className="text-ink [&_.fill-paper]:fill-pop-rose" />
+              <FlowerMark className="text-night [&_.fill-paper]:fill-pop-rose" />
               {person.name}
             </p>
-            <p className="mt-2 text-ink/70">Motion designer, editor and web designer.</p>
-            <SocialLinks className="mt-5 -ml-2" linkClassName="hover:bg-ink/10" />
+            <p className="mt-2 text-night/70">Motion designer, editor and web designer.</p>
+            <SocialLinks className="mt-5 -ml-2" linkClassName="hover:bg-night/10" />
           </div>
 
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-12 gap-y-2 text-sm">
@@ -45,7 +45,7 @@ export default function Footer() {
         >
           {person.wordmark}
         </p>
-        <p className="mt-6 font-mono text-xs tracking-[0.08em] text-ink/70 uppercase">
+        <p className="mt-6 font-mono text-xs tracking-[0.08em] text-night/70 uppercase">
           © {new Date().getFullYear()} {person.name}
         </p>
       </Container>

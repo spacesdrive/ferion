@@ -33,7 +33,7 @@ export default function VideoDialog({ video, onClose }: VideoDialogProps) {
         if (event.target === event.currentTarget) event.currentTarget.close();
       }}
       aria-label={video ? video.title : 'Video'}
-      className="m-auto max-h-none max-w-none overflow-visible bg-transparent p-4 backdrop:bg-ink/85 backdrop:backdrop-blur-sm"
+      className="m-auto max-h-none max-w-none overflow-visible bg-transparent p-4 backdrop:bg-night/85 backdrop:backdrop-blur-sm"
     >
       {video && (
         <div className={cn('relative', FRAME_WIDTH[video.aspect])}>
@@ -46,12 +46,12 @@ export default function VideoDialog({ video, onClose }: VideoDialogProps) {
             autoPlay
             className="rounded-2xl"
           />
-          <p className="mt-3 text-center font-semibold text-paper">{video.title}</p>
+          <p className="mt-3 text-center font-semibold text-snow">{video.title}</p>
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
             aria-label="Close video"
-            className="absolute -top-3 -right-3 z-50 grid size-10 place-items-center rounded-full bg-paper text-ink shadow-lg transition-transform hover:scale-105"
+            className="absolute -top-3 -right-3 z-50 grid size-10 place-items-center rounded-full bg-snow text-night shadow-lg transition-transform hover:scale-105"
           >
             <X className="size-4" aria-hidden="true" />
           </button>

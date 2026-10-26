@@ -20,7 +20,7 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
         onClick={() => onOpen(video)}
         aria-label={`Play ${video.title}`}
         className={cn(
-          'group relative overflow-hidden rounded-3xl bg-ink',
+          'group relative overflow-hidden rounded-3xl bg-night',
           video.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video',
         )}
       >
@@ -31,11 +31,11 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
         />
         <span className="absolute inset-0 grid place-items-center">
-          <span className="grid size-14 place-items-center rounded-full bg-paper/90 text-ink shadow-lg transition-transform group-hover:scale-110">
+          <span className="grid size-14 place-items-center rounded-full bg-snow/90 text-night shadow-lg transition-transform group-hover:scale-110">
             <Play className="size-5 fill-current" aria-hidden="true" />
           </span>
         </span>
-        <span className="absolute top-3 left-3 rounded-full bg-ink/70 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-paper uppercase">
+        <span className="absolute top-3 left-3 rounded-full bg-night/70 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-snow uppercase">
           {video.platform}
         </span>
         {video.isSample && <SampleBadge className="absolute top-3 right-3" />}

@@ -1,8 +1,6 @@
 import { MotionConfig } from 'motion/react';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
-import ToolStrip from '@/components/marquee/ToolStrip';
-import About from '@/components/sections/About';
 import CaseStudy from '@/components/sections/CaseStudy';
 import Contact from '@/components/sections/Contact';
 import Faq from '@/components/sections/Faq';
@@ -26,8 +24,6 @@ export default function App() {
       <Navbar />
       <main id="main">
         <Hero />
-        <ToolStrip />
-        <About />
         <Work />
         <Process />
         <Websites />

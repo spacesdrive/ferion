@@ -3,7 +3,7 @@
 /* shared components live in packages/ui, so Tailwind has to scan them too */
 @source "../../../packages/ui/src";
 
-/* the site is light only; tying dark: to a class nobody sets keeps shared components light */
+/* dark mode follows the toggle, which sets .dark on <html>, not the system setting */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -17,6 +17,10 @@
   --color-card: #fffffc;
   --color-line: rgb(18 18 18 / 0.1);
 
+  /* fixed colors for text on the bright accents and for media overlays, the same in both themes */
+  --color-night: #121212;
+  --color-snow: #f5f3ee;
+
   /* the playful accents from the reference templates */
   --color-pop-blue: #0a2bff;
   --color-pop-navy: #00377e;
@@ -28,16 +32,16 @@
   --color-pop-rose: #ffa6ef;
   --color-pop-violet: #8b7cf6;
   --color-pop-green: #8ee07a;
+}
 
-  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+/* paper and ink swap places, so every surface that uses them follows the theme */
+@layer theme {
+  :root.dark {
+    --color-paper: #111110;
+    --color-ink: #f5f3ee;
+    --color-muted: #a3a29c;
+    --color-card: #1c1c1a;
+    --color-line: rgb(245 243 238 / 0.12);
   }
 }
 
@@ -50,6 +54,14 @@
     html {
       scroll-behavior: smooth;
     }
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
@@ -91,15 +103,4 @@
 
 @utility btn-ghost {
   @apply btn border border-line bg-card text-ink hover:border-ink;
-}
-
-/* fade both edges of a marquee so cards slide in and out instead of being cut */
-@utility edge-fade {
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
 }

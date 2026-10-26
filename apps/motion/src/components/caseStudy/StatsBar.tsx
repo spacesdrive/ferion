@@ -9,12 +9,12 @@ export interface StatsBarProps {
 // the limelight dark band of big numbers
 export default function StatsBar({ stats, isSample }: StatsBarProps) {
   return (
-    <div className="relative rounded-[2rem] bg-ink px-6 py-10 text-paper sm:px-10">
+    <div className="relative rounded-[2rem] bg-night px-6 py-10 text-snow sm:px-10 dark:ring-1 dark:ring-snow/10">
       {isSample && <SampleBadge className="absolute top-4 right-4" />}
       <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {stats.map(stat => (
           <div key={stat.label} className="flex flex-col-reverse gap-2 text-center">
-            <dt className="font-mono text-[11px] tracking-[0.14em] text-paper/60 uppercase">{stat.label}</dt>
+            <dt className="font-mono text-[11px] tracking-[0.14em] text-snow/60 uppercase">{stat.label}</dt>
             <dd className="text-4xl font-semibold tracking-tight sm:text-5xl">{stat.value}</dd>
           </div>
         ))}

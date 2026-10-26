@@ -28,7 +28,10 @@ export default function SocialLinks({ className, linkClassName }: SocialLinksPro
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className={cn('grid size-10 place-items-center rounded-full transition-colors', linkClassName)}
+            className={cn(
+              'grid size-10 place-items-center rounded-full transition-colors [&_svg]:fill-current',
+              linkClassName,
+            )}
           >
             <SocialLogo icon={LOGO_NAMES[social.id]} size={20} aria-hidden="true" />
           </a>

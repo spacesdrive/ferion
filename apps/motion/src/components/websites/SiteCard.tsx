@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react';
 import type { Site } from '@/types/content';
 
 export interface SiteCardProps {
@@ -30,13 +29,7 @@ export default function SiteCard({ site }: SiteCardProps) {
         <span className="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">{site.category}</span>
       </div>
       <p className="text-sm leading-relaxed text-muted">{site.description}</p>
-      <p className="flex items-center gap-1 font-mono text-[11px] tracking-[0.08em] uppercase">
-        {host}
-        <ArrowUpRight
-          className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          aria-hidden="true"
-        />
-      </p>
+      <p className="font-mono text-[11px] tracking-[0.08em] uppercase group-hover:underline">{host}</p>
     </article>
   );
 }

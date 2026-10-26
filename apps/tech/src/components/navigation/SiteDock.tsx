@@ -1,4 +1,5 @@
 import { findSocial } from '@ferion/profile';
+import useTheme from '@ferion/ui/lib/useTheme.ts';
 import {
   BriefcaseBusiness,
   FolderGit2,
@@ -14,10 +15,11 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import useActiveSection from '@/hooks/useActiveSection';
 import useClickSound from '@/hooks/useClickSound';
 import useMediaQuery from '@/hooks/useMediaQuery';
-import useTheme from '@/hooks/useTheme';
 import Dock from './Dock';
 import DockItem from './DockItem';
 import DockSeparator from './DockSeparator';
+
+const THEME_COLORS = { light: '#f5f4f0', dark: '#121212' };
 
 interface DockSection {
   id: string;
@@ -49,7 +51,7 @@ export interface SiteDockProps {
 export default function SiteDock({ showWriting }: SiteDockProps) {
   const active = useActiveSection(SECTION_IDS);
   const sections = showWriting ? SECTIONS : SECTIONS.filter(section => section.id !== 'blog');
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme(THEME_COLORS);
   const playClick = useClickSound();
   const isDesktop = useMediaQuery('(min-width: 640px)');
 
