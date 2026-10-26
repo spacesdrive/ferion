@@ -45,7 +45,7 @@ const videos: Video[] = [
     ...video('aevrin-launch-motion', 'Aevrin launch motion graphics', '16:9', ['davinci-resolve'], 'Launch film'),
     isPinned: true,
   },
-  video('aevrin-logo-shine', 'Aevrin logo shine', '9:16', [], 'Logo animation'),
+  video('aevrin-logo-shine', 'Aevrin logo shine', '9:16', ['davinci-resolve'], 'Logo animation'),
   {
     ...video('meta-cognition-launch', 'Meta Cognition launch', '16:9', ['davinci-resolve'], 'Launch film'),
     isPinned: true,
