@@ -28,7 +28,7 @@ const videos: Video[] = [
     ['after-effects', 'davinci-resolve', 'claude-design'],
     'Explainer',
   ),
-  video('find-skills', 'Find Skills', '9:16', ['davinci-resolve', 'claude-design'], 'Reel'),
+  video('find-skills', 'Find Skills', '9:16', ['davinci-resolve'], 'Reel'),
   video('linkedin-growth', 'LinkedIn growth on autopilot', '16:9', ['after-effects', 'claude-design'], 'Promo'),
   video(
     'varq-launch-film',

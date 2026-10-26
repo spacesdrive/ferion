@@ -42,11 +42,20 @@ export interface Plugin {
   isSample: boolean;
 }
 
+export interface StorySection {
+  heading: string;
+  body: string;
+}
+
 export interface NicheCase {
+  // the last part of its page address: /case-studies/<slug>/
+  slug: string;
   niche: string;
   platform: string;
   summary: string;
   metrics: { label: string; value: string }[];
+  // the longer write-up on the case study's own page
+  story: StorySection[];
   isSample: boolean;
 }
 

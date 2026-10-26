@@ -1,0 +1,3 @@
+# every case study address serves the one case study page; it reads the slug from the address
+/case-studies/:slug/ /case-study/ 200
+/case-studies/:slug /case-studies/:slug/ 301

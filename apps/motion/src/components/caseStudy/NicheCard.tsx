@@ -1,5 +1,7 @@
 import SampleBadge from '@/components/layout/SampleBadge';
+import { caseStudyPath } from '@/data/navigation';
 import type { NicheCase } from '@/types/content';
+import NicheMetrics from './NicheMetrics';
 
 export interface NicheCardProps {
   niche: NicheCase;
@@ -16,16 +18,17 @@ export default function NicheCard({ niche }: NicheCardProps) {
         {niche.isSample && <SampleBadge />}
       </div>
 
-      <dl className="grid grid-cols-3 gap-3">
-        {niche.metrics.map(metric => (
-          <div key={metric.label} className="flex flex-col-reverse gap-1">
-            <dt className="font-mono text-[10px] tracking-[0.12em] text-muted uppercase">{metric.label}</dt>
-            <dd className="text-2xl font-semibold tracking-tight">{metric.value}</dd>
-          </div>
-        ))}
-      </dl>
+      <NicheMetrics metrics={niche.metrics} />
 
       <p className="text-sm leading-relaxed text-muted">{niche.summary}</p>
+
+      <a
+        href={caseStudyPath(niche.slug)}
+        aria-label={`Read the ${niche.niche} case study`}
+        className="btn-ink mt-auto self-start px-5 py-2.5"
+      >
+        Read
+      </a>
     </article>
   );
 }

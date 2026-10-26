@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
-import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite';
+import { defineConfig, type Connect, type HtmlTagDescriptor, type Plugin } from 'vite';
 
 const fromRoot = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
@@ -35,8 +35,28 @@ function sharedHead(): Plugin {
   return { name: 'motion-shared-head', transformIndexHtml: () => SHARED_HEAD };
 }
 
+const CASE_STUDY_ROUTE = /^\/case-studies\/[^/?#]+\/?(\?.*)?$/;
+
+// in dev and preview, /case-studies/<slug>/ serves case-study/index.html, as public/_redirects does on Cloudflare
+const serveCaseStudy: Connect.NextHandleFunction = (req, _res, next) => {
+  if (req.url && CASE_STUDY_ROUTE.test(req.url)) req.url = '/case-study/';
+  next();
+};
+
+function caseStudyRoutes(): Plugin {
+  return {
+    name: 'motion-case-study-routes',
+    configureServer: server => {
+      server.middlewares.use(serveCaseStudy);
+    },
+    configurePreviewServer: server => {
+      server.middlewares.use(serveCaseStudy);
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [tailwindcss(), react(), sharedHead()],
+  plugins: [tailwindcss(), react(), sharedHead(), caseStudyRoutes()],
   resolve: {
     alias: {
       '@': fromRoot('./src'),
@@ -49,6 +69,8 @@ export default defineConfig({
     websites: fromRoot('./websites/index.html'),
     plugins: fromRoot('./plugins/index.html'),
     caseStudies: fromRoot('./case-studies/index.html'),
+    // the one page behind every /case-studies/<slug>/ address
+    caseStudy: fromRoot('./case-study/index.html'),
   },
   server: { port: 5174 },
 });

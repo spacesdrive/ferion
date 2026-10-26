@@ -19,7 +19,12 @@ they share (icons, the theme script, `noindex`).
 | `/work/` | `work/index.html` | `src/pages/WorkPage.tsx` | every video |
 | `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
 | `/plugins/` | `plugins/index.html` | `src/pages/PluginsPage.tsx` | every plugin, each with a Download button |
-| `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study |
+| `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study, each with a Read button |
+| `/case-studies/<slug>/` | `case-study/index.html` | `src/pages/CaseStudyPage.tsx` | one case study in full |
+
+Every case study page comes from the one `case-study/index.html`. On Cloudflare, `public/_redirects` serves it for
+any `/case-studies/<slug>/` address, and `vite.config.ts` does the same in dev. The page reads the slug from the
+address, so a new case study only needs an entry in `src/data/caseStudy.ts` with its `slug` and `story`.
 
 Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
 the `HOME_LIMIT` constants in `src/components/sections/`.
@@ -66,7 +71,8 @@ The plugins and case studies are still samples, marked `isSample: true` with a l
      `downloadUrl: '/plugins/auto-subtitles.zip'`. The button then saves the file straight away.
    - Cloudflare Pages won't serve a bigger file, so upload it to a GitHub release or R2 and use that https link. It
      opens in a new tab, since browsers only start a direct download for files on the same site.
-2. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche.
+2. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche, and the
+   write-up in `story` that the Read page shows.
 3. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
    `vite.config.ts` and the sample notes in the Plugins and Case study intros.
 
