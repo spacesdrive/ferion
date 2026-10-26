@@ -35,7 +35,7 @@ ferion is a single-page React app that builds to static HTML, CSS, and JavaScrip
 | Imagery | The hand-inked doodle mark leads; real photos (the portrait and hackathon shots) are always shown as taped, tilted polaroids. Every photo and logo renders in grayscale. |
 | macOS-style dock | Bottom navigation with spring-based magnification, tooltips on hover and keyboard focus, and the active section filled in ink. Magnification only follows a mouse; touch devices get a compact dock sized for 320px screens that sits clear of the iOS home indicator. |
 | Paper and ink themes | Paper is the default, as the brand specifies. The dock toggles to ink, and the choice persists in `localStorage`. An inline script in `index.html` applies it before first paint, so there is no flash. The Contact block is an `.inverse` surface that always takes the opposite theme. |
-| Sections | Hero, About, Experience, Projects, Hackathons, Writing, and Contact. |
+| Sections | Hero, Experience, Projects, Hackathons, Writing, and Contact. Writing shows the top four posts from blog.ujjwal.fyi, loaded live, and only appears once the blog has posts. |
 | Hackathon photo viewer | Built on the native `<dialog>` element: focus moves into the viewer, Escape closes it, focus returns to the photo you opened, and the page stops scrolling underneath. |
 | Motion | Sections fade in as they scroll into view. `MotionConfig reducedMotion="user"` turns off movement for visitors who prefer reduced motion, and CSS smooth scrolling is limited to the same group. |
 | Accessibility | Semantic landmarks and headings, a skip link, visible focus rings, labelled icon links, and text contrast checked against WCAG AA. |
@@ -77,13 +77,14 @@ src/
 │   ├── blog/               # BlogCard
 │   ├── brand/              # Mark (theme-aware), Polaroid
 │   ├── experience/         # ExperienceItem
+│   ├── hero/               # RoleVenn, the four-circle roles diagram around the portrait
 │   ├── layout/             # Container, Section, SectionHeading, Header, Footer
 │   ├── navigation/         # Dock primitives and SiteDock (the configured site dock)
 │   ├── projects/           # ProjectCard
 │   ├── sections/           # one component per page section
 │   └── ui/                 # Reveal, SocialIcon
 ├── data/                   # all content: profile, experience, projects, hackathons, blog
-├── hooks/                  # useActiveSection, useClickSound, useMediaQuery, useTheme
+├── hooks/                  # useActiveSection, useBlogPosts, useClickSound, useMediaQuery, useTheme
 ├── lib/                    # cn() class helper, date formatting, click sound data
 ├── App.jsx                 # page composition
 ├── main.jsx                # React entry, font imports
@@ -95,11 +96,11 @@ resume-viewer/              # standalone page deployed to resume.tech.ujjwal.fyi
 
 | What | Where |
 |---|---|
-| Name, tagline, roles, intro, portrait, resume link, About text, social links and handles | `src/data/profile.js` |
+| Name, hero roles (top, left, right, bottom), portrait, resume link, social links and handles | `src/data/profile.js` |
 | Work experience (use `end: null` for a current role) | `src/data/experience.js` |
-| Projects and links (`source`, `live`, `releases`) | `src/data/projects.js` |
+| Projects and links (`source`, `live`) | `src/data/projects.js` |
 | Hackathon results and photos | `src/data/hackathons.js` |
-| Blog posts (`readingTime` is optional) | `src/data/blog.js` |
+| Blog feed URL (posts themselves are published on blog.ujjwal.fyi) | `src/data/blog.js` |
 | Dock items | `SECTIONS` in `src/components/navigation/SiteDock.jsx` |
 | Colors and fonts | `:root`, `.dark`, and `@theme` in `src/index.css` |
 | Page title and meta description | `index.html` |

@@ -2,7 +2,7 @@
 
 A minimal, dependency-free static page that displays `resume.pdf` inline with a download
 button. It is deployed separately from the main portfolio, at `resume.tech.ujjwal.fyi`, and
-is what the portfolio's "Download CV" / "Resume" buttons link to.
+is what the portfolio's "View CV" / "Resume" buttons link to.
 
 There is no build step. `index.html`, `resume.pdf` and `assets/` (self-hosted brand fonts and mark) are
 served as-is. Pushes to `main` that touch this folder redeploy automatically via
