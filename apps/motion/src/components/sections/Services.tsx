@@ -18,7 +18,7 @@ export default function Services() {
             as="li"
             key={service.title}
             delay={0.05 * index}
-            className={cn('flex min-h-64 flex-col justify-between rounded-3xl p-7 text-night', service.tone)}
+            className={cn('flex flex-col gap-6 rounded-3xl p-7 text-night', service.tone)}
           >
             <span className="font-mono text-sm">{String(index + 1).padStart(2, '0')}</span>
             <div>
