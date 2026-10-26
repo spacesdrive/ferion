@@ -6,7 +6,6 @@ export const profile = {
   wordmark: 'ujjwal',
   // The hero diagram's circles, in the order top, left, right, bottom.
   roles: ['Backend Developer', 'Growth Expert', 'Otaku', 'Polyhistor'],
-  domain: 'tech.ujjwal.fyi',
   avatar,
   // Points at resume-viewer/ (deployed separately) rather than a bundled file,
   // so the resume opens in a PDF viewer with its own download button.
