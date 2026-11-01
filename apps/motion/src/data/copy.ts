@@ -1,21 +1,5 @@
 import { Clapperboard, Globe, Sparkles } from 'lucide-react';
-import type { Faq, ProcessStep, Service } from '@/types/content';
-
-export const processSteps: ProcessStep[] = [
-  {
-    title: 'Plan',
-    description: 'I write the hook, sketch the beats and pick the format: 9:16 for the feed, 16:9 for YouTube.',
-  },
-  {
-    title: 'Animate and edit',
-    description: 'Motion goes into After Effects or Cavalry. The cut, color and sound happen in DaVinci Resolve.',
-  },
-  {
-    title: 'Ship and learn',
-    description:
-      'I export for each platform, post, then check where people dropped off so the next one holds them longer.',
-  },
-];
+import type { Faq, Service } from '@/types/content';
 
 export const services: Service[] = [
   {

@@ -42,7 +42,6 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 |---|---|---|
 | Hero | looping video with a two-line handwritten (Gochi Hand) headline | `src/components/hero/`, `public/hero/` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
-| How I work | portrait beside a numbered timeline | `src/data/copy.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
 | Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |

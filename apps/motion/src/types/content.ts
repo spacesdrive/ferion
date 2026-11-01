@@ -77,11 +77,6 @@ export interface Service {
   isFeatured?: boolean;
 }
 
-export interface ProcessStep {
-  title: string;
-  description: string;
-}
-
 export interface Faq {
   question: string;
   answer: string;

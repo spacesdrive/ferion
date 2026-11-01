@@ -8,7 +8,7 @@ import { services } from '@/data/copy';
 export default function Services() {
   return (
     <Section id="services">
-      <SectionHeader id="services" index="06" eyebrow="What I offer">
+      <SectionHeader id="services" index="05" eyebrow="What I offer">
         Ways we can <Accent>work together</Accent>
       </SectionHeader>
 

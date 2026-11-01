@@ -13,7 +13,7 @@ export default function Websites() {
     <Section id="websites">
       <SectionHeader
         id="websites"
-        index="03"
+        index="02"
         eyebrow="Web design"
         isCentered
         intro="My newest sites. Every one is live, so open one and click around."

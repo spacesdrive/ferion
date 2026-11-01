@@ -56,7 +56,7 @@ const sites: Site[] = [
   {
     slug: 'uems-ventures',
     name: 'UEMS Ventures',
-    url: 'https://uems-agency.spacesdrive.cc',
+    url: 'https://uemsventures.com',
     category: 'Client website',
     description:
       'The website for a Mumbai consultancy that helps students with career guidance, study abroad and migration.',

@@ -18,7 +18,7 @@ export default function CaseStudy() {
     <Section id="case-study">
       <SectionHeader
         id="case-study"
-        index="05"
+        index="04"
         eyebrow="Case studies"
         intro="Views, followers and growth from the niches I used to share the free plugins. Sample numbers for now, the real ones are coming."
       >

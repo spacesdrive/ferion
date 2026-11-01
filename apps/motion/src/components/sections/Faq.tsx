@@ -8,7 +8,7 @@ import { faqs } from '@/data/copy';
 export default function Faq() {
   return (
     <Section id="faq">
-      <SectionHeader id="faq" index="07" eyebrow="FAQ">
+      <SectionHeader id="faq" index="06" eyebrow="FAQ">
         Frequently asked <Accent>questions</Accent>
       </SectionHeader>
 
