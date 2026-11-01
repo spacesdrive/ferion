@@ -15,7 +15,7 @@ export default function Contact() {
       <Container>
         <Reveal className="relative isolate grid gap-10 overflow-hidden rounded-[2.5rem] bg-night px-6 py-14 text-snow sm:px-12 sm:py-16 lg:grid-cols-2 lg:items-center">
           <img
-            src="/hero/autumn-lake.webp"
+            src="/hero/sunrise.webp"
             alt=""
             loading="lazy"
             className="absolute inset-0 -z-10 size-full object-cover"

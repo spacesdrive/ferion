@@ -27,7 +27,7 @@ Every case study page comes from the one `case-study/index.html`, and every webs
 On Cloudflare, `public/_redirects` serves them for any `/case-studies/<slug>/` or `/websites/<slug>/` address, and
 `vite.config.ts` does the same in dev. The page reads the slug from the address, so a new case study or website only
 needs an entry with a `slug` in `src/data/caseStudy.ts` or `src/data/sites.ts`. Website screenshots are the first
-screen at 1440x900.
+screen of a 1440x900 window, captured at 2x (2880x1800) so text stays sharp.
 
 Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
 the `HOME_LIMIT` and `HOME_PREVIEW` constants in `src/components/sections/`. A video with `isPinned: true` always
@@ -48,9 +48,9 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 | Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
-The hero video is `public/hero/autumn-lake.mp4` (1080p, 60fps) with `autumn-lake-720.mp4` for phones and
-`autumn-lake.webp` as the poster and for people who turn off motion. It is 2:25 to 2:29 of `apps/motion/video.mp4`,
-with the end faded into the start so it loops. That source file is about 1 GB, so `.gitignore` keeps it out of git.
+The hero video is `public/hero/sunrise.mp4` (1080p, 60fps) with `sunrise-720.mp4` for phones and `sunrise.webp` as
+the poster and for people who turn off motion. It is 1:24.7 to 1:27.9 of `apps/motion/video.mp4`, inside one shot, with
+the end faded into the start so it loops. That source file is about 1 GB, so `.gitignore` keeps it out of git.
 
 Case study cards show the platform's colors and logo until a case study has an `image`.
 
