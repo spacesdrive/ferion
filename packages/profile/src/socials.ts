@@ -8,7 +8,7 @@ export interface Social {
 }
 
 const socials: Social[] = [
-  { id: 'instagram', label: 'Instagram', handle: '@ujjwal.fyi', href: 'https://www.instagram.com/ujjwal.fyi' },
+  { id: 'instagram', label: 'Instagram', handle: '@ujjwalkr.ai', href: 'https://www.instagram.com/ujjwalkr.ai' },
   { id: 'x', label: 'X', handle: '@codewithujjwal', href: 'https://x.com/codewithujjwal' },
   { id: 'youtube', label: 'YouTube', handle: '@rec709.studio', href: 'https://www.youtube.com/@rec709.studio' },
   { id: 'github', label: 'GitHub', handle: 'spacesdrive', href: 'https://github.com/spacesdrive' },

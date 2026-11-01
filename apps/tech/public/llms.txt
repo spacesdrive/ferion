@@ -14,7 +14,7 @@
 
 - Resume: https://resume.tech.ujjwal.fyi
 - Blog: https://blog.ujjwal.fyi (RSS: https://blog.ujjwal.fyi/rss.xml)
-- Instagram: https://www.instagram.com/ujjwal.fyi
+- Instagram: https://www.instagram.com/ujjwalkr.ai
 - X: https://x.com/codewithujjwal
 - YouTube: https://www.youtube.com/@rec709.studio
 - GitHub: https://github.com/spacesdrive
