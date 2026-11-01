@@ -21,11 +21,13 @@ export interface Video {
   software: SoftwareId[];
   // what kind of piece it is, shown as a badge on the card: Reel, Launch film, Explainer
   format: string;
-  // always shown in the home page's short list, ahead of newer videos
+  // always in the home page's short row, right after the newest videos
   isPinned?: boolean;
 }
 
 export interface Site {
+  // the last part of its page address: /websites/<slug>/
+  slug: string;
   name: string;
   url: string;
   category: string;
@@ -57,6 +59,8 @@ export interface NicheCase {
   metrics: { label: string; value: string }[];
   // the longer write-up on the case study's own page
   story: StorySection[];
+  // a cover photo; without one the card shows the platform's colors and logo
+  image?: string;
   isSample: boolean;
 }
 

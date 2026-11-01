@@ -13,6 +13,7 @@ export default function WebsitesPage() {
           id="websites"
           level="h1"
           eyebrow="Web design"
+          isCentered
           intro="Every site I've designed and built. All of them are live, so open one and click around."
         >
           Every website, <Accent>designed and built</Accent> by me

@@ -1,5 +1,4 @@
-import { Globe } from 'lucide-react';
-import ButtonIcon from '@/components/layout/ButtonIcon';
+import { websitePath } from '@/data/navigation';
 import type { Site } from '@/types/content';
 
 export interface SiteFeatureProps {
@@ -7,54 +6,45 @@ export interface SiteFeatureProps {
   position: number;
 }
 
-// a wide project card: the story on the left, the screenshot on the right
+// a big centered screenshot of the whole first screen, with the name and type underneath; the card opens the site's page
 export default function SiteFeature({ site, position }: SiteFeatureProps) {
   const host = new URL(site.url).host;
 
   return (
-    <article className="grid overflow-hidden rounded-[2rem] border border-line bg-card shadow-[0_-12px_40px_rgb(0_0_0/0.06)] md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-      <div className="flex flex-col gap-6 p-7 sm:p-10">
-        <span className="font-mono text-xs text-muted">({String(position).padStart(2, '0')})</span>
-        <div>
-          <h3 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl">{site.name}</h3>
-          <p className="mt-3 leading-relaxed text-pretty text-muted">{site.description}</p>
-        </div>
-
-        <dl className="flex flex-col divide-y divide-line border-y border-line">
-          <div className="flex flex-col gap-1.5 py-4">
-            <dt className="text-sm text-muted">Type:</dt>
-            <dd className="flex items-center gap-2 font-medium">
-              <span aria-hidden="true" className="size-2 rounded-full bg-sky" />
-              {site.category}
-            </dd>
-          </div>
-          <div className="flex flex-col gap-1.5 py-4">
-            <dt className="text-sm text-muted">Address:</dt>
-            <dd className="font-medium break-all">{host}</dd>
-          </div>
-        </dl>
-
-        <a
-          href={site.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Visit ${site.name}`}
-          className="btn-lime mt-auto self-start"
-        >
-          Visit site
-          <ButtonIcon icon={Globe} />
-        </a>
-      </div>
-
-      <div className="order-first p-2 md:order-none md:pl-0">
+    <article className="group relative rounded-[2rem] border border-line bg-card p-2.5 shadow-[0_-12px_40px_rgb(0_0_0/0.06)] sm:p-3">
+      {/* the frame height follows the screen, so a stacked card always fits under the navbar */}
+      <div className="flex justify-center overflow-hidden rounded-[1.6rem] bg-mist md:h-[min(70vh,44rem)]">
         <img
           src={site.image}
           alt={`Screenshot of ${site.name}`}
-          width="1200"
-          height="750"
+          width="1440"
+          height="900"
           loading="lazy"
-          className="aspect-[16/10] size-full rounded-[1.6rem] object-cover object-top"
+          className="aspect-[16/10] h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none md:h-full md:w-auto md:max-w-full md:rounded-[1.2rem]"
         />
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-3 pt-5 pb-3 sm:px-4">
+        <div className="flex min-w-0 items-baseline gap-4">
+          <span className="font-mono text-xs text-muted">({String(position).padStart(2, '0')})</span>
+          <div className="min-w-0">
+            <h3 className="text-2xl font-medium tracking-[-0.02em] sm:text-3xl">
+              <a href={websitePath(site.slug)} className="after:absolute after:inset-0 after:rounded-[2rem]">
+                {site.name}
+              </a>
+            </h3>
+            <p className="mt-1 text-sm text-muted">{host}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="flex items-center gap-2 rounded-full bg-mist px-3 py-1.5 text-sm">
+            <span aria-hidden="true" className="size-2 rounded-full bg-sky" />
+            {site.category}
+          </span>
+          <span aria-hidden="true" className="btn-lime group-hover:brightness-95">
+            View project
+          </span>
+        </div>
       </div>
     </article>
   );

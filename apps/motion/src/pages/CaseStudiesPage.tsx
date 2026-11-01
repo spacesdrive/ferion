@@ -1,5 +1,5 @@
 import Reveal from '@ferion/ui/motion/Reveal.tsx';
-import NicheGrid from '@/components/caseStudy/NicheGrid';
+import CaseList from '@/components/caseStudy/CaseList';
 import StatsBar from '@/components/caseStudy/StatsBar';
 import Accent from '@/components/layout/Accent';
 import PageShell from '@/components/layout/PageShell';
@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
         <Reveal className="mt-14">
           <StatsBar stats={caseStudyTotals} isSample={isSample} />
         </Reveal>
-        <NicheGrid niches={nicheCases} />
+        <CaseList niches={nicheCases} />
       </Section>
     </PageShell>
   );

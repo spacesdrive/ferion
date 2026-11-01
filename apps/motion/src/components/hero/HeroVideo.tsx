@@ -1,8 +1,8 @@
 import usePrefersReducedMotion from '@ferion/ui/lib/usePrefersReducedMotion.ts';
 
-const POSTER = '/hero/sky-field.webp';
+const POSTER = '/hero/autumn-lake.webp';
 
-// the looping sky and flower field behind the headline; phones get the lighter 720p file
+// a short loop of autumn trees over a lake behind the headline; phones get the lighter 720p file
 export default function HeroVideo() {
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -12,12 +12,12 @@ export default function HeroVideo() {
         <img src={POSTER} alt="" className="size-full object-cover" />
       ) : (
         <video autoPlay muted loop playsInline preload="auto" poster={POSTER} className="size-full object-cover">
-          <source src="/hero/sky-field-720.mp4" type="video/mp4" media="(max-width: 767px)" />
-          <source src="/hero/sky-field.mp4" type="video/mp4" />
+          <source src="/hero/autumn-lake-720.mp4" type="video/mp4" media="(max-width: 767px)" />
+          <source src="/hero/autumn-lake.mp4" type="video/mp4" />
         </video>
       )}
-      {/* darkens the bright clouds just enough for white text, and fades the field into the page */}
-      <div className="absolute inset-0 bg-gradient-to-b from-night/35 via-night/5 to-night/30" />
+      {/* darkens the bright sky just enough for white text */}
+      <div className="absolute inset-0 bg-gradient-to-b from-night/40 via-night/20 to-night/40" />
     </div>
   );
 }

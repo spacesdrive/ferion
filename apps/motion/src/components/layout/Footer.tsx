@@ -1,5 +1,4 @@
 import { person } from '@ferion/profile';
-import FlowerMark from '@/components/hero/FlowerMark';
 import SocialLinks from '@/components/social/SocialLinks';
 import navigation from '@/data/navigation';
 import Container from './Container';
@@ -17,10 +16,7 @@ export default function Footer() {
       <Container className="pt-14 pb-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div>
-            <p className="flex items-center gap-2 text-2xl font-medium tracking-tight">
-              <FlowerMark className="text-sky" />
-              {person.name}
-            </p>
+            <p className="text-2xl font-medium tracking-tight">{person.name}</p>
             <p className="mt-2 text-muted">Motion designer, editor and web designer.</p>
             <SocialLinks className="mt-5 -ml-2" linkClassName="text-ink/70 hover:bg-ink/5 hover:text-ink" />
           </div>

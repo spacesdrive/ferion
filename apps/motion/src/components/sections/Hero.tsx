@@ -12,7 +12,7 @@ export default function Hero() {
       className="relative isolate flex min-h-[100svh] items-center overflow-hidden rounded-b-[2.5rem] bg-night text-snow"
     >
       <HeroVideo />
-      <Container className="pt-28 pb-24">
+      <Container className="max-w-7xl pt-28 pb-24">
         <Reveal>
           <HeroHeadline />
         </Reveal>

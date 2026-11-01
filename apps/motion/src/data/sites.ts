@@ -12,6 +12,7 @@ import type { Site } from '@/types/content';
 // live sites, newest first; the home page shows the first six
 const sites: Site[] = [
   {
+    slug: 'aevrin',
     name: 'Aevrin',
     url: 'https://aevrin.ai',
     category: 'Company website',
@@ -19,6 +20,7 @@ const sites: Site[] = [
     image: aevrinImage,
   },
   {
+    slug: 'vyra',
     name: 'Vyra',
     url: 'https://vyra.aevrin.ai',
     category: 'Product website',
@@ -27,6 +29,7 @@ const sites: Site[] = [
     image: vyraImage,
   },
   {
+    slug: 'varq',
     name: 'Varq',
     url: 'https://varq.aevrin.ai',
     category: 'Product website',
@@ -34,6 +37,7 @@ const sites: Site[] = [
     image: varqImage,
   },
   {
+    slug: 'twiligent',
     name: 'Twiligent',
     url: 'https://twiligent.ujjwal.fyi',
     category: 'Analytics app',
@@ -41,6 +45,7 @@ const sites: Site[] = [
     image: twiligentImage,
   },
   {
+    slug: 'kinetube',
     name: 'KineTube',
     url: 'https://kinetube.ujjwal.fyi',
     category: 'Desktop app',
@@ -49,6 +54,7 @@ const sites: Site[] = [
     image: kinetubeImage,
   },
   {
+    slug: 'uems-ventures',
     name: 'UEMS Ventures',
     url: 'https://uems-agency.spacesdrive.cc',
     category: 'Client website',
@@ -57,6 +63,7 @@ const sites: Site[] = [
     image: uemsAgencyImage,
   },
   {
+    slug: 'luxe',
     name: 'Luxe',
     url: 'https://luxe.spacesdrive.cc',
     category: 'AI store',
@@ -64,6 +71,7 @@ const sites: Site[] = [
     image: luxeImage,
   },
   {
+    slug: 'uems-pulse',
     name: 'UEMS Pulse',
     url: 'https://uems-pulse.spacesdrive.cc',
     category: 'Client website',
@@ -71,6 +79,7 @@ const sites: Site[] = [
     image: uemsPulseImage,
   },
   {
+    slug: 'blog',
     name: "Ujjwal's Blog",
     url: 'https://blog.ujjwal.fyi',
     category: 'Blog',
@@ -80,3 +89,7 @@ const sites: Site[] = [
 ];
 
 export default sites;
+
+export function findSite(slug: string): Site | undefined {
+  return sites.find(site => site.slug === slug);
+}

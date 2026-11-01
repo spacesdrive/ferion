@@ -7,7 +7,7 @@ import FilterChips from './FilterChips';
 import ToolkitFolder from './ToolkitFolder';
 import VideoDialog from './VideoDialog';
 import VideoRow from './VideoRow';
-import { filterVideos, pinnedFirst, type WorkFilter } from './workFilter';
+import { filterVideos, previewOrder, type WorkFilter } from './workFilter';
 
 function describeFilter(count: number, toolName: string | null): string {
   if (!toolName) return `All ${count} pieces`;
@@ -15,18 +15,22 @@ function describeFilter(count: number, toolName: string | null): string {
   return `${count} made with ${toolName}`;
 }
 
+export interface WorkPreview {
+  aspect: Video['aspect'];
+  latestCount: number;
+  total: number;
+}
+
 export interface WorkBrowserProps {
-  // how many of each ratio to show; leave it out to show every video
-  limit?: Record<Video['aspect'], number>;
+  // the home page shows one short row with no title: the newest few, then the pinned ones
+  preview?: WorkPreview;
 }
 
 // the toolkit folder, the filter chips and the two video rows, shared by the home and work pages
-export default function WorkBrowser({ limit }: WorkBrowserProps) {
+export default function WorkBrowser({ preview }: WorkBrowserProps) {
   const [filter, setFilter] = useState<WorkFilter>('all');
   const [openVideo, setOpenVideo] = useState<Video | null>(null);
-  const matching = filterVideos(videos, filter);
-  // only the short home page list puts pinned videos first
-  const shown = limit ? pinnedFirst(matching) : matching;
+  const shown = filterVideos(videos, filter);
   const toolName = filter === 'all' ? null : findSoftware(filter).label;
 
   return (
@@ -42,20 +46,22 @@ export default function WorkBrowser({ limit }: WorkBrowserProps) {
       </Reveal>
 
       <div className="mt-14 flex flex-col gap-14">
-        <VideoRow
-          title="Reels, Shorts and TikTok (9:16)"
-          videos={shown}
-          aspect="9:16"
-          limit={limit?.['9:16']}
-          onOpen={setOpenVideo}
-        />
-        <VideoRow
-          title="YouTube and web (16:9)"
-          videos={shown}
-          aspect="16:9"
-          limit={limit?.['16:9']}
-          onOpen={setOpenVideo}
-        />
+        {preview ? (
+          <VideoRow
+            videos={previewOrder(
+              shown.filter(video => video.aspect === preview.aspect),
+              preview.latestCount,
+              preview.total,
+            )}
+            aspect={preview.aspect}
+            onOpen={setOpenVideo}
+          />
+        ) : (
+          <>
+            <VideoRow title="Reels, Shorts and TikTok (9:16)" videos={shown} aspect="9:16" onOpen={setOpenVideo} />
+            <VideoRow title="YouTube and web (16:9)" videos={shown} aspect="16:9" onOpen={setOpenVideo} />
+          </>
+        )}
       </div>
 
       <VideoDialog video={openVideo} onClose={() => setOpenVideo(null)} />

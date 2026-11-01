@@ -15,19 +15,23 @@ they share (icons, the theme script, `noindex`).
 
 | URL | HTML | Component | Shows |
 |---|---|---|---|
-| `/` | `index.html` | `src/pages/HomePage.tsx` | the latest 4 vertical and 2 horizontal videos, 6 websites, 3 plugins, 2 case studies |
+| `/` | `index.html` | `src/pages/HomePage.tsx` | four 16:9 films (the two newest, then the pinned ones), 6 websites, 3 plugins, 3 case studies |
 | `/work/` | `work/index.html` | `src/pages/WorkPage.tsx` | every video |
 | `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
+| `/websites/<slug>/` | `website/index.html` | `src/pages/WebsitePage.tsx` | one website: its story, the full first screen and a link to the live site |
 | `/plugins/` | `plugins/index.html` | `src/pages/PluginsPage.tsx` | every plugin, each with a Download button |
 | `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study, each with a Read button |
 | `/case-studies/<slug>/` | `case-study/index.html` | `src/pages/CaseStudyPage.tsx` | one case study in full |
 
-Every case study page comes from the one `case-study/index.html`. On Cloudflare, `public/_redirects` serves it for
-any `/case-studies/<slug>/` address, and `vite.config.ts` does the same in dev. The page reads the slug from the
-address, so a new case study only needs an entry in `src/data/caseStudy.ts` with its `slug` and `story`.
+Every case study page comes from the one `case-study/index.html`, and every website page from `website/index.html`.
+On Cloudflare, `public/_redirects` serves them for any `/case-studies/<slug>/` or `/websites/<slug>/` address, and
+`vite.config.ts` does the same in dev. The page reads the slug from the address, so a new case study or website only
+needs an entry with a `slug` in `src/data/caseStudy.ts` or `src/data/sites.ts`. Website screenshots are the first
+screen at 1440x900.
 
 Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
-the `HOME_LIMIT` constants in `src/components/sections/`.
+the `HOME_LIMIT` and `HOME_PREVIEW` constants in `src/components/sections/`. A video with `isPinned: true` always
+shows on the home page, right after the two newest.
 
 ## Home page sections
 
@@ -36,17 +40,19 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 
 | Section | Built from | Data |
 |---|---|---|
-| Hero | looping sky video with a handwritten (Gochi Hand) headline | `src/components/hero/`, `public/hero/` |
-| Work | Icon folder, filter chips, 9:16 and 16:9 rows, video player | `src/data/videos.ts` |
+| Hero | looping video with a two-line handwritten (Gochi Hand) headline | `src/components/hero/`, `public/hero/` |
+| Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | How I work | portrait beside a numbered timeline | `src/data/copy.ts` |
-| Web design | sticky cards that stack as you scroll (a plain list on phones) | `src/data/sites.ts` |
+| Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
-| Case study | dark stats band and cards with a Read button | `src/data/caseStudy.ts` |
+| Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
-The hero video is `public/hero/sky-field.mp4` (1080p) with `sky-field-720.mp4` for phones and `sky-field.webp` as the
-poster and for people who turn off motion. It came from a Pinterest pin at 736x414, was upscaled to 1080p and made to
-loop without a jump. Replace it with an original or licensed file of the same names when you have one.
+The hero video is `public/hero/autumn-lake.mp4` (1080p, 60fps) with `autumn-lake-720.mp4` for phones and
+`autumn-lake.webp` as the poster and for people who turn off motion. It is 2:25 to 2:29 of `apps/motion/video.mp4`,
+with the end faded into the start so it loops. That source file is about 1 GB, so `.gitignore` keeps it out of git.
+
+Case study cards show the platform's colors and logo until a case study has an `image`.
 
 ## Light and dark
 

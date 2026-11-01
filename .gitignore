@@ -30,3 +30,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# large source footage dropped into an app folder; only the cut clips in public/ are committed
+apps/*/*.mp4

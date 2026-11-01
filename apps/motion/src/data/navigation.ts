@@ -12,8 +12,9 @@ export const pages = {
   caseStudies: '/case-studies/',
 };
 
-// one case study's own page; public/_redirects serves every one of them from case-study/index.html
+// one case study's or website's own page; public/_redirects serves each kind from one HTML file
 export const caseStudyPath = (slug: string) => `${pages.caseStudies}${slug}/`;
+export const websitePath = (slug: string) => `${pages.websites}${slug}/`;
 
 const navigation: NavLink[] = [
   { label: 'Work', href: pages.work },

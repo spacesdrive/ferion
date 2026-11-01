@@ -8,14 +8,14 @@ import SocialLinks from '@/components/social/SocialLinks';
 const linkedin = findSocial('linkedin');
 const instagram = findSocial('instagram');
 
-// the sky from the hero comes back as the backdrop, with a white card holding the ways to reach me
+// the hero scene comes back as the backdrop, with a white card holding the ways to reach me
 export default function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="scroll-mt-24 pb-[clamp(4rem,9vw,8rem)]">
       <Container>
         <Reveal className="relative isolate grid gap-10 overflow-hidden rounded-[2.5rem] bg-night px-6 py-14 text-snow sm:px-12 sm:py-16 lg:grid-cols-2 lg:items-center">
           <img
-            src="/hero/sky-field.webp"
+            src="/hero/autumn-lake.webp"
             alt=""
             loading="lazy"
             className="absolute inset-0 -z-10 size-full object-cover"

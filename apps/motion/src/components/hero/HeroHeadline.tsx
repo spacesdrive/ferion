@@ -1,17 +1,13 @@
-import FlowerMark from './FlowerMark';
-import SplitCircle from './SplitCircle';
-
-// a handwritten white headline over the video, with the flowers and circles set inline with the words
+// a handwritten white headline over the video, plain words with no shapes, set on two lines as in the reference
 export default function HeroHeadline() {
   return (
     <h1
       id="top-heading"
-      className="mx-auto max-w-5xl text-center font-hand text-5xl leading-[1.08] font-normal text-balance text-snow [text-shadow:0_2px_24px_rgb(0_0_0/0.25)] sm:text-6xl lg:text-[5.25rem]"
+      className="text-center font-hand text-[2.75rem] leading-[1.15] font-normal text-snow [text-shadow:0_2px_24px_rgb(0_0_0/0.35)] sm:text-6xl lg:text-[3.25rem] xl:text-[4.25rem]"
     >
-      Hi, I&apos;m <FlowerMark className="text-pop-blue" /> Ujjwal <SplitCircle left="#8ee07a" right="#0a2bff" />
-      <br className="hidden sm:block" /> <SplitCircle left="#ff5ec4" right="#ff5a1f" /> a motion designer{' '}
-      <FlowerMark className="text-pop-lilac" /> <SplitCircle left="#bcd4ff" right="#e8ff6a" /> who works efficiently to
-      meet deadlines.
+      {/* each half stays on one line from laptop width up; the sizes above were measured to fit */}
+      <span className="block text-balance lg:whitespace-nowrap">Hi, I&apos;m Ujjwal, a motion designer</span>
+      <span className="block text-balance lg:whitespace-nowrap">who works efficiently to meet deadlines.</span>
     </h1>
   );
 }

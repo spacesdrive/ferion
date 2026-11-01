@@ -1,9 +1,7 @@
 import { person } from '@ferion/profile';
-import { MessageCircle } from 'lucide-react';
 import avatar from '@/assets/brand/avatar.webp';
 import navigation, { pages } from '@/data/navigation';
 import isCurrentPage from '@/lib/isCurrentPage';
-import ButtonIcon from './ButtonIcon';
 import ThemeToggle from './ThemeToggle';
 
 // a frosted bar that floats over the hero video and stays readable on the light sections below
@@ -37,7 +35,6 @@ export default function Navbar() {
           <ThemeToggle />
           <a href="#contact" className="btn-lime">
             Work with me
-            <ButtonIcon icon={MessageCircle} />
           </a>
         </div>
       </nav>

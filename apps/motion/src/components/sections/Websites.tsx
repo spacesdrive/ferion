@@ -15,6 +15,7 @@ export default function Websites() {
         id="websites"
         index="03"
         eyebrow="Web design"
+        isCentered
         intro="My newest sites. Every one is live, so open one and click around."
       >
         Websites I&apos;ve <Accent>designed and built</Accent>

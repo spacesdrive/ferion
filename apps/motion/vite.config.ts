@@ -35,28 +35,33 @@ function sharedHead(): Plugin {
   return { name: 'motion-shared-head', transformIndexHtml: () => SHARED_HEAD };
 }
 
-const CASE_STUDY_ROUTE = /^\/case-studies\/[^/?#]+\/?(\?.*)?$/;
+// addresses that one HTML file serves for every item, matching public/_redirects on Cloudflare
+const DETAIL_ROUTES: { pattern: RegExp; page: string }[] = [
+  { pattern: /^\/case-studies\/[^/?#]+\/?(\?.*)?$/, page: '/case-study/' },
+  { pattern: /^\/websites\/[^/?#]+\/?(\?.*)?$/, page: '/website/' },
+];
 
-// in dev and preview, /case-studies/<slug>/ serves case-study/index.html, as public/_redirects does on Cloudflare
-const serveCaseStudy: Connect.NextHandleFunction = (req, _res, next) => {
-  if (req.url && CASE_STUDY_ROUTE.test(req.url)) req.url = '/case-study/';
+// in dev and preview, rewrite an item address to its shared page, as public/_redirects does on Cloudflare
+const serveDetailPage: Connect.NextHandleFunction = (req, _res, next) => {
+  const route = DETAIL_ROUTES.find(({ pattern }) => req.url && pattern.test(req.url));
+  if (route) req.url = route.page;
   next();
 };
 
-function caseStudyRoutes(): Plugin {
+function detailRoutes(): Plugin {
   return {
-    name: 'motion-case-study-routes',
+    name: 'motion-detail-routes',
     configureServer: server => {
-      server.middlewares.use(serveCaseStudy);
+      server.middlewares.use(serveDetailPage);
     },
     configurePreviewServer: server => {
-      server.middlewares.use(serveCaseStudy);
+      server.middlewares.use(serveDetailPage);
     },
   };
 }
 
 export default defineConfig({
-  plugins: [tailwindcss(), react(), sharedHead(), caseStudyRoutes()],
+  plugins: [tailwindcss(), react(), sharedHead(), detailRoutes()],
   resolve: {
     alias: {
       '@': fromRoot('./src'),
@@ -71,6 +76,8 @@ export default defineConfig({
     caseStudies: fromRoot('./case-studies/index.html'),
     // the one page behind every /case-studies/<slug>/ address
     caseStudy: fromRoot('./case-study/index.html'),
+    // the one page behind every /websites/<slug>/ address
+    website: fromRoot('./website/index.html'),
   },
   server: { port: 5174 },
 });

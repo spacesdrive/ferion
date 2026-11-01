@@ -6,8 +6,8 @@ import WorkBrowser from '@/components/work/WorkBrowser';
 import { pages } from '@/data/navigation';
 import videos from '@/data/videos';
 
-// one row of vertical clips and one of horizontal ones; the rest live on the work page
-const HOME_LIMIT = { '9:16': 4, '16:9': 2 };
+// one row of 16:9 films: the two newest, then the pinned launches; the rest live on the work page
+const HOME_PREVIEW = { aspect: '16:9', latestCount: 2, total: 4 } as const;
 
 export default function Work() {
   return (
@@ -20,7 +20,7 @@ export default function Work() {
       >
         Videos, sorted by <Accent>the tool</Accent> that made them
       </SectionHeader>
-      <WorkBrowser limit={HOME_LIMIT} />
+      <WorkBrowser preview={HOME_PREVIEW} />
       <SeeAllLink href={pages.work} label={`See all ${videos.length} videos`} />
     </Section>
   );
