@@ -10,7 +10,7 @@ import Work from '@/components/sections/Work';
 
 export default function HomePage() {
   return (
-    <PageShell>
+    <PageShell hasHero>
       <Hero />
       <Work />
       <Process />

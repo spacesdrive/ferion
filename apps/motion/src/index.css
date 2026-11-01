@@ -8,20 +8,27 @@
 
 @theme {
   --font-sans: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-hand: 'Gochi Hand', 'Comic Sans MS', cursive;
   --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-paper: #f5f3ee;
-  --color-ink: #121212;
-  --color-muted: #5e5e5a;
-  --color-card: #fffffc;
-  --color-line: rgb(18 18 18 / 0.1);
+  /* a light studio palette: soft grey page, white cards, grey tiles */
+  --color-paper: #f3f3f1;
+  --color-ink: #0e0e0e;
+  --color-muted: #6b6b67;
+  --color-card: #ffffff;
+  --color-mist: #ebebe8;
+  --color-line: rgb(14 14 14 / 0.08);
 
   /* fixed colors for text on the bright accents and for media overlays, the same in both themes */
-  --color-night: #121212;
-  --color-snow: #f5f3ee;
+  --color-night: #0e0e0e;
+  --color-snow: #f6f6f4;
 
-  /* the playful accents from the reference templates */
+  /* the lime of every main button and the sky blue of the small labels */
+  --color-lime: #d8f74c;
+  --color-sky: #3f9cf5;
+
+  /* the playful accents the hero shapes and plugin cards still use */
   --color-pop-blue: #0a2bff;
   --color-pop-navy: #00377e;
   --color-pop-pink: #ff5ec4;
@@ -37,11 +44,12 @@
 /* paper and ink swap places, so every surface that uses them follows the theme */
 @layer theme {
   :root.dark {
-    --color-paper: #111110;
-    --color-ink: #f5f3ee;
-    --color-muted: #a3a29c;
-    --color-card: #1c1c1a;
-    --color-line: rgb(245 243 238 / 0.12);
+    --color-paper: #0d0d0c;
+    --color-ink: #f3f3f1;
+    --color-muted: #a0a09a;
+    --color-card: #171716;
+    --color-mist: #1f1f1d;
+    --color-line: rgb(243 243 241 / 0.1);
   }
 }
 
@@ -74,19 +82,19 @@
   }
 
   ::selection {
-    background: var(--color-pop-lime);
-    color: var(--color-ink);
+    background: var(--color-lime);
+    color: var(--color-night);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-sky);
     outline-offset: 3px;
   }
 }
 
 /* custom utilities, so they can be combined with and overridden by regular ones */
 @utility eyebrow {
-  @apply inline-flex items-center gap-2 rounded-full border border-line bg-card px-3 py-1 font-mono text-[11px] tracking-[0.12em] text-muted uppercase;
+  @apply text-sm font-medium text-muted;
 }
 
 @utility serif-accent {
@@ -94,13 +102,18 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-semibold transition;
+}
+
+/* a lime pill; when it carries a ButtonIcon the right padding shrinks so the icon sits snug */
+@utility btn-lime {
+  @apply btn bg-lime text-night hover:brightness-95 has-[.btn-icon]:pr-1.5;
 }
 
 @utility btn-ink {
-  @apply btn bg-ink text-paper hover:opacity-90;
+  @apply btn bg-ink text-paper hover:opacity-90 has-[.btn-icon]:pr-1.5;
 }
 
 @utility btn-ghost {
-  @apply btn border border-line bg-card text-ink hover:border-ink;
+  @apply btn border border-line bg-card text-ink hover:border-ink has-[.btn-icon]:pr-1.5;
 }

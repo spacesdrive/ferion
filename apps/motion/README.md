@@ -31,15 +31,22 @@ the `HOME_LIMIT` constants in `src/components/sections/`.
 
 ## Home page sections
 
+The look follows a light studio style: a full-screen video hero, a frosted navbar, a `/Label (01)` row over each big
+left-aligned headline, white rounded cards and lime buttons with a small dark icon square (`ButtonIcon`).
+
 | Section | Built from | Data |
 |---|---|---|
-| Hero | designer-pop headline | `src/components/hero/` |
+| Hero | looping sky video with a handwritten (Gochi Hand) headline | `src/components/hero/`, `public/hero/` |
 | Work | Icon folder, filter chips, 9:16 and 16:9 rows, video player | `src/data/videos.ts` |
-| How I work | ugc-blaze process | `src/data/copy.ts` |
-| Web design | designer-pop project grid | `src/data/sites.ts` |
+| How I work | portrait beside a numbered timeline | `src/data/copy.ts` |
+| Web design | sticky cards that stack as you scroll (a plain list on phones) | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
-| Case study | ugc-limelight stats band and cards | `src/data/caseStudy.ts` |
-| Services, FAQ, Contact, Footer | ugc-limelight | `src/data/copy.ts` |
+| Case study | dark stats band and cards with a Read button | `src/data/caseStudy.ts` |
+| Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
+
+The hero video is `public/hero/sky-field.mp4` (1080p) with `sky-field-720.mp4` for phones and `sky-field.webp` as the
+poster and for people who turn off motion. It came from a Pinterest pin at 736x414, was upscaled to 1080p and made to
+loop without a jump. Replace it with an original or licensed file of the same names when you have one.
 
 ## Light and dark
 

@@ -14,6 +14,7 @@ export default function Work() {
     <Section id="work">
       <SectionHeader
         id="work"
+        index="01"
         eyebrow="Recent work"
         intro="My latest launch films, reels and explainers. Press a tool to see only what I made with it."
       >

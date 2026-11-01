@@ -5,11 +5,13 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 export interface PageShellProps {
+  // the home page hero runs under the floating navbar; every other page starts below it
+  hasHero?: boolean;
   children: ReactNode;
 }
 
 // the frame every page shares; the contact block sits on each page so "Work with me" always has a target
-export default function PageShell({ children }: PageShellProps) {
+export default function PageShell({ hasHero = false, children }: PageShellProps) {
   return (
     <MotionConfig reducedMotion="user">
       <a
@@ -20,7 +22,7 @@ export default function PageShell({ children }: PageShellProps) {
       </a>
 
       <Navbar />
-      <main id="main">
+      <main id="main" className={hasHero ? undefined : 'pt-20'}>
         {children}
         <Contact />
       </main>

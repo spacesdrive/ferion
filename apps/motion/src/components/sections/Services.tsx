@@ -8,25 +8,41 @@ import { services } from '@/data/copy';
 export default function Services() {
   return (
     <Section id="services">
-      <SectionHeader id="services" eyebrow="What I offer">
+      <SectionHeader id="services" index="06" eyebrow="What I offer">
         Ways we can <Accent>work together</Accent>
       </SectionHeader>
 
-      <ul className="mt-14 grid gap-4 md:grid-cols-3">
-        {services.map((service, index) => (
-          <Reveal
-            as="li"
-            key={service.title}
-            delay={0.05 * index}
-            className={cn('flex flex-col gap-6 rounded-3xl p-7 text-night', service.tone)}
-          >
-            <span className="font-mono text-sm">{String(index + 1).padStart(2, '0')}</span>
-            <div>
-              <h3 className="text-2xl font-semibold tracking-tight">{service.title}</h3>
-              <p className="mt-2 leading-relaxed text-night/75">{service.description}</p>
-            </div>
-          </Reveal>
-        ))}
+      <ul className="mt-12 grid gap-4 md:grid-cols-3">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <Reveal
+              as="li"
+              key={service.title}
+              delay={0.05 * index}
+              className={cn(
+                'flex flex-col gap-8 rounded-[1.75rem] p-7',
+                service.isFeatured ? 'bg-night text-snow dark:ring-1 dark:ring-snow/10' : 'border border-line bg-card',
+              )}
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs opacity-60">({String(index + 1).padStart(2, '0')})</span>
+                <span
+                  className={cn(
+                    'grid size-11 place-items-center rounded-xl',
+                    service.isFeatured ? 'bg-lime text-night' : 'bg-mist text-ink',
+                  )}
+                >
+                  <Icon className="size-5" aria-hidden="true" />
+                </span>
+              </div>
+              <div>
+                <h3 className="text-2xl font-medium tracking-tight">{service.title}</h3>
+                <p className="mt-2 leading-relaxed opacity-70">{service.description}</p>
+              </div>
+            </Reveal>
+          );
+        })}
       </ul>
     </Section>
   );

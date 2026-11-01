@@ -8,11 +8,12 @@ import { faqs } from '@/data/copy';
 export default function Faq() {
   return (
     <Section id="faq">
-      <SectionHeader id="faq" eyebrow="FAQ">
+      <SectionHeader id="faq" index="07" eyebrow="FAQ">
         Frequently asked <Accent>questions</Accent>
       </SectionHeader>
 
-      <Reveal className="mx-auto mt-12 flex max-w-2xl flex-col gap-3">
+      {/* two columns of grey tiles; items-start keeps an open answer from stretching its neighbour */}
+      <Reveal className="mt-12 grid items-start gap-3 md:grid-cols-2">
         {faqs.map((faq, index) => (
           <FaqItem key={faq.question} faq={faq} isOpenByDefault={index === 0} />
         ))}

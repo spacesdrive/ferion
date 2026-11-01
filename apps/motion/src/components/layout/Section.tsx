@@ -11,7 +11,7 @@ export interface SectionProps {
 export default function Section({ id, className, children }: SectionProps) {
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className="scroll-mt-24">
-      <Container className={cn('py-[clamp(4rem,9vw,8rem)]', className)}>{children}</Container>
+      <Container className={cn('py-[clamp(3.5rem,7vw,6rem)]', className)}>{children}</Container>
     </section>
   );
 }

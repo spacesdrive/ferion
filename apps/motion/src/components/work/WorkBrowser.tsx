@@ -31,10 +31,10 @@ export default function WorkBrowser({ limit }: WorkBrowserProps) {
 
   return (
     <>
-      <Reveal className="mt-14 grid items-center gap-10 lg:grid-cols-[420px_minmax(0,1fr)]">
+      <Reveal className="mt-12 grid items-center gap-10 rounded-[2rem] bg-mist p-6 sm:p-10 lg:grid-cols-[420px_minmax(0,1fr)]">
         <ToolkitFolder filter={filter} onChange={setFilter} />
         <div className="flex flex-col gap-5">
-          <p aria-live="polite" className="text-2xl font-semibold tracking-tight">
+          <p aria-live="polite" className="text-2xl font-medium tracking-tight sm:text-3xl">
             {describeFilter(shown.length, toolName)}
           </p>
           <FilterChips filter={filter} onChange={setFilter} />

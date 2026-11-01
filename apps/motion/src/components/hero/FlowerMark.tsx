@@ -1,4 +1,5 @@
 import cn from '@ferion/ui/lib/cn.ts';
+import { useId } from 'react';
 
 const PETALS = [0, 72, 144, 216, 288];
 const DISTANCE = 24;
@@ -7,8 +8,9 @@ export interface FlowerMarkProps {
   className?: string;
 }
 
-// a five-petal outline flower: colored petals with a smaller paper flower punched out of the middle
+// a five-petal outline flower; the middle is cut out with a mask, so whatever sits behind it shows through
 export default function FlowerMark({ className }: FlowerMarkProps) {
+  const maskId = `flower-${useId().replace(/:/g, '')}`;
   const centers = PETALS.map(angle => {
     const radians = ((angle - 90) * Math.PI) / 180;
     return { x: 50 + DISTANCE * Math.cos(radians), y: 50 + DISTANCE * Math.sin(radians) };
@@ -23,16 +25,19 @@ export default function FlowerMark({ className }: FlowerMarkProps) {
         className,
       )}
     >
-      <g fill="currentColor">
+      <defs>
+        <mask id={maskId}>
+          <rect width="100" height="100" fill="white" />
+          {centers.map(({ x, y }) => (
+            <circle key={`${x}-${y}`} cx={x} cy={y} r={13} fill="black" />
+          ))}
+          <circle cx={50} cy={50} r={22} fill="black" />
+        </mask>
+      </defs>
+      <g fill="currentColor" mask={`url(#${maskId})`}>
         {centers.map(({ x, y }) => (
           <circle key={`${x}-${y}`} cx={x} cy={y} r={23} />
         ))}
-      </g>
-      <g className="fill-paper">
-        {centers.map(({ x, y }) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r={13} />
-        ))}
-        <circle cx={50} cy={50} r={22} />
       </g>
     </svg>
   );

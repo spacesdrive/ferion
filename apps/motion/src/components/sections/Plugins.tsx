@@ -14,6 +14,7 @@ export default function Plugins() {
     <Section id="plugins">
       <SectionHeader
         id="plugins"
+        index="04"
         eyebrow="Plugin marketplace"
         intro="My newest plugins, free to download. These listings are samples for now, the real plugins are on their way."
       >

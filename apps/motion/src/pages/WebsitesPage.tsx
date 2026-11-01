@@ -2,14 +2,13 @@ import Accent from '@/components/layout/Accent';
 import PageShell from '@/components/layout/PageShell';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
-import SiteGrid from '@/components/websites/SiteGrid';
+import SiteStack from '@/components/websites/SiteStack';
 import sites from '@/data/sites';
 
 export default function WebsitesPage() {
   return (
     <PageShell>
-      {/* extra bottom room, because the staggered column hangs below the grid */}
-      <Section id="websites" className="pt-12 pb-[clamp(8rem,12vw,11rem)] sm:pt-16">
+      <Section id="websites" className="pt-12 sm:pt-16">
         <SectionHeader
           id="websites"
           level="h1"
@@ -18,7 +17,7 @@ export default function WebsitesPage() {
         >
           Every website, <Accent>designed and built</Accent> by me
         </SectionHeader>
-        <SiteGrid sites={sites} />
+        <SiteStack sites={sites} />
       </Section>
     </PageShell>
   );

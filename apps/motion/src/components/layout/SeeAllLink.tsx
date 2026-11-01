@@ -1,4 +1,6 @@
 import Reveal from '@ferion/ui/motion/Reveal.tsx';
+import { LayoutGrid } from 'lucide-react';
+import ButtonIcon from './ButtonIcon';
 
 export interface SeeAllLinkProps {
   href: string;
@@ -9,8 +11,9 @@ export interface SeeAllLinkProps {
 export default function SeeAllLink({ href, label }: SeeAllLinkProps) {
   return (
     <Reveal className="mt-14 flex justify-center">
-      <a href={href} className="btn-ghost">
+      <a href={href} className="btn-lime">
         {label}
+        <ButtonIcon icon={LayoutGrid} />
       </a>
     </Reveal>
   );

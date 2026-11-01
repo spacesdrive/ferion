@@ -1,3 +1,4 @@
+import { Clapperboard, Globe, Sparkles } from 'lucide-react';
 import type { Faq, ProcessStep, Service } from '@/types/content';
 
 export const processSteps: ProcessStep[] = [
@@ -20,17 +21,18 @@ export const services: Service[] = [
   {
     title: 'Motion design',
     description: 'Logo animations, explainers and title sequences, built in After Effects and Cavalry.',
-    tone: 'bg-pop-rose',
+    icon: Sparkles,
   },
   {
     title: 'Video editing',
     description: 'Short-form and long-form edits with color and sound done in DaVinci Resolve.',
-    tone: 'bg-pop-violet',
+    icon: Clapperboard,
+    isFeatured: true,
   },
   {
     title: 'Web design',
     description: 'Fast, accessible websites, designed and built by the same person who made the video.',
-    tone: 'bg-pop-green',
+    icon: Globe,
   },
 ];
 

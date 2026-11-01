@@ -10,6 +10,8 @@ export interface FilterChipsProps {
 }
 
 const CHIP = 'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-colors';
+const ACTIVE = 'border-lime bg-lime text-night';
+const IDLE = 'border-line bg-card hover:border-ink';
 
 // a tool with nothing to show yet gets no chip; the folder still lists it
 const toolsInUse = software.filter(item => filterVideos(videos, item.id).length > 0);
@@ -22,7 +24,7 @@ export default function FilterChips({ filter, onChange }: FilterChipsProps) {
         type="button"
         aria-pressed={filter === 'all'}
         onClick={() => onChange('all')}
-        className={cn(CHIP, filter === 'all' ? 'border-ink bg-ink text-paper' : 'border-line bg-card hover:border-ink')}
+        className={cn(CHIP, filter === 'all' ? ACTIVE : IDLE)}
       >
         Everything
         <span className="font-mono text-xs opacity-70">{videos.length}</span>
@@ -33,10 +35,7 @@ export default function FilterChips({ filter, onChange }: FilterChipsProps) {
           type="button"
           aria-pressed={filter === item.id}
           onClick={() => onChange(item.id)}
-          className={cn(
-            CHIP,
-            filter === item.id ? 'border-ink bg-ink text-paper' : 'border-line bg-card hover:border-ink',
-          )}
+          className={cn(CHIP, filter === item.id ? ACTIVE : IDLE)}
         >
           <SoftwareTile software={item} className="size-5" />
           {item.label}

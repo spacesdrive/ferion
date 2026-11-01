@@ -12,7 +12,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className="grid size-10 shrink-0 place-items-center rounded-full text-snow/80 transition-colors hover:bg-snow/10 hover:text-snow"
+      className="grid size-10 shrink-0 place-items-center rounded-full text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
     >
       <Icon className="size-[18px]" aria-hidden="true" />
     </button>

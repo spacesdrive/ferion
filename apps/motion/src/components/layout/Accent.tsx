@@ -4,7 +4,7 @@ export interface AccentProps {
   children: ReactNode;
 }
 
-// the serif italic words the reference templates mix into every headline
+// the softer second tone in a headline, so the words that matter most stand out
 export default function Accent({ children }: AccentProps) {
-  return <span className="serif-accent text-pop-navy dark:text-pop-sky">{children}</span>;
+  return <span className="text-muted">{children}</span>;
 }

@@ -19,7 +19,7 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
         onClick={() => onOpen(video)}
         aria-label={`Play ${video.title}`}
         className={cn(
-          'group relative overflow-hidden rounded-3xl bg-night',
+          'group relative overflow-hidden rounded-[1.75rem] bg-night',
           video.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video',
         )}
       >
@@ -34,13 +34,13 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
             <Play className="size-5 fill-current" aria-hidden="true" />
           </span>
         </span>
-        <span className="absolute top-3 left-3 rounded-full bg-night/70 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-snow uppercase">
+        <span className="absolute top-3 left-3 rounded-full bg-white/85 px-2.5 py-1 shadow-sm ring-1 ring-night/10 font-mono text-[10px] tracking-[0.12em] text-night uppercase backdrop-blur">
           {video.format}
         </span>
       </button>
 
       <div className="flex items-start justify-between gap-3">
-        <h4 className="font-semibold tracking-tight">{video.title}</h4>
+        <h4 className="font-medium tracking-tight">{video.title}</h4>
         {tools.length > 0 && (
           <ul aria-label="Made with" className="flex shrink-0 -space-x-1.5">
             {tools.map(tool => (

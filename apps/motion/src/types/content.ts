@@ -1,5 +1,6 @@
 import type { VideoAspect } from '@ferion/ui/video-player/types.ts';
 import type { WorkflowStep } from '@ferion/ui/workflow-card/types.ts';
+import type { LucideIcon } from 'lucide-react';
 
 export type SoftwareId = 'after-effects' | 'cavalry' | 'davinci-resolve' | 'claude-design';
 
@@ -67,8 +68,9 @@ export interface Stat {
 export interface Service {
   title: string;
   description: string;
-  // a background utility from the pop palette
-  tone: string;
+  icon: LucideIcon;
+  // the one card drawn dark, so the row has a focal point
+  isFeatured?: boolean;
 }
 
 export interface ProcessStep {
