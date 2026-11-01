@@ -35,21 +35,23 @@ shows on the home page, right after the two newest.
 
 ## Home page sections
 
-The look follows a light studio style: a full-screen video hero, a frosted navbar, a `/Label (01)` row over each big
+The look follows a light studio style: a lime-glow hero, a frosted navbar, a `/Label (01)` row over each big
 left-aligned headline, white rounded cards and lime buttons with a small dark icon square (`ButtonIcon`).
 
 | Section | Built from | Data |
 |---|---|---|
-| Hero | looping video with a two-line handwritten (Gochi Hand) headline | `src/components/hero/`, `public/hero/` |
+| Hero | name, serif role, cut-out portrait, availability, tools and a brand strip | `src/components/hero/` |
+| Recent works | lime panel of the newest website screenshots | `src/data/sites.ts` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
 | Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
-The hero video is `public/hero/sunrise.mp4` (1080p, 60fps) with `sunrise-720.mp4` for phones and `sunrise.webp` as
-the poster and for people who turn off motion. It is 1:24.7 to 1:27.9 of `apps/motion/video.mp4`, inside one shot, with
-the end faded into the start so it loops. That source file is about 1 GB, so `.gitignore` keeps it out of git.
+The hero follows a lime-glow portfolio layout: "Hi I'm Ujjwal" over an italic serif "Motion Designer", the
+cut-out portrait `src/assets/brand/cutout.webp` (background removed with rembg's BiRefNet portrait model) leaning
+gently toward the pointer, and four small notes around it. Under it a strip of the brands I've built for slides past,
+and the Recent works panel shows the six newest website screenshots.
 
 Case study cards show the platform's colors and logo until a case study has an `image`.
 

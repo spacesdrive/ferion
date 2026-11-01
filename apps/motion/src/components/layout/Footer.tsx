@@ -3,16 +3,18 @@ import SocialLinks from '@/components/social/SocialLinks';
 import navigation from '@/data/navigation';
 import Container from './Container';
 
+const FIRST_NAME = person.name.split(' ')[0];
+
 const ELSEWHERE = [
   { label: 'Tech portfolio', href: person.sites.tech },
   { label: 'Blog', href: person.sites.blog },
   { label: 'Resume', href: person.resumeUrl },
 ];
 
-// links up top, then the name set huge across the page
+// links up top, then the first name set huge in italic serif across the page
 export default function Footer() {
   return (
-    <footer className="overflow-hidden border-t border-line">
+    <footer className="overflow-hidden">
       <Container className="pt-14 pb-8">
         <div className="flex flex-col justify-between gap-10 md:flex-row">
           <div>
@@ -41,14 +43,15 @@ export default function Footer() {
           </nav>
         </div>
 
+        <p className="mt-10 border-t border-line pt-6 text-sm text-muted">
+          © {new Date().getFullYear()} {person.name}
+        </p>
+        {/* the j hangs below the line box, so the bottom padding keeps it inside the footer */}
         <p
           aria-hidden="true"
-          className="mt-14 pb-[0.22em] text-[clamp(5rem,24vw,22rem)] leading-[0.8] font-medium tracking-[-0.07em] select-none"
+          className="mt-4 pb-[0.25em] text-center font-serif text-[clamp(6rem,30vw,28rem)] leading-[0.85] tracking-[-0.03em] italic select-none"
         >
-          {person.wordmark}
-        </p>
-        <p className="mt-6 border-t border-line pt-6 text-sm text-muted">
-          © {new Date().getFullYear()} {person.name}
+          {FIRST_NAME}
         </p>
       </Container>
     </footer>

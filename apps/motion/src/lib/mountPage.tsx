@@ -1,6 +1,5 @@
 import '@fontsource-variable/bricolage-grotesque/opsz.css';
 import '@fontsource-variable/geist-mono';
-import '@fontsource/gochi-hand';
 import '@fontsource/instrument-serif/400-italic.css';
 import { StrictMode, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';

@@ -14,7 +14,7 @@ export default function Navbar() {
       >
         <a href={pages.home} className="flex items-center gap-2.5 rounded-full pr-2">
           <img src={avatar} alt="" width="32" height="32" className="size-8 rounded-full bg-pop-lilac object-cover" />
-          <span className="text-lg font-semibold tracking-tight">{person.name.split(' ')[0]}</span>
+          <span className="font-serif text-2xl italic">{person.name.split(' ')[0]}</span>
         </a>
 
         <ul className="hidden items-center gap-0.5 md:flex">

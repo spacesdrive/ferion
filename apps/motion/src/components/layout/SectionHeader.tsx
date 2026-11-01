@@ -35,7 +35,7 @@ export default function SectionHeader({
   return (
     <Reveal className={className}>
       <div className="flex items-center justify-between border-b border-line pb-4">
-        <span className="eyebrow">/{eyebrow}</span>
+        <span className="eyebrow">/ {eyebrow}</span>
         {index && <span className="font-mono text-xs text-muted">({index})</span>}
       </div>
       <div

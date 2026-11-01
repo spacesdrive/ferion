@@ -8,7 +8,6 @@
 
 @theme {
   --font-sans: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
-  --font-hand: 'Gochi Hand', 'Comic Sans MS', cursive;
   --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
   --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -27,6 +26,31 @@
   /* the lime of every main button and the sky blue of the small labels */
   --color-lime: #d8f74c;
   --color-sky: #3f9cf5;
+
+  /* the soft lime the hero fades from, toned down in dark mode */
+  --color-glow: #c9f04a;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-twinkle: twinkle 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(90deg) scale(0.8);
+    }
+  }
 
   /* the playful accents the hero shapes and plugin cards still use */
   --color-pop-blue: #0a2bff;
@@ -50,6 +74,7 @@
     --color-card: #171716;
     --color-mist: #1f1f1d;
     --color-line: rgb(243 243 241 / 0.1);
+    --color-glow: #2f3d0c;
   }
 }
 
@@ -94,7 +119,12 @@
 
 /* custom utilities, so they can be combined with and overridden by regular ones */
 @utility eyebrow {
-  @apply text-sm font-medium text-muted;
+  @apply font-serif text-lg text-muted italic;
+}
+
+/* fade both edges of a moving row so names slide in and out instead of being cut */
+@utility edge-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 @utility serif-accent {
@@ -116,4 +146,11 @@
 
 @utility btn-ghost {
   @apply btn border border-line bg-card text-ink hover:border-ink has-[.btn-icon]:pr-1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-twinkle {
+    animation: none;
+  }
 }
