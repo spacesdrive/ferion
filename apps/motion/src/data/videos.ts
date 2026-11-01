@@ -11,8 +11,9 @@ function video(
   return { slug, title, aspect, software, format, src: `/videos/${slug}.mp4`, poster: `/videos/${slug}.webp` };
 }
 
-// newest first: the home page shows the first four 9:16 and two 16:9 clips, the work page shows them all
+// newest first: the home page shows the two newest 16:9 films and then the pinned ones, the work page shows all
 const videos: Video[] = [
+  video('first-users-launch', 'First Users launch film', '16:9', ['davinci-resolve', 'claude-design'], 'Launch film'),
   video(
     'kalit-launch-film',
     'Kalit launch film, rebuilt in code',
