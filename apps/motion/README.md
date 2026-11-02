@@ -1,7 +1,7 @@
 # motion
 
 The motion design, video editing and web design portfolio at `motion.ujjwal.fyi`, with a marketplace of useful links for design and marketing
-and a social media case study.
+and case studies on how I grow audiences.
 
 ```bash
 npm run dev:motion     # from the repo root, at http://localhost:5174
@@ -11,7 +11,7 @@ npm run build:motion   # writes apps/motion/dist
 ## Pages
 
 Each page has its own HTML file, so it has its own title and URL. `vite.config.ts` lists them and adds the head tags
-they share (icons, the theme script, `noindex`).
+they share (icons and the theme script).
 
 | URL | HTML | Component | Shows |
 |---|---|---|---|
@@ -20,13 +20,12 @@ they share (icons, the theme script, `noindex`).
 | `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
 | `/websites/<slug>/` | `website/index.html` | `src/pages/WebsitePage.tsx` | one website: its story, the full first screen and a link to the live site |
 | `/marketplace/` | `marketplace/index.html` | `src/pages/MarketplacePage.tsx` | every marketplace link (`/plugins/` redirects here) |
-| `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study, each with a Read button |
-| `/case-studies/<slug>/` | `case-study/index.html` | `src/pages/CaseStudyPage.tsx` | one case study in full |
+| `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | the growth totals and every case study from the blog |
 
-Every case study page comes from the one `case-study/index.html`, and every website page from `website/index.html`.
-On Cloudflare, `public/_redirects` serves them for any `/case-studies/<slug>/` or `/websites/<slug>/` address, and
-`vite.config.ts` does the same in dev. The page reads the slug from the address, so a new case study or website only
-needs an entry with a `slug` in `src/data/caseStudy.ts` or `src/data/sites.ts`. Website screenshots are the first
+Every website page comes from the one `website/index.html`. On Cloudflare, `public/_redirects` serves it for any
+`/websites/<slug>/` address, and `vite.config.ts` does the same in dev. The page reads the slug from the address, so a
+new website only needs an entry with a `slug` in `src/data/sites.ts`. The old `/case-studies/<slug>/` sample pages
+redirect to `/case-studies/`. Website screenshots are the first
 screen of a 1440x900 window, captured at 2x (2880x1800) so text stays sharp.
 
 Keep the data files newest first. The home page takes the first few items and links to the full page; the limits are
@@ -45,14 +44,13 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Marketplace | search bar and GAIA workflow cards with each site's favicon and a Visit site button | `src/data/marketplace.ts`, `src/assets/favicons/` |
-| Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
+| Case study | growth totals, then the blog's case studies: the newest wide, the rest two across | `src/data/growthStats.ts`, the blog |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
 The hero follows a lime-glow portfolio layout: "Hi I'm Ujjwal" over an italic serif "Motion Designer", the
 cut-out portrait `src/assets/brand/cutout.webp` (background removed with rembg's BiRefNet portrait model) leaning
 gently toward the pointer, and four small notes around it.
 
-Case study cards show the platform's colors and logo until a case study has an `image`.
 
 ## Light and dark
 
@@ -82,14 +80,12 @@ description and address, and `/` jumps to it.
 Keep the description to about 100 characters, because the card shows two lines. Newest first: the home page shows the
 first three.
 
-## Replacing the sample content
+## Case studies
 
-The case studies are still samples, marked `isSample: true` with a lime **Sample** badge.
-
-1. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche, and the
-   write-up in `story` that the Read page shows.
-2. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
-   `vite.config.ts` and the sample notes in the Case study intros.
+The case studies are posts on blog.ujjwal.fyi tagged **motion case study**. The site reads them from
+`https://blog.ujjwal.fyi/api/posts.json?tag=motion-case-study` when the page loads, so tagging a post on the blog adds it
+here, newest first and up to 12. While they load the section shows grey placeholders; if the blog can't be reached it
+links to the tag page instead. The totals in the dark band are in `src/data/growthStats.ts`.
 
 ## Credits
 

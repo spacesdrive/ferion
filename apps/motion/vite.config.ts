@@ -18,8 +18,6 @@ const link = (attrs: Record<string, string>): HtmlTagDescriptor => ({ tag: 'link
 
 // the head tags every page shares, so each HTML file only holds its own title, description and URL
 const SHARED_HEAD: HtmlTagDescriptor[] = [
-  // the case studies are still samples; drop this once the real numbers are in
-  meta({ name: 'robots', content: 'noindex' }),
   meta({ name: 'theme-color', content: '#f5f3ee' }),
   link({ rel: 'icon', href: '/favicon.ico', sizes: 'any' }),
   link({ rel: 'icon', href: '/favicon-dark.ico', sizes: 'any', media: '(prefers-color-scheme: dark)' }),
@@ -37,7 +35,6 @@ function sharedHead(): Plugin {
 
 // addresses that one HTML file serves for every item, matching public/_redirects on Cloudflare
 const DETAIL_ROUTES: { pattern: RegExp; page: string }[] = [
-  { pattern: /^\/case-studies\/[^/?#]+\/?(\?.*)?$/, page: '/case-study/' },
   { pattern: /^\/websites\/[^/?#]+\/?(\?.*)?$/, page: '/website/' },
 ];
 
@@ -74,8 +71,6 @@ export default defineConfig({
     websites: fromRoot('./websites/index.html'),
     marketplace: fromRoot('./marketplace/index.html'),
     caseStudies: fromRoot('./case-studies/index.html'),
-    // the one page behind every /case-studies/<slug>/ address
-    caseStudy: fromRoot('./case-study/index.html'),
     // the one page behind every /websites/<slug>/ address
     website: fromRoot('./website/index.html'),
   },

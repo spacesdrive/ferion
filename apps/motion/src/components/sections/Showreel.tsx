@@ -25,9 +25,6 @@ export default function Showreel() {
             >
               More than a <Accent>motion designer</Accent>
             </h2>
-            <p className="max-w-md leading-relaxed text-pretty text-muted">
-              A ten-second intro cut from my own launch films. Turn the sound on to watch it properly.
-            </p>
             <p className="flex items-center gap-2.5 text-sm text-muted">
               {tools.map(tool => (
                 <SoftwareTile key={tool.id} software={tool} className="size-7" />

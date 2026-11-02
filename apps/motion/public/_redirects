@@ -1,8 +1,9 @@
-# every case study and website address serves one shared page, which reads the slug from the address
-/case-studies/:slug/ /case-study/ 200
-/case-studies/:slug /case-studies/:slug/ 301
+# every website address serves one shared page, which reads the slug from the address
 /websites/:slug/ /website/ 200
 /websites/:slug /websites/:slug/ 301
 # the marketplace used to be the plugins page
 /plugins/ /marketplace/ 301
 /plugins /marketplace/ 301
+# case studies now live on the blog, so the old sample case study pages go to the list
+/case-studies/:slug/ /case-studies/ 301
+/case-studies/:slug /case-studies/ 301

@@ -44,22 +44,15 @@ export interface MarketplaceLink {
   description: string;
 }
 
-export interface StorySection {
-  heading: string;
-  body: string;
-}
-
-export interface NicheCase {
-  // the last part of its page address: /case-studies/<slug>/
+// one post from blog.ujjwal.fyi tagged "motion case study"
+export interface CaseStudyPost {
   slug: string;
-  niche: string;
-  platform: string;
-  summary: string;
-  metrics: { label: string; value: string }[];
-  story: StorySection[];
-  // a cover photo; without one the card shows the platform's colors and logo
-  image?: string;
-  isSample: boolean;
+  title: string;
+  excerpt: string;
+  url: string;
+  coverUrl: string | null;
+  publishedAt: string | null;
+  readingMinutes: number | null;
 }
 
 export interface Stat {
