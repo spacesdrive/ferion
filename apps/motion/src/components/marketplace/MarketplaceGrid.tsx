@@ -1,30 +1,46 @@
-import Reveal from '@ferion/ui/motion/Reveal.tsx';
 import WorkflowCard from '@ferion/ui/workflow-card/WorkflowCard.tsx';
-import marketplaceCategories from '@/data/marketplaceCategories';
+import type { ToolCategoryConfig } from '@ferion/ui/workflow-card/types.ts';
+import { AnimatePresence, motion } from 'motion/react';
 import type { MarketplaceLink } from '@/types/content';
 
 export interface MarketplaceGridProps {
   links: MarketplaceLink[];
 }
 
-// each card names the site, says what it is for in two lines and opens it in a new tab
+// the card's icon slot shows the site's own favicon
+function faviconConfig(link: MarketplaceLink): Record<string, ToolCategoryConfig> {
+  const bgColor = link.isFaviconLight ? 'bg-night' : 'bg-white ring-1 ring-black/5';
+  return { [link.name]: { imageUrl: link.favicon, bgColor, iconColor: '' } };
+}
+
+// cards fade and slide into place as a search narrows or widens the list
 export default function MarketplaceGrid({ links }: MarketplaceGridProps) {
   return (
-    <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {links.map((link, index) => (
-        <Reveal key={link.url} delay={0.04 * (index % 3)} className="h-full">
-          <WorkflowCard
-            title={link.name}
-            description={link.description}
-            steps={link.tags.map(tag => ({ id: tag, title: tag, toolCategory: tag }))}
-            categoryConfig={marketplaceCategories}
-            triggerLabel={link.category}
-            actionLabel="Visit site"
-            actionHref={link.url}
-            actionAriaLabel={`Visit ${link.name}`}
-          />
-        </Reveal>
-      ))}
-    </div>
+    <motion.ul layout className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <AnimatePresence mode="popLayout" initial={false}>
+        {links.map(link => (
+          <motion.li
+            key={link.url}
+            layout
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="h-full"
+          >
+            <WorkflowCard
+              title={link.name}
+              description={link.description}
+              steps={[{ id: link.name, title: link.name, toolCategory: link.name }]}
+              categoryConfig={faviconConfig(link)}
+              triggerLabel={link.category}
+              actionLabel="Visit site"
+              actionHref={link.url}
+              actionAriaLabel={`Visit ${link.name}`}
+            />
+          </motion.li>
+        ))}
+      </AnimatePresence>
+    </motion.ul>
   );
 }

@@ -2,11 +2,11 @@ import Accent from '@/components/layout/Accent';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
 import SeeAllLink from '@/components/layout/SeeAllLink';
-import MarketplaceGrid from '@/components/marketplace/MarketplaceGrid';
+import MarketplaceBrowser from '@/components/marketplace/MarketplaceBrowser';
 import marketplace from '@/data/marketplace';
 import { pages } from '@/data/navigation';
 
-// one row of three; the rest live on the marketplace page
+// one row of three until someone searches; the rest live on the marketplace page
 const HOME_LIMIT = 3;
 
 export default function Marketplace() {
@@ -20,7 +20,7 @@ export default function Marketplace() {
       >
         Useful stuff for <Accent>design and marketing</Accent>
       </SectionHeader>
-      <MarketplaceGrid links={marketplace.slice(0, HOME_LIMIT)} />
+      <MarketplaceBrowser limit={HOME_LIMIT} />
       <SeeAllLink href={pages.marketplace} label={`See all ${marketplace.length} links`} />
     </Section>
   );

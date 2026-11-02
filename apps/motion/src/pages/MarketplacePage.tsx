@@ -2,8 +2,7 @@ import Accent from '@/components/layout/Accent';
 import PageShell from '@/components/layout/PageShell';
 import Section from '@/components/layout/Section';
 import SectionHeader from '@/components/layout/SectionHeader';
-import MarketplaceGrid from '@/components/marketplace/MarketplaceGrid';
-import marketplace from '@/data/marketplace';
+import MarketplaceBrowser from '@/components/marketplace/MarketplaceBrowser';
 
 export default function MarketplacePage() {
   return (
@@ -17,7 +16,7 @@ export default function MarketplacePage() {
         >
           Useful stuff for <Accent>design and marketing</Accent>
         </SectionHeader>
-        <MarketplaceGrid links={marketplace} />
+        <MarketplaceBrowser />
       </Section>
     </PageShell>
   );

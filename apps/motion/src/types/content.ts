@@ -38,8 +38,9 @@ export interface MarketplaceLink {
   name: string;
   url: string;
   category: string;
-  // keys in marketplaceCategories, each drawn as a small icon
-  tags: string[];
+  // the site's own favicon, bundled so the page never loads icons from other sites
+  favicon: string;
+  isFaviconLight?: boolean;
   description: string;
 }
 

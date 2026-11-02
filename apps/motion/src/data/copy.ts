@@ -1,11 +1,11 @@
-import { Clapperboard, Globe, Sparkles } from 'lucide-react';
+import { Clapperboard, Globe, Spline } from 'lucide-react';
 import type { Faq, Service } from '@/types/content';
 
 export const services: Service[] = [
   {
     title: 'Motion design',
     description: 'Logo animations, explainers and title sequences, built in After Effects and Cavalry.',
-    icon: Sparkles,
+    icon: Spline,
   },
   {
     title: 'Video editing',

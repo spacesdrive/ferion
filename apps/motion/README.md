@@ -43,7 +43,7 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 | Hero | name, serif role, cut-out portrait, availability and tools | `src/components/hero/` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
-| Marketplace | GAIA workflow cards, one per site with a Visit site button | `src/data/marketplace.ts`, `src/data/marketplaceCategories.ts` |
+| Marketplace | search bar and GAIA workflow cards with each site's favicon and a Visit site button | `src/data/marketplace.ts`, `src/assets/favicons/` |
 | Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
@@ -75,7 +75,9 @@ places, so each one is listed once.
 ## Adding to the marketplace
 
 Add an entry to `src/data/marketplace.ts` with the site's `name`, `url`, a `category` (shown at the bottom of the card),
-one or two `tags` that pick the card's icons from `src/data/marketplaceCategories.ts`, and a one-line `description`.
+its favicon and a one-line `description`. Save the favicon as a 128px PNG (or SVG) in `src/assets/favicons/`; set
+`isFaviconLight: true` if it is white, so it sits on a dark tile. The search bar looks through the name, category,
+description and address, and `/` jumps to it.
 Keep the description to about 100 characters, because the card shows two lines. Newest first: the home page shows the
 first three.
 
