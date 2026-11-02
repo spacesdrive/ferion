@@ -41,6 +41,7 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 | Section | Built from | Data |
 |---|---|---|
 | Hero | name, serif role, cut-out portrait, availability and tools | `src/components/hero/` |
+| Watch first | the intro reel playing muted on a loop, with a Sound on button | `src/components/sections/Showreel.tsx` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Marketplace | search bar and GAIA workflow cards with each site's favicon and a Visit site button | `src/data/marketplace.ts`, `src/assets/favicons/` |
@@ -65,7 +66,7 @@ video uses `night` and `snow`, which stay the same in both themes.
    audio and `-movflags +faststart`, so it starts playing before it finishes downloading. Keep each file under 25 MB,
    because Cloudflare Pages won't serve anything bigger. A longer film can go on R2 or YouTube; `src` takes any https
    URL.
-2. Add an entry at the top of `src/data/videos.ts` with its `aspect` (`'9:16'` or `'16:9'`), the `software` it was made
+2. Add an entry at the top of `src/data/videos.ts` with its `aspect` (`'9:16'`, `'16:9'` or `'1:1'`), the `software` it was made
    with and its `format` (Reel, Launch film, Explainer). Leave `software` empty if you don't know it yet; the video then
    only shows under Everything.
 

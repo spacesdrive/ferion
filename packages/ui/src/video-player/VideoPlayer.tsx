@@ -28,6 +28,7 @@ export interface VideoPlayerProps {
 const ASPECT_CLASS: Record<VideoAspect, string> = {
   '16:9': 'aspect-video',
   '9:16': 'aspect-[9/16]',
+  '1:1': 'aspect-square',
 };
 
 // Joly UI's video player (MIT), split into hooks and controls, with a 9:16 mode and working shortcuts

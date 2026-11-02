@@ -2,6 +2,7 @@ import cn from '@ferion/ui/lib/cn.ts';
 import { Play } from 'lucide-react';
 import SoftwareTile from '@/components/software/SoftwareTile';
 import { findSoftware } from '@/data/software';
+import aspectClass from '@/lib/aspectClass';
 import type { Video } from '@/types/content';
 
 export interface VideoCardProps {
@@ -18,10 +19,7 @@ export default function VideoCard({ video, onOpen }: VideoCardProps) {
         type="button"
         onClick={() => onOpen(video)}
         aria-label={`Play ${video.title}`}
-        className={cn(
-          'group relative overflow-hidden rounded-[1.75rem] bg-night',
-          video.aspect === '9:16' ? 'aspect-[9/16]' : 'aspect-video',
-        )}
+        className={cn('group relative overflow-hidden rounded-[1.75rem] bg-night', aspectClass[video.aspect])}
       >
         <img
           src={video.poster}

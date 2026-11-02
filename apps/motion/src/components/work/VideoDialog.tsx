@@ -9,10 +9,11 @@ export interface VideoDialogProps {
   onClose: () => void;
 }
 
-// a vertical clip is sized by the screen height, a horizontal one by its width
+// vertical and square clips are sized by the screen height, a horizontal one by its width
 const FRAME_WIDTH: Record<Video['aspect'], string> = {
   '9:16': 'w-[min(90vw,calc(82dvh*9/16))]',
   '16:9': 'w-[min(92vw,1100px)]',
+  '1:1': 'w-[min(90vw,82dvh)]',
 };
 
 export default function VideoDialog({ video, onClose }: VideoDialogProps) {

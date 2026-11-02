@@ -59,6 +59,7 @@ export default function WorkBrowser({ preview }: WorkBrowserProps) {
         ) : (
           <>
             <VideoRow title="Reels, Shorts and TikTok (9:16)" videos={shown} aspect="9:16" onOpen={setOpenVideo} />
+            <VideoRow title="Square posts (1:1)" videos={shown} aspect="1:1" onOpen={setOpenVideo} />
             <VideoRow title="YouTube and web (16:9)" videos={shown} aspect="16:9" onOpen={setOpenVideo} />
           </>
         )}

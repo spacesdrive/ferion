@@ -41,7 +41,7 @@ export default function SearchBar({ value, onChange, resultCount }: SearchBarPro
           spellCheck={false}
           className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-muted [&::-webkit-search-cancel-button]:hidden"
         />
-        {value ? (
+        {value && (
           <button
             type="button"
             onClick={() => {
@@ -53,10 +53,6 @@ export default function SearchBar({ value, onChange, resultCount }: SearchBarPro
           >
             <X className="size-4" aria-hidden="true" />
           </button>
-        ) : (
-          <kbd className="hidden rounded-md border border-line px-2 py-0.5 font-mono text-xs text-muted sm:block">
-            /
-          </kbd>
         )}
       </label>
       <p aria-live="polite" className="mt-3 text-center text-sm text-muted">

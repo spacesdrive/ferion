@@ -16,8 +16,8 @@ export interface Chapter {
   endTime: number;
 }
 
-// 16:9 for landscape edits, 9:16 for reels and shorts
-export type VideoAspect = '16:9' | '9:16';
+// 16:9 for landscape edits, 9:16 for reels and shorts, 1:1 for square feed posts
+export type VideoAspect = '16:9' | '9:16' | '1:1';
 
 export type PlayerMenu = 'settings' | 'options' | 'captions';
 
