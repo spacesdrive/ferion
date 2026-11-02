@@ -40,8 +40,7 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 
 | Section | Built from | Data |
 |---|---|---|
-| Hero | name, serif role, cut-out portrait, availability, tools and a brand strip | `src/components/hero/` |
-| Recent works | lime panel of the newest website screenshots | `src/data/sites.ts` |
+| Hero | name, serif role, cut-out portrait, availability and tools | `src/components/hero/` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
 | Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
@@ -50,8 +49,7 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 
 The hero follows a lime-glow portfolio layout: "Hi I'm Ujjwal" over an italic serif "Motion Designer", the
 cut-out portrait `src/assets/brand/cutout.webp` (background removed with rembg's BiRefNet portrait model) leaning
-gently toward the pointer, and four small notes around it. Under it a strip of the brands I've built for slides past,
-and the Recent works panel shows the six newest website screenshots.
+gently toward the pointer, and four small notes around it.
 
 Case study cards show the platform's colors and logo until a case study has an `image`.
 

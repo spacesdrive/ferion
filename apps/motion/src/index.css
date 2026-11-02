@@ -30,17 +30,7 @@
   /* the soft lime the hero fades from, toned down in dark mode */
   --color-glow: #c9f04a;
 
-  --animate-marquee: marquee 40s linear infinite;
   --animate-twinkle: twinkle 6s ease-in-out infinite;
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
 
   @keyframes twinkle {
     0%,
@@ -122,11 +112,6 @@
   @apply font-serif text-lg text-muted italic;
 }
 
-/* fade both edges of a moving row so names slide in and out instead of being cut */
-@utility edge-fade {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
 @utility serif-accent {
   @apply font-serif font-normal italic;
 }
@@ -149,7 +134,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
   .animate-twinkle {
     animation: none;
   }

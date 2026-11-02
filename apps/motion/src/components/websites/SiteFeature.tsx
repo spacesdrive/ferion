@@ -41,9 +41,15 @@ export default function SiteFeature({ site, position }: SiteFeatureProps) {
             <span aria-hidden="true" className="size-2 rounded-full bg-sky" />
             {site.category}
           </span>
-          <span aria-hidden="true" className="btn-lime group-hover:brightness-95">
+          {/* a real link raised above the card's own, so a hover effect on it can never swallow the click */}
+          <a
+            href={websitePath(site.slug)}
+            tabIndex={-1}
+            aria-hidden="true"
+            className="btn-lime relative z-10 group-hover:brightness-95"
+          >
             View project
-          </span>
+          </a>
         </div>
       </div>
     </article>

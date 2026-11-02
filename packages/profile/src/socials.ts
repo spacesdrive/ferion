@@ -10,7 +10,7 @@ export interface Social {
 const socials: Social[] = [
   { id: 'instagram', label: 'Instagram', handle: '@ujjwalkr.ai', href: 'https://www.instagram.com/ujjwalkr.ai' },
   { id: 'x', label: 'X', handle: '@codewithujjwal', href: 'https://x.com/codewithujjwal' },
-  { id: 'youtube', label: 'YouTube', handle: '@rec709.studio', href: 'https://www.youtube.com/@rec709.studio' },
+  { id: 'youtube', label: 'YouTube', handle: '@ujjwalkrai', href: 'https://www.youtube.com/@ujjwalkrai' },
   { id: 'github', label: 'GitHub', handle: 'spacesdrive', href: 'https://github.com/spacesdrive' },
   { id: 'linkedin', label: 'LinkedIn', handle: 'in/u-k-r', href: 'https://www.linkedin.com/in/u-k-r/' },
   { id: 'reddit', label: 'Reddit', handle: 'u/codewithujjwal', href: 'https://www.reddit.com/user/codewithujjwal/' },

@@ -157,4 +157,4 @@ Copyright (c) 2026 Ujjwal Kumar Rai.
 ## Contact
 
 - Bug reports and feature requests: [open a GitHub issue](https://github.com/spacesdrive/ferion/issues).
-- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/), [X](https://x.com/codewithujjwal), [Instagram](https://www.instagram.com/ujjwalkr.ai) or [YouTube](https://www.youtube.com/@rec709.studio).
+- Connect with the author: [LinkedIn](https://www.linkedin.com/in/u-k-r/), [X](https://x.com/codewithujjwal), [Instagram](https://www.instagram.com/ujjwalkr.ai) or [YouTube](https://www.youtube.com/@ujjwalkrai).

@@ -1,6 +1,5 @@
 import Reveal from '@ferion/ui/motion/Reveal.tsx';
 import AvailabilityPill from '@/components/hero/AvailabilityPill';
-import BrandStrip from '@/components/hero/BrandStrip';
 import HeroHeadline from '@/components/hero/HeroHeadline';
 import HeroPortrait from '@/components/hero/HeroPortrait';
 import Sparkle from '@/components/hero/Sparkle';
@@ -44,8 +43,6 @@ export default function Hero() {
           </div>
         </div>
       </Container>
-
-      <BrandStrip />
     </section>
   );
 }
