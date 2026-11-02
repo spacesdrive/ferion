@@ -12,8 +12,8 @@ export default function SiteFeature({ site, position }: SiteFeatureProps) {
 
   return (
     <article className="group relative rounded-[2rem] border border-line bg-card p-2.5 shadow-[0_-12px_40px_rgb(0_0_0/0.06)] sm:p-3">
-      {/* the frame height follows the screen, so a stacked card always fits under the navbar */}
-      <div className="flex justify-center overflow-hidden rounded-[1.6rem] bg-mist md:h-[min(70vh,44rem)]">
+      {/* the frame takes what the screen has left after the navbar, the peeks and the info bar, so the whole card fits */}
+      <div className="flex justify-center overflow-hidden rounded-[1.6rem] bg-mist md:h-[clamp(12rem,calc(100svh-21rem),44rem)]">
         <img
           src={site.image}
           alt={`Screenshot of ${site.name}`}
