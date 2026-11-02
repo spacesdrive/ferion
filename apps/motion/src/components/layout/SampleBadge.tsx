@@ -4,7 +4,7 @@ export interface SampleBadgeProps {
   className?: string;
 }
 
-// marks placeholder content until the real videos, plugins and numbers are added
+// marks placeholder content until the real case study numbers are added
 export default function SampleBadge({ className }: SampleBadgeProps) {
   return (
     <span

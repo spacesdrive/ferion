@@ -8,7 +8,7 @@ export const pages = {
   home: '/',
   work: '/work/',
   websites: '/websites/',
-  plugins: '/plugins/',
+  marketplace: '/marketplace/',
   caseStudies: '/case-studies/',
 };
 
@@ -19,7 +19,7 @@ export const websitePath = (slug: string) => `${pages.websites}${slug}/`;
 const navigation: NavLink[] = [
   { label: 'Work', href: pages.work },
   { label: 'Websites', href: pages.websites },
-  { label: 'Plugins', href: pages.plugins },
+  { label: 'Marketplace', href: pages.marketplace },
   { label: 'Case studies', href: pages.caseStudies },
   { label: 'FAQ', href: '/#faq' },
 ];

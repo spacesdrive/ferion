@@ -1,6 +1,6 @@
 # motion
 
-The motion design, video editing and web design portfolio at `motion.ujjwal.fyi`, with a free plugin marketplace
+The motion design, video editing and web design portfolio at `motion.ujjwal.fyi`, with a marketplace of useful links for design and marketing
 and a social media case study.
 
 ```bash
@@ -15,11 +15,11 @@ they share (icons, the theme script, `noindex`).
 
 | URL | HTML | Component | Shows |
 |---|---|---|---|
-| `/` | `index.html` | `src/pages/HomePage.tsx` | four 16:9 films (the two newest, then the pinned ones), 6 websites, 3 plugins, 3 case studies |
+| `/` | `index.html` | `src/pages/HomePage.tsx` | four 16:9 films (the two newest, then the pinned ones), 6 websites, 3 marketplace links, 3 case studies |
 | `/work/` | `work/index.html` | `src/pages/WorkPage.tsx` | every video |
 | `/websites/` | `websites/index.html` | `src/pages/WebsitesPage.tsx` | every website |
 | `/websites/<slug>/` | `website/index.html` | `src/pages/WebsitePage.tsx` | one website: its story, the full first screen and a link to the live site |
-| `/plugins/` | `plugins/index.html` | `src/pages/PluginsPage.tsx` | every plugin, each with a Download button |
+| `/marketplace/` | `marketplace/index.html` | `src/pages/MarketplacePage.tsx` | every marketplace link (`/plugins/` redirects here) |
 | `/case-studies/` | `case-studies/index.html` | `src/pages/CaseStudiesPage.tsx` | every case study, each with a Read button |
 | `/case-studies/<slug>/` | `case-study/index.html` | `src/pages/CaseStudyPage.tsx` | one case study in full |
 
@@ -43,7 +43,7 @@ left-aligned headline, white rounded cards and lime buttons with a small dark ic
 | Hero | name, serif role, cut-out portrait, availability and tools | `src/components/hero/` |
 | Work | Icon folder, filter chips, one untitled row of 16:9 films, video player | `src/data/videos.ts` |
 | Web design | big screenshot cards that stack as you scroll and open the website's page | `src/data/sites.ts` |
-| Plugins | GAIA workflow cards | `src/data/plugins.ts`, `src/data/pluginCategories.ts` |
+| Marketplace | GAIA workflow cards, one per site with a Visit site button | `src/data/marketplace.ts`, `src/data/marketplaceCategories.ts` |
 | Case study | stats band, then blog-style cards: the newest wide, the rest two across | `src/data/caseStudy.ts` |
 | Services, FAQ, Contact, Footer | service cards, a two-column FAQ, the sky behind the contact card | `src/data/copy.ts` |
 
@@ -72,21 +72,21 @@ video uses `night` and `snow`, which stay the same in both themes.
 The current clips came from the Social Media library and the ai-resolve templates. The same film often sits in both
 places, so each one is listed once.
 
+## Adding to the marketplace
+
+Add an entry to `src/data/marketplace.ts` with the site's `name`, `url`, a `category` (shown at the bottom of the card),
+one or two `tags` that pick the card's icons from `src/data/marketplaceCategories.ts`, and a one-line `description`.
+Keep the description to about 100 characters, because the card shows two lines. Newest first: the home page shows the
+first three.
+
 ## Replacing the sample content
 
-The plugins and case studies are still samples, marked `isSample: true` with a lime **Sample** badge.
+The case studies are still samples, marked `isSample: true` with a lime **Sample** badge.
 
-1. **Plugins.** Edit `src/data/plugins.ts`: title, description, host app, steps (each step's `toolCategory` picks its
-   icon from `pluginCategories.ts`), real download count and `downloadUrl`. Without a `downloadUrl` the button reads
-   Coming soon and can't be pressed.
-   - For a file up to 25 MB, put it in `public/plugins/` (for example `public/plugins/auto-subtitles.zip`) and set
-     `downloadUrl: '/plugins/auto-subtitles.zip'`. The button then saves the file straight away.
-   - Cloudflare Pages won't serve a bigger file, so upload it to a GitHub release or R2 and use that https link. It
-     opens in a new tab, since browsers only start a direct download for files on the same site.
-2. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche, and the
+1. **Case study.** Edit `src/data/caseStudy.ts` with the real views, followers and growth per niche, and the
    write-up in `story` that the Read page shows.
-3. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
-   `vite.config.ts` and the sample notes in the Plugins and Case study intros.
+2. **Search engines.** When nothing is marked as a sample any more, delete the `noindex` tag from `SHARED_HEAD` in
+   `vite.config.ts` and the sample notes in the Case study intros.
 
 ## Credits
 

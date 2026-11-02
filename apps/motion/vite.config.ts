@@ -18,7 +18,7 @@ const link = (attrs: Record<string, string>): HtmlTagDescriptor => ({ tag: 'link
 
 // the head tags every page shares, so each HTML file only holds its own title, description and URL
 const SHARED_HEAD: HtmlTagDescriptor[] = [
-  // the plugins, case studies and clips are still samples; drop this once the real content is in
+  // the case studies are still samples; drop this once the real numbers are in
   meta({ name: 'robots', content: 'noindex' }),
   meta({ name: 'theme-color', content: '#f5f3ee' }),
   link({ rel: 'icon', href: '/favicon.ico', sizes: 'any' }),
@@ -72,7 +72,7 @@ export default defineConfig({
     home: fromRoot('./index.html'),
     work: fromRoot('./work/index.html'),
     websites: fromRoot('./websites/index.html'),
-    plugins: fromRoot('./plugins/index.html'),
+    marketplace: fromRoot('./marketplace/index.html'),
     caseStudies: fromRoot('./case-studies/index.html'),
     // the one page behind every /case-studies/<slug>/ address
     caseStudy: fromRoot('./case-study/index.html'),

@@ -3,3 +3,6 @@
 /case-studies/:slug /case-studies/:slug/ 301
 /websites/:slug/ /website/ 200
 /websites/:slug /websites/:slug/ 301
+# the marketplace used to be the plugins page
+/plugins/ /marketplace/ 301
+/plugins /marketplace/ 301

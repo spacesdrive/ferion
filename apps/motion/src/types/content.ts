@@ -1,5 +1,4 @@
 import type { VideoAspect } from '@ferion/ui/video-player/types.ts';
-import type { WorkflowStep } from '@ferion/ui/workflow-card/types.ts';
 import type { LucideIcon } from 'lucide-react';
 
 export type SoftwareId = 'after-effects' | 'cavalry' | 'davinci-resolve' | 'claude-design';
@@ -35,14 +34,13 @@ export interface Site {
   image: string;
 }
 
-export interface Plugin {
-  title: string;
+export interface MarketplaceLink {
+  name: string;
+  url: string;
+  category: string;
+  // keys in marketplaceCategories, each drawn as a small icon
+  tags: string[];
   description: string;
-  host: string;
-  steps: WorkflowStep[];
-  downloadCount: number;
-  downloadUrl?: string;
-  isSample: boolean;
 }
 
 export interface StorySection {
@@ -57,7 +55,6 @@ export interface NicheCase {
   platform: string;
   summary: string;
   metrics: { label: string; value: string }[];
-  // the longer write-up on the case study's own page
   story: StorySection[];
   // a cover photo; without one the card shows the platform's colors and logo
   image?: string;

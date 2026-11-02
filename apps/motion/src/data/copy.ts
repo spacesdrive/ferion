@@ -22,8 +22,9 @@ export const services: Service[] = [
 
 export const faqs: Faq[] = [
   {
-    question: 'Are the plugins really free?',
-    answer: 'Yes. Every plugin on this page is free to download and use. There is no account to make and no trial.',
+    question: 'What is the marketplace?',
+    answer:
+      'A list of sites and tools I use for sound, 3D, textures, fonts and motion. Each one has a short note on what it does and whether it is free.',
   },
   {
     question: 'Which software do you use?',

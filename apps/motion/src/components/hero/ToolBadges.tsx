@@ -1,11 +1,7 @@
 import SoftwareTile from '@/components/software/SoftwareTile';
 import software from '@/data/software';
 
-const toolNames = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(
-  software.map(item => item.label),
-);
-
-// the four tool icons stacked like avatars, with the tools named beside them
+// the four tool icons stacked like avatars, with a short line on what I use them for
 export default function ToolBadges() {
   return (
     <div className="flex items-center gap-3">
@@ -17,7 +13,7 @@ export default function ToolBadges() {
         ))}
       </ul>
       <p className="max-w-52 text-xs leading-snug text-muted">
-        Made with <span className="font-semibold text-ink">{toolNames}</span>
+        The tools I use for <span className="font-semibold text-ink">motion design, editing and web design</span>
       </p>
     </div>
   );
