@@ -14,6 +14,7 @@ function video(
 // newest first: the home page shows the two newest 16:9 films and then the pinned ones, the work page shows all
 const videos: Video[] = [
   video('intro-recreation', 'More than a motion designer', '1:1', ['davinci-resolve'], 'Recreation'),
+  video('twiligent-launch-film', 'Twiligent launch film', '16:9', ['davinci-resolve', 'claude-design'], 'Launch film'),
   video('first-users-launch', 'First Users launch film', '16:9', ['davinci-resolve', 'claude-design'], 'Launch film'),
   video(
     'kalit-launch-film',
